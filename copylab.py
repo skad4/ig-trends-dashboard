@@ -1,6 +1,15 @@
-"""Copy Lab: free-text caption ideas, caption improvement and a viral-potential score.
-Rule-based (no AI key needed). Scores are estimates built from social best-practice
-signals (hook, format, shareability, emotion, CTA, hashtags, length), not predictions.
+"""Copy Lab: caption ideas, caption improvement and a reach score built on how
+Instagram ranks content (2026).
+
+Signals used (Adam Mosseri / Instagram, summarised by Buffer 2026):
+- Watch time / attention: the first line or first 3 seconds decide everything.
+- Sends per reach: shares by DM matter most for reaching NON-followers (Reels).
+- Likes & comments per reach: matter most with existing followers (Feed posts).
+- Saves: strong for carousels (unseen slides resurface later).
+- Search: Instagram reads caption keywords, on-screen text and the profile.
+- Hashtags: max 5 per post; they no longer drive reach, so keep them specific.
+- Originality: original content is favoured over reposts.
+Rule-based (no AI key). Scores are estimates, not predictions.
 """
 from __future__ import annotations
 
@@ -108,66 +117,117 @@ def level_of(text: str, default: str) -> str:
     return default if default in ("Primary", "Secondary") else "Both"
 
 
-def hashtags(pillar: str, level: str, platform: str) -> list[str]:
-    """Instagram allows max 5 hashtags per post: 1 level · 1 faith · 1 local · 1 niche/parents · 1 level."""
+FORMATS = ["Reel", "Carousel", "Post", "Story"]
+
+# How Instagram ranks each format (shown in the app) and score weights per signal.
+ALGO = {
+    "Reel": {"reach": "Mostly non-followers", "signals": ["Watch time (hook in the first 3 seconds)", "Sends by DM", "Likes per reach"],
+             "w": {"Attention hook": 25, "Sends (DM shares)": 20, "Likes & comments": 10, "Saves": 5, "Search keywords": 15,
+                   "Original & local": 10, "Hashtags (max 5)": 5, "Caption length": 10},
+             "tips": ["Put the hook on screen in the first 3 seconds; many people watch muted.",
+                      "Keep it 15–60 seconds and use original audio or a voiceover.",
+                      "End with a reason to send it: 'send this to a parent who…'."]},
+    "Carousel": {"reach": "Followers + Explore", "signals": ["Saves", "Time spent swiping", "Likes & comments per reach"],
+                 "w": {"Attention hook": 15, "Sends (DM shares)": 10, "Likes & comments": 15, "Saves": 20, "Search keywords": 15,
+                       "Original & local": 10, "Hashtags (max 5)": 5, "Caption length": 10},
+                 "tips": ["Make slide 1 a promise and slide 2 strong: Instagram re-shows unseen slides.",
+                          "Use 5–10 slides with one idea each; add music to a photo carousel.",
+                          "Close with 'save this for later' and one clear action."]},
+    "Post": {"reach": "Mostly followers", "signals": ["Likes per reach", "Comments", "Profile visits"],
+             "w": {"Attention hook": 15, "Sends (DM shares)": 10, "Likes & comments": 25, "Saves": 10, "Search keywords": 15,
+                   "Original & local": 15, "Hashtags (max 5)": 5, "Caption length": 5},
+             "tips": ["Use one strong, real photo (natural light, faces only with consent).",
+                      "End with a simple question people can answer in the comments.",
+                      "Reply to every comment in the first hour."]},
+    "Story": {"reach": "Closest followers", "signals": ["Replies & sticker taps", "Viewing history", "DMs"],
+              "w": {"Attention hook": 20, "Sticker / reply prompt": 30, "Sends (DM shares)": 15, "Original & local": 20, "Caption length": 15},
+              "tips": ["Use a poll, question or link sticker: taps tell Instagram people care.",
+                       "Keep text under 25 words per frame.",
+                       "Post 1–3 frames during the school day; add a location sticker for Limerick."]},
+}
+
+KEYWORDS = ["school in limerick", "limerick school", "christian school", "primary school", "secondary school", "small class",
+            "own pace", "individual", "enrol", "admission", "limerick", "lcs", "limerick christian school"]
+SEND = ["send this", "send to", "share this", "share with", "tag a", "tag them", "tag someone", "know a family", "know a parent"]
+SAVE = ["save this", "save for later", "save it", "swipe", "tips", "reasons", "questions", "steps", "ways", "things", "✓"]
+TALK = ["comment", "tell us", "which", "what do you", "would you", "drop a", "reply", "?"]
+STICKER = ["poll", "vote", "question sticker", "quiz", "slider", "link sticker", "reply", "tap"]
+GENERIC_TAGS = {"#reels", "#explore", "#explorepage", "#viral", "#fyp", "#instagood", "#school", "#education", "#kids", "#fun"}
+
+
+def hashtags(pillar: str, level: str, platform: str = "Instagram", fmt: str = "Reel") -> list[str]:
+    """Max 5 on Instagram: 1 level · 1 faith · 1 local · 1 niche/parents · 1 level. Stories: 2."""
     niche = TAGS["Parents"][1] if pillar in ("Enrolment", "Parents") else TAGS["Niche"][0]
-    tags = [TAGS[level][0], TAGS["Faith"][0], TAGS["Local"][0], niche, TAGS[level][1]]
-    return list(dict.fromkeys(tags))[:3] if platform == "Facebook" else list(dict.fromkeys(tags))[:5]
+    tags = list(dict.fromkeys([TAGS[level][0], TAGS["Faith"][0], TAGS["Local"][0], niche, TAGS[level][1]]))
+    return tags[:2] if fmt == "Story" else tags[:5]
 
 
-def viral_score(caption: str, fmt: str, platform: str) -> dict:
+def viral_score(caption: str, fmt: str = "Reel", platform: str = "Instagram") -> dict:
+    fmt = fmt if fmt in ALGO else "Post"
+    w = ALGO[fmt]["w"]
     t = caption or ""
     body = re.sub(r"#\w+", "", t).strip()
     first = body.split("\n")[0].strip()
     low = body.lower()
+    last = [l for l in body.split("\n") if l.strip()][-1].lower() if body else ""
     tags = re.findall(r"#\w+", t)
     words = len(body.split())
-    parts = {}
-    hook = 0
-    if first and len(first) <= 90:
-        hook += 10
-    if "?" in first:
-        hook += 6
-    if re.search(r"\b\d+\b", first):
-        hook += 5
-    if re.search(r"\b(you|your)\b", first.lower()):
-        hook += 4
-    parts["Hook"] = (min(hook, 25), 25)
-    parts["Format"] = ({"Reel": 20, "Carousel": 15, "Story": 9, "Photo": 8, "Event": 8}.get(fmt, 8), 20)
-    parts["Shareability"] = (min(sum(4 for w in SHARE if w in low), 15), 15)
-    parts["Emotion & story"] = (min(sum(3 for w in EMO if w in low) + (3 if '"' in body else 0), 15), 15)
-    parts["Call to action"] = (10 if any(w in low for w in CTA_WORDS) else 0, 10)
-    lt = [x.lower() for x in tags]
-    ok_n = (1 <= len(tags) <= 3) if platform == "Facebook" else (3 <= len(tags) <= 5)
-    parts["Hashtags"] = ((5 if ok_n else 2 if tags else 0) + (3 if any(x in lt for x in TAGS["Local"]) else 0)
-                         + (2 if any(x in lt for x in TAGS["Niche"] + TAGS["Faith"]) else 0), 10)
-    good_len = (20 <= words <= 90) if platform == "Facebook" else (25 <= words <= 150)
-    parts["Length"] = (5 if good_len else 2, 5)
+    raw = {}
+    h = (0.4 if first and len(first) <= 90 else 0) + (0.25 if "?" in first else 0) + (0.2 if re.search(r"\b\d+\b", first) else 0) \
+        + (0.15 if re.search(r"\b(you|your)\b", first.lower()) else 0) + (0.1 if re.search(r"[\U0001F300-\U0001FAFF👇]", first) else 0)
+    raw["Attention hook"] = min(h, 1)
+    raw["Sends (DM shares)"] = 1 if any(x in low for x in SEND) else 0
+    raw["Likes & comments"] = min((0.6 if any(x in last for x in TALK) else 0) + (0.4 if any(e in low for e in ["proud", "celebrat", "love", "hope", "confiden", "\u201c", '"']) else 0), 1)
+    raw["Saves"] = min(sum(0.35 for x in SAVE if x in low), 1)
+    raw["Search keywords"] = min(sum(1 for k in KEYWORDS if k in low) / 3, 1)
+    raw["Original & local"] = min((0.5 if any(x in low for x in ["our ", "we ", "lcs", "limerick christian"]) else 0)
+                                  + (0.5 if any(x in low for x in ["limerick", "pupils", "teachers", "classroom", "chapel"]) else 0), 1)
+    lt = {x.lower() for x in tags}
+    raw["Hashtags (max 5)"] = 0 if len(tags) > 5 else (1 if 3 <= len(tags) <= 5 and not (lt & GENERIC_TAGS) else 0.5 if tags else 0)
+    raw["Sticker / reply prompt"] = 1 if any(x in low for x in STICKER) else 0
+    rng = {"Reel": (8, 80), "Carousel": (30, 150), "Post": (20, 125), "Story": (1, 25)}[fmt]
+    raw["Caption length"] = 1 if rng[0] <= words <= rng[1] else 0.4
+    parts = {k: (round(raw[k] * m), m) for k, m in w.items()}
     score = sum(v for v, _ in parts.values())
     label = ("High viral potential" if score >= 80 else "Good reach potential" if score >= 62
              else "Average" if score >= 45 else "Low reach potential")
-    tips = []
-    if parts["Hook"][0] < 15:
-        tips.append("Open with a question or a number in the first line.")
-    if parts["Format"][0] < 15:
-        tips.append("Post it as a Reel or carousel: they reach far more people than single photos.")
-    if parts["Shareability"][0] < 8:
-        tips.append("Give people a reason to save or share (tips, a list, 'tag a family').")
-    if parts["Emotion & story"][0] < 6:
-        tips.append("Add a real moment or a parent/pupil quote.")
-    if not parts["Call to action"][0]:
-        tips.append("End with one clear action: book a visit, apply, comment.")
-    if parts["Hashtags"][0] < 8:
-        tips.append("Use " + ("1–3 hashtags on Facebook." if platform == "Facebook" else "3–5 hashtags (Instagram allows max 5), including #limerick and a niche tag."))
-    return {"score": score, "label": label, "parts": parts, "tips": tips[:3], "words": words, "hashtags": len(tags)}
+    tip_map = {
+        "Attention hook": "Start with a short question or number: the first line (or first 3 seconds) decides if people stop.",
+        "Sends (DM shares)": "Add a reason to send it by DM ('Send this to a parent choosing a school'). Sends are the top signal for new reach.",
+        "Likes & comments": "End with a question parents can answer in the comments.",
+        "Saves": "Make it worth saving: a list, tips or '5 questions to ask', plus 'save this for later'.",
+        "Search keywords": "Write the words parents search for: 'Christian school in Limerick', 'primary school', 'secondary school'.",
+        "Original & local": "Show something only LCS has: our pupils, teachers, classrooms in Limerick.",
+        "Hashtags (max 5)": "Use 3–5 specific hashtags (Instagram allows 5); avoid #reels, #explore, #viral.",
+        "Sticker / reply prompt": "Add a poll or question sticker so followers tap and reply.",
+        "Caption length": f"Aim for {rng[0]}–{rng[1]} words for a {fmt.lower()}.",
+    }
+    gaps = sorted(parts.items(), key=lambda kv: kv[1][0] / kv[1][1])
+    tips = [tip_map[k] for k, (v, m) in gaps if v < m * 0.6][:3]
+    return {"score": score, "label": label, "parts": parts, "tips": tips, "words": words, "hashtags": len(tags), "format": fmt}
 
 
-def ideas(prompt: str, level: str, platform: str, detail: str = "") -> list[dict]:
-    _, topic = detect(prompt)
-    lvl = level_of(prompt, level)
-    pillar = TOPICS[topic]["pillar"]
-    fmts = [TOPICS[topic]["fmt"], "Carousel" if TOPICS[topic]["fmt"] != "Carousel" else "Reel", "Photo" if platform == "Facebook" else "Story"]
-    out = []
+KW_LINE = {"Primary": "A Christian primary school in Limerick where every child learns at their own pace.",
+           "Secondary": "A Christian secondary school in Limerick with small classes and individual support.",
+           "Both": "A Christian school in Limerick for primary and secondary pupils, with small classes and learning at their own pace."}
+SEND_LINE = {"Enrolment": "Send this to a parent who's choosing a school 💙", "Parents": "Send this to a parent who's choosing a school 💙",
+             "Faith & values": "Send this to someone who'd be encouraged by it 💙", "Teachers": "Send this to someone who'd love to meet our team.",
+             "Student life": "Send this to a parent who'd love this for their child.", "Achievement": "Send this to someone who'd be proud too 👏",
+             "Events": "Send this to a family who was there!"}
+QUESTION = {"Enrolment": "What matters most to you when choosing a school?", "Parents": "What would you ask on a school visit?",
+            "Faith & values": "What's a verse that encourages you this week?", "Teachers": "What question should we ask our teachers next?",
+            "Student life": "What did your child love learning this week?", "Achievement": "Join us in celebrating: drop a 👏 below!",
+            "Events": "Which moment was your favourite?"}
+STICKER_LINE = {"Enrolment": "Poll: Have you visited a school yet? Yes / Not yet", "Parents": "Question sticker: Ask us anything about LCS",
+                "Faith & values": "Slider: How encouraged do you feel today?", "Teachers": "Question sticker: Ask our teacher a question",
+                "Student life": "Poll: Reading corner or maths corner?", "Achievement": "Slider: How proud are you? 💙",
+                "Events": "Quiz: Guess how many pupils took part!"}
+
+
+def _caption(fmt: str, style: int, topic: str, pillar: str, lvl: str, detail: str) -> str:
+    hk = HOOKS[topic]
+    hook = [hk[0], hk[2], hk[1]][style]
+    body = BODY[pillar].replace("primary and secondary", {"Primary": "primary", "Secondary": "secondary"}.get(lvl, "primary and secondary"))
     lists = {"Enrolment": "✓ Learning at their own pace\n✓ Small classes and real attention\n✓ Christian values every day",
              "Student life": "✓ Daily goals they set themselves\n✓ Help the moment they need it\n✓ Progress they can see",
              "Faith & values": "✓ Chapel to start the week\n✓ Scripture in everyday learning\n✓ Serving others together",
@@ -175,36 +235,40 @@ def ideas(prompt: str, level: str, platform: str, detail: str = "") -> list[dict
              "Achievement": "✓ Every pace celebrated\n✓ Goals set and reached\n✓ Confidence that grows",
              "Events": "✓ Families together\n✓ Pupils leading the way\n✓ Memories for the whole year",
              "Parents": "✓ Small classes\n✓ Individual attention\n✓ A caring Christian community"}
-    story = {"Enrolment": "\u201cThe supportive and caring environment has helped our son feel more confident.\u201d \u2013 an LCS parent",
-             "Parents": "\u201cThe supportive and caring environment has helped our son feel more confident.\u201d \u2013 an LCS parent",
-             "Student life": "One parent told us their son finally feels confident in himself. That's what learning at your own pace can do.",
-             }
-    share = {"Enrolment": "Know a family choosing a school? Tag them below 👇", "Parents": "Tag a family who's choosing a school 👇"}
-    hk = HOOKS[topic]
-    for i, h in enumerate([hk[0], hk[2], hk[1]]):  # question, list, story
-        body = BODY[pillar]
-        if lvl == "Primary":
-            body = body.replace("primary and secondary", "primary")
-        elif lvl == "Secondary":
-            body = body.replace("primary and secondary", "secondary")
-        cta = CTA[pillar] if platform == "Instagram" else CTA[pillar].replace("link in bio", "limerickchristianschool.com")
-        if i == 0:      # question hook + share prompt
-            sp = share.get(pillar, "Share this with a family who'd love it 💙")
-            mid = [body] + ([] if "share" in cta.lower() or "tag" in cta.lower() else [sp])
-        elif i == 1:    # list hook
-            mid = [lists.get(pillar, lists["Enrolment"])] + ([] if "save" in cta.lower() else ["Save this post for later."])
-        else:           # story hook
-            mid = [story.get(pillar, "Real moments like this are why our families love being part of LCS."), body]
-        tags = hashtags(pillar, lvl, platform)
-        body_txt = "\n\n".join([h] + mid + ([detail.strip()] if detail and detail.strip() else []) + [cta])
+    quote = "\u201cThe supportive and caring environment has helped our son feel more confident.\u201d \u2013 an LCS parent"
+    cta = CTA[pillar]
+    if fmt == "Reel" and any(x in cta.lower() for x in ("share", "tag")):
+        cta = "Follow us for more from our school week."  # the send prompt already asks for shares
+    det = [detail.strip()] if detail and detail.strip() else []
+    if fmt == "Story":
+        return "\n\n".join([hook[:90]] + det + [f"[{STICKER_LINE[pillar]}]", "Link sticker: limerickchristianschool.com"])
+    mid = [body] if style == 0 else [lists[pillar]] if style == 1 else [quote if pillar in ("Enrolment", "Parents", "Student life") else
+                                                                       "Real moments like this are why our families love being part of LCS.", body]
+    kw = KW_LINE[lvl]
+    if fmt == "Reel":      # short caption, keywords for search, ends on a send prompt
+        parts = [hook, kw] + det + [SEND_LINE[pillar], cta]
+    elif fmt == "Carousel":  # swipe + save
+        parts = [hook + " Swipe →"] + mid + [kw] + det + ["Save this post for later.", cta]
+    else:                  # Post: conversation
+        parts = [hook] + mid + [kw] + det + [cta, QUESTION[pillar]]
+    return "\n\n".join(dict.fromkeys(parts))
+
+
+def ideas(prompt: str, level: str, platform: str = "Instagram", detail: str = "", fmt: str = "Reel") -> list[dict]:
+    _, topic = detect(prompt)
+    lvl = level_of(prompt, level)
+    pillar = TOPICS[topic]["pillar"]
+    out = []
+    for i, style in enumerate(["Question hook", "List hook", "Story hook"]):
+        body_txt = _caption(fmt, i, topic, pillar, lvl, detail)
+        tags = hashtags(pillar, lvl, platform, fmt)
         cap = body_txt + "\n\n" + " ".join(tags)
-        sc = viral_score(cap, fmts[i], platform)
-        out.append({"style": ["Question hook", "List hook", "Story hook"][i], "format": fmts[i], "caption": cap, "body": body_txt, "tags": tags, "score": sc,
-                    "topic": topic, "level": lvl})
+        out.append({"style": style, "format": fmt, "caption": cap, "body": body_txt, "tags": tags,
+                    "score": viral_score(cap, fmt, platform), "topic": topic, "level": lvl})
     return sorted(out, key=lambda x: -x["score"]["score"])
 
 
-def improve(copy: str, level: str, platform: str, fmt: str = "Reel") -> dict:
+def improve(copy: str, level: str, platform: str = "Instagram", fmt: str = "Reel") -> dict:
     _, topic = detect(copy)
     lvl = level_of(copy, level)
     pillar = TOPICS[topic]["pillar"]
@@ -212,33 +276,41 @@ def improve(copy: str, level: str, platform: str, fmt: str = "Reel") -> dict:
     user_tags = re.findall(r"#\w+", copy)
     text = re.sub(r"#\w+", "", copy).strip()
     lines = [l.strip() for l in re.split(r"\n+|(?<=[.!?])\s+(?=[A-Z])", text) if l.strip()]
+    low = text.lower()
     changes = []
     first = lines[0] if lines else ""
     if not first or len(first) > 90 or ("?" not in first and not re.search(r"\d", first)):
         lines.insert(0, HOOKS[topic][0])
-        changes.append("Added a scroll-stopping first line")
-    if not any(k in text.lower() for k in ["lcs", "limerick christian", "own pace", "small class", "individual"]):
-        lines.insert(2 if len(lines) > 1 else 1, BODY[pillar])
-        changes.append("Added what makes LCS different")
-    low = text.lower()
-    if pillar in ("Enrolment", "Parents") and not any(w in low for w in SHARE):
-        lines.append("Know a family choosing a school? Tag them below 👇")
-        changes.append("Added a share prompt (tagging grows reach)")
-    if not any(w in low for w in CTA_WORDS):
-        cta = CTA[pillar] if platform == "Instagram" else CTA[pillar].replace("link in bio", "limerickchristianschool.com")
-        lines.append(cta)
-        changes.append("Added a clear call to action")
-    if len(lines) > 1:
-        changes.append("Split into short paragraphs for mobile reading")
-    rec = hashtags(pillar, lvl, platform)
-    keep = [t for t in user_tags if t.lower() not in [r.lower() for r in rec]][:1]
-    tags = list(dict.fromkeys(rec[:4] + keep + rec[4:]))
-    tags = tags[:3] if platform == "Facebook" else tags[:5]
+        changes.append("New first line: a short question that stops the scroll (attention)")
+    if fmt == "Story":
+        lines = [l[:90] for l in lines[:2]]
+        if not any(x in low for x in STICKER):
+            lines.append(f"[{STICKER_LINE[pillar]}]")
+            changes.append("Added a sticker idea (replies and taps rank Stories)")
+    else:
+        if sum(1 for k in KEYWORDS if k in low) < 2:
+            lines.insert(2 if len(lines) > 1 else 1, KW_LINE[lvl])
+            changes.append("Added search keywords ('Christian school in Limerick'): Instagram reads captions for search")
+        if fmt == "Reel" and not any(x in low for x in SEND):
+            lines.append(SEND_LINE[pillar])
+            changes.append("Added a send prompt: DM shares are the top signal for reaching new people")
+        if fmt == "Carousel" and not any(x in low for x in SAVE):
+            lines.append("Save this post for later.")
+            changes.append("Added a save prompt: saves push carousels")
+        if not any(w in low for w in CTA_WORDS):
+            lines.append(CTA[pillar])
+            changes.append("Added one clear call to action")
+        if fmt == "Post" and not any(x in (lines[-1].lower() if lines else "") for x in TALK):
+            lines.append(QUESTION[pillar])
+            changes.append("Ends with a question: comments and likes rank feed posts")
+    rec = hashtags(pillar, lvl, platform, fmt)
+    keep = [t for t in user_tags if t.lower() not in {r.lower() for r in rec} and t.lower() not in GENERIC_TAGS][:1]
+    limit = 2 if fmt == "Story" else 5
+    tags = list(dict.fromkeys(rec[:limit - len(keep)] + keep))[:limit]
     if [t.lower() for t in tags] != [t.lower() for t in user_tags]:
-        changes.append(f"Hashtags set to {len(tags)} (Instagram max is 5): level, faith, local and niche")
-    new_body = "\n\n".join(lines)
+        dropped = [t for t in user_tags if t.lower() in GENERIC_TAGS]
+        changes.append(f"Hashtags: {len(tags)} specific tags (max 5)" + (f"; removed generic {' '.join(dropped)}" if dropped else ""))
+    new_body = "\n\n".join(dict.fromkeys(lines))
     new = new_body + "\n\n" + " ".join(tags)
-    after = viral_score(new, fmt, platform)
-    alt = ideas(copy, level, platform)[:2]
-    return {"before": before, "after": after, "caption": new, "body": new_body, "tags": tags, "original": copy,
-            "changes": changes, "alternatives": alt, "topic": topic}
+    return {"before": before, "after": viral_score(new, fmt, platform), "caption": new, "body": new_body, "tags": tags,
+            "original": copy, "changes": changes, "topic": topic, "format": fmt}

@@ -428,7 +428,7 @@ with T[3]:
             "Each idea shows an LCS strength: own-pace learning, small classes, Christian values, dedicated teachers.")
     f1, f2 = st.columns([1.3, 1])
     goal = f1.segmented_control("Goal", ["All", "Enrolment", "Trust", "Community"], default="All") or "All"
-    fmt = f2.segmented_control("Format", ["All", "Reel", "Carousel", "Photo", "Story"], default="All") or "All"
+    fmt = f2.segmented_control("Format", ["All", "Reel", "Carousel", "Post", "Story"], default="All") or "All"
     pool = [i for i in ideas_for(segment)
             if (goal == "All" or i["goal"] == goal) and (fmt == "All" or i["format"] == fmt)
             ]
@@ -540,6 +540,13 @@ with T[6]:
                 f'<div class="v" style="color:{col}">{sc["score"]}<small>/100</small></div><div style="font-weight:800;color:{col};font-size:.9rem">{esc(sc["label"])}</div></div>'
                 f'{bars}{tip}</div>')
 
+    def algo_panel(fmt: str) -> None:
+        a = copylab.ALGO[fmt]
+        sig = "".join(f'<div class="row-item"><span class="a">{i + 1}. {esc(x)}</span></div>' for i, x in enumerate(a["signals"]))
+        tips = "".join(f'<div class="small" style="margin-top:6px">→ {esc(t)}</div>' for t in a["tips"])
+        st.markdown(f'<div class="stat"><div class="l">How Instagram ranks a {esc(fmt.lower())}</div>'
+                    f'<div class="s" style="margin:4px 0 6px">Shown to: <b>{esc(a["reach"])}</b></div>{sig}{tips}</div>', unsafe_allow_html=True)
+
     def tags_block(tags: list[str], key: str) -> None:
         st.markdown('<div class="eyebrow" style="margin-top:10px">Hashtags to use</div>' + ui.chips(tags), unsafe_allow_html=True)
         st.code(" ".join(tags), language=None, wrap_lines=True)
@@ -553,14 +560,16 @@ with T[6]:
                     'You get three ready-to-post captions, ranked by reach score, each with its own hashtags.</div></div>', unsafe_allow_html=True)
         a1, a2, a3 = st.columns([2, 1, 1])
         topic_txt = a1.text_input("What is the post about?", placeholder="e.g. Enrolment for secondary · Christmas service · Meet the teacher", key="idea_topic")
-        idea_fmt = a2.selectbox("Format", ["Reel", "Carousel", "Photo", "Story"], key="idea_fmt")
+        idea_fmt = a2.selectbox("Format", copylab.FORMATS, key="idea_fmt")
         idea_detail = a3.text_input("Detail (optional)", placeholder="Thu 20 Nov · 10am", key="idea_detail")
+        algo_panel(idea_fmt)
+        st.write("")
         quick = st.pills("Or pick a topic", ["Enrolment", "Open morning", "Christmas", "Easter", "Faith", "Meet the teacher", "Learning at own pace",
                                               "Achievements", "School event", "Parent testimonial"], key="idea_quick")
         if st.button("Get 3 caption ideas", type="primary", key="idea_go"):
             q = topic_txt.strip() or (quick or "")
             if q:
-                st.session_state["lab_ideas"] = copylab.ideas(q, segment, platform, idea_detail)
+                st.session_state["lab_ideas"] = copylab.ideas(q, segment, platform, idea_detail, idea_fmt)
             else:
                 st.warning("Type a topic or pick one above.")
         res = st.session_state.get("lab_ideas")
@@ -568,10 +577,10 @@ with T[6]:
             st.write("")
             cols = st.columns(3)
             for k, (col, v) in enumerate(zip(cols, res)):
-                sc = copylab.viral_score(v["caption"], idea_fmt if k == 0 else v["format"], platform)
+                sc = v["score"]
                 with col:
                     st.markdown(f'<div class="eyebrow">{"Best pick · " if k == 0 else f"Option {k + 1} · "}{esc(v["style"])} · '
-                                f'{esc(idea_fmt if k == 0 else v["format"])}</div>', unsafe_allow_html=True)
+                                f'{esc(v["format"])}</div>', unsafe_allow_html=True)
                     st.code(v["body"], language=None, wrap_lines=True)
                     tags_block(v["tags"], f"t{k}")
                     st.markdown(score_block(sc, tips=False), unsafe_allow_html=True)
@@ -585,9 +594,10 @@ with T[6]:
         b1, b2 = st.columns([3, 1])
         mine = b1.text_area("Your caption", height=140, key="imp_text",
                             placeholder="Paste your caption here, with or without hashtags…")
-        imp_fmt = b2.selectbox("Format", ["Reel", "Carousel", "Photo", "Story"], key="imp_fmt")
+        imp_fmt = b2.selectbox("Format", copylab.FORMATS, key="imp_fmt")
         b2.write("")
         go = b2.button("Improve caption", type="primary", key="imp_go", width="stretch")
+        algo_panel(imp_fmt)
         if go:
             if mine.strip():
                 st.session_state["lab_imp"] = copylab.improve(mine, segment, platform, imp_fmt)
@@ -617,8 +627,8 @@ with T[6]:
                 st.download_button("Download improved caption", (r["body"] + "\n\n" + " ".join(r["tags"])).encode(), "improved-caption.txt",
                                    key="dl_imp", width="stretch")
 
-    st.markdown('<div class="small" style="margin-top:18px">Reach score: an estimate from what drives reach on Instagram '
-                '(first line, format, shareability, emotion, call to action, hashtags, length). It is not a guarantee of going viral.</div>',
+    st.markdown('<div class="small" style="margin-top:18px">Reach score follows Instagram\'s published ranking signals for each format '
+                '(attention, DM sends, likes and comments, saves, search keywords, originality, max 5 hashtags). It is an estimate, not a guarantee.</div>',
                 unsafe_allow_html=True)
 
 with st.sidebar:
