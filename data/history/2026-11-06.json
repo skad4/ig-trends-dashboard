@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T01:46:47+00:00",
+  "updated_at": "2026-11-06T01:49:33+00:00",
   "week": "2026-W45",
   "source_status": {
     "CreatorDB": "updated",
@@ -11,7 +11,7 @@
     "source": "CreatorDB",
     "url": "https://creatordb.app/free-tools/trending-instagram-audio/",
     "week_label": "November 4, 2026",
-    "fetched_at": "2026-11-06T01:46:46+00:00",
+    "fetched_at": "2026-11-06T01:49:32+00:00",
     "items": [
       {
         "rank": 1,
@@ -23,9 +23,8 @@
         "also_charting": "#4 Spotify US +3; #2 Apple Music US; YouTube Trending",
         "reels": 190000,
         "example_reels": [
-          "De2dH0ZoZqY",
-          "Ddy5WxPRrIh",
-          "Ders38rsWon"
+          "Ders38rsWon",
+          "De2dH0ZoZqY"
         ],
         "ireland_pos": 1,
         "ireland_change": "="
@@ -40,9 +39,9 @@
         "also_charting": "#9 Spotify US; #19 Apple Music US",
         "reels": 5800000,
         "example_reels": [
+          "Ddy5WxPRrIh",
           "DfNuwlhyouV",
-          "DdSd9ABqhhr",
-          "Ddxz7wctBio"
+          "DdSd9ABqhhr"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -57,9 +56,9 @@
         "also_charting": "#63 Spotify US +6; #47 Apple Music US",
         "reels": 53000,
         "example_reels": [
+          "Ddxz7wctBio",
           "DdZ6FHPxNBK",
-          "Dd1rlufKrrT",
-          "DdZfD-2gMTB"
+          "Dd1rlufKrrT"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -74,9 +73,9 @@
         "also_charting": "#5 Spotify US +3; #5 Apple Music US",
         "reels": null,
         "example_reels": [
+          "DdZfD-2gMTB",
           "Ddx35bfJUz1",
-          "DeCXQ9BS1ny",
-          "DejxlsjNApj"
+          "DeCXQ9BS1ny"
         ],
         "ireland_pos": 12,
         "ireland_change": "+12"
@@ -91,9 +90,9 @@
         "also_charting": "#73 Spotify US +20",
         "reels": 63000,
         "example_reels": [
+          "DejxlsjNApj",
           "De86VfyMy40",
-          "DeSx1F2JWYG",
-          "DcRq24Oh-T2"
+          "DeSx1F2JWYG"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -108,9 +107,9 @@
         "also_charting": "Reels only",
         "reels": 127000,
         "example_reels": [
+          "DcRq24Oh-T2",
           "DdzCxYGgkuz",
-          "DdOp5Khuq57",
-          "De_ZCgyIz-O"
+          "DdOp5Khuq57"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -125,9 +124,9 @@
         "also_charting": "#65 Spotify US",
         "reels": 451000,
         "example_reels": [
+          "De_ZCgyIz-O",
           "DeuLKX5onBA",
-          "Ddy6yMpOfcs",
-          "De9sUiIsxb_"
+          "Ddy6yMpOfcs"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -142,9 +141,9 @@
         "also_charting": "#62 Spotify US +34",
         "reels": 66000,
         "example_reels": [
+          "De9sUiIsxb_",
           "DeHn8VlAOdE",
-          "Ddt4IxARpz9",
-          "DeHwD8fxZa9"
+          "Ddt4IxARpz9"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -159,7 +158,6 @@
         "also_charting": "#53 Spotify US",
         "reels": 571000,
         "example_reels": [
-          "Dd1hHprhvP1",
           "DeHwD8fxZa9"
         ],
         "ireland_pos": null,
@@ -175,9 +173,8 @@
         "also_charting": "Reels only",
         "reels": 111000,
         "example_reels": [
-          "DdcJFT7KL70",
-          "DfFbK8pRPlT",
-          "Dd1hHprhvP1"
+          "Dd1hHprhvP1",
+          "DdcJFT7KL70"
         ],
         "ireland_pos": null,
         "ireland_change": null
@@ -192,7 +189,6 @@
         "also_charting": "Reels only",
         "reels": 86000,
         "example_reels": [
-          "DdRtaVJTZ9h",
           "DfFbK8pRPlT"
         ],
         "ireland_pos": null,
@@ -208,7 +204,6 @@
         "also_charting": "Reels only",
         "reels": 55000,
         "example_reels": [
-          "DfATJQ1TTEh",
           "DdRtaVJTZ9h"
         ],
         "ireland_pos": null,
@@ -224,7 +219,6 @@
         "also_charting": "Reels only",
         "reels": 322000,
         "example_reels": [
-          "De_fGtRsNdX",
           "DfATJQ1TTEh"
         ],
         "ireland_pos": null,
@@ -250,127 +244,211 @@
   "business_audio": {
     "source": "SocialPilot",
     "url": "https://www.socialpilot.co/blog/instagram-reels-trends",
-    "fetched_at": "2026-11-06T01:46:47+00:00",
+    "fetched_at": "2026-11-06T01:49:32+00:00",
     "items": [
       {
         "rank": 1,
         "title": "Housewife",
         "artist": "Tate McRae",
         "stage": "Rising",
-        "mood": "Confident, sassy It’s the #1 song in the U.S. right now, and every Reel on its audio page is from the last two weeks. The format to copy is the @kevinbannier_ choreography, done as a duo. Creators also use it for “morning mantra” lip-syncs and night-out fit checks.",
+        "mood": "Confident, sassy",
         "best_for": "dance studios, fitness instructors, fashion boutiques, hair and makeup artists, nightlife venues",
-        "idea": "",
-        "reels": null
+        "idea": "Dance studio: two instructors doing the choreography side by side, then the class joining in",
+        "ideas": [
+          "Dance studio: two instructors doing the choreography side by side, then the class joining in",
+          "Fitness instructor: the routine slowed into a warm-up, then at full speed",
+          "Fashion boutique: one outfit, three ways, a new look on each beat drop",
+          "Nightlife venue: getting ready backstage to a full room, cut to the chorus"
+        ],
+        "about": "It’s the #1 song in the U.S. right now, and every Reel on its audio page is from the last two weeks. The format to copy is the @kevinbannier_ choreography, done as a duo. Creators also use it for “morning mantra” lip-syncs and night-out fit checks.",
+        "reels": 190000
       },
       {
         "rank": 2,
         "title": "Angel Of My Dreams",
         "artist": "JADE",
         "stage": "Rising",
-        "mood": "Dreamy, glossy This is the most active sound on this week’s list. Nearly half the Reels on its page were posted in the last week. It suits “too pretty to be real” moments, and brands are already using it. @australia used it for a Melbourne city Reel, and jewelers are using it for ring unboxings.",
+        "mood": "Dreamy, glossy",
         "best_for": "tourism boards and tour operators, hotels, nail artists, jewelers, hair salons",
-        "idea": "",
-        "reels": null
+        "idea": "Tour operator: a POV from the train or boat window, one view per beat",
+        "ideas": [
+          "Tour operator: a POV from the train or boat window, one view per beat",
+          "Hotel: the view from your best room at golden hour, then the room itself",
+          "Nail artist: a birthday set from bare nails to the finished design",
+          "Jeweler: a ring box opening in slow motion, turned toward the light"
+        ],
+        "about": "This is the most active sound on this week’s list. Nearly half the Reels on its page were posted in the last week. It suits “too pretty to be real” moments, and brands are already using it. @australia used it for a Melbourne city Reel, and jewelers are using it for ring unboxings.",
+        "reels": 211000
       },
       {
         "rank": 3,
         "title": "November Rain",
         "artist": "Guns N' Roses",
         "stage": "Peak",
-        "mood": "Epic, nostalgic The month’s name is in the title, so it comes back every November. Creators use the guitar build for cinematic travel montages and 90s nostalgia. Some also post “then vs. now” memory edits, like “1992, we played it on repeat.”",
+        "mood": "Epic, nostalgic",
         "best_for": "videographers and photographers, travel creators, car dealers and detailers, illustrators, vintage stores",
-        "idea": "",
-        "reels": null
+        "idea": "Videographer: your best shots from the year, color-graded, cut to the guitar solo",
+        "ideas": [
+          "Videographer: your best shots from the year, color-graded, cut to the guitar solo",
+          "Travel creator: one trip told in rainy-window, road, and summit shots",
+          "Car dealer: a classic car on a wet road at dusk, then the keys handed over",
+          "Vintage store: 90s pieces styled one by one, with the year on screen"
+        ],
+        "about": "The month’s name is in the title, so it comes back every November. Creators use the guitar build for cinematic travel montages and 90s nostalgia. Some also post “then vs. now” memory edits, like “1992, we played it on repeat.”",
+        "reels": 322000
       },
       {
         "rank": 4,
         "title": "All I Want for Christmas Is You",
         "artist": "Mariah Carey",
         "stage": "Peak",
-        "mood": "Festive, joyful Every year, November 1 is when this song comes back, and the “it’s time” memes start. Service businesses are already using it for booking pushes. One salon’s “have you booked yet?”",
+        "mood": "Festive, joyful",
         "best_for": "hair salons, nail and lash studios, gift shops, restaurants taking holiday bookings, travel agencies",
-        "idea": "",
-        "reels": null
+        "idea": "Hair salon: a December calendar filling up, ending on “book before it’s gone”",
+        "ideas": [
+          "Hair salon: a December calendar filling up, ending on “book before it’s gone”",
+          "Nail studio: the holiday nail menu, one design per beat",
+          "Restaurant: the empty private room, then the same room set for a holiday party",
+          "Travel agency: “gift or trip?” with a wrapped box and a boarding pass"
+        ],
+        "about": "Every year, November 1 is when this song comes back, and the “it’s time” memes start. Service businesses are already using it for booking pushes. One salon’s “have you booked yet?”",
+        "reels": 5800000
       },
       {
         "rank": 5,
         "title": "Santa Tell Me",
         "artist": "Ariana Grande",
         "stage": "Peak",
-        "mood": "Playful, festive The “it’s timeeee” countdown sound. Ten of the Reels on its page were posted October 26–29, mostly countdown clips and “time to watch Christmas movies” posts.",
+        "mood": "Playful, festive",
         "best_for": "cafes, bookstores, candle shops, cinemas, home decor stores",
-        "idea": "",
-        "reels": null
+        "idea": "Cafe: the first holiday drink of the season, poured and topped in close-up",
+        "ideas": [
+          "Cafe: the first holiday drink of the season, poured and topped in close-up",
+          "Bookstore: the holiday reading table set up, one book per beat",
+          "Candle shop: lighting each holiday scent, ending on the full lineup",
+          "Cinema: your holiday movie schedule shown as cozy seat-and-popcorn shots"
+        ],
+        "about": "The “it’s timeeee” countdown sound. Ten of the Reels on its page were posted October 26–29, mostly countdown clips and “time to watch Christmas movies” posts.",
+        "reels": 571000
       },
       {
         "rank": 6,
         "title": "Underneath the Tree",
         "artist": "Kelly Clarkson",
         "stage": "Peak",
-        "mood": "Bright, festive This is the brand-launch sound of the holiday season. In the last week it carried a restaurant’s giant polar bear unveiling, a city ice rink opening, and tree reveals with shop links.",
+        "mood": "Bright, festive",
         "best_for": "restaurants and bars, home decor stores, gift and toy shops, event venues, local city guides",
-        "idea": "",
-        "reels": null
+        "idea": "Restaurant: the holiday decor going up overnight, revealed at opening time",
+        "ideas": [
+          "Restaurant: the holiday decor going up overnight, revealed at opening time",
+          "Home decor store: a bare tree to fully styled in five cuts, ending on “comment SHOP”",
+          "Toy shop: this year’s most-wanted gift, unboxed, with a comment keyword for the link",
+          "Event venue: the room the day before and the day of your first holiday event"
+        ],
+        "about": "This is the brand-launch sound of the holiday season. In the last week it carried a restaurant’s giant polar bear unveiling, a city ice rink opening, and tree reveals with shop links. The hook is simple: “Christmas starts November 1.”",
+        "reels": 451000
       },
       {
         "rank": 7,
         "title": "Hold On, We're Going Home",
         "artist": "Drake, Majid Jordan",
         "stage": "Rising",
-        "mood": "Smooth, nostalgic The song is climbing the U.S. Spotify chart again, and nine of its Reels on the page were posted October 26–29.",
+        "mood": "Smooth, nostalgic",
         "best_for": "lash and brow studios, equestrian and sports coaches, gyms, real estate agents, coffee shops",
-        "idea": "",
-        "reels": null
+        "idea": "Lash studio: three recent sets, ending on “November bookings are open”",
+        "ideas": [
+          "Lash studio: three recent sets, ending on “November bookings are open”",
+          "Sports coach: a calm Monday training session, from warm-up to first win",
+          "Real estate agent: walking up to a front door, then the keys in a client’s hand",
+          "Coffee shop: the morning regulars, one familiar face per beat"
+        ],
+        "about": "The song is climbing the U.S. Spotify chart again, and nine of its Reels on the page were posted October 26–29. It works two ways: relatable comedy skits and smooth “starting my week” clips. A lash studio is already using it for “November bookings are open.”",
+        "reels": 66000
       },
       {
         "rank": 8,
         "title": "Blue Moon",
         "artist": "Zara Larsson",
         "stage": "Rising",
-        "mood": "Glossy, upbeat A fresh sound that beauty creators picked up this month. Every Reel on its page is less than three weeks old. It’s used for self-care routines, lip-combo tutorials, and salon how-tos. @australia used it for a Brisbane skyline Reel.",
+        "mood": "Glossy, upbeat",
         "best_for": "hair salons, skincare and beauty brands, makeup artists, fitness studios, tourism boards",
-        "idea": "",
-        "reels": null
+        "idea": "Hair salon: a quick styling tutorial, one step per beat",
+        "ideas": [
+          "Hair salon: a quick styling tutorial, one step per beat",
+          "Skincare brand: a night routine with your product in every shot",
+          "Makeup artist: a lip combo, liner to gloss, with shade names on screen",
+          "Fitness studio: a 15-minute workout with the timer on screen"
+        ],
+        "about": "A fresh sound that beauty creators picked up this month. Every Reel on its page is less than three weeks old. It’s used for self-care routines, lip-combo tutorials, and salon how-tos. @australia used it for a Brisbane skyline Reel.",
+        "reels": 63000
       },
       {
         "rank": 9,
         "title": "Dame Hombro",
         "artist": "Bulin 47, Kevin Wai, Breyco En Producidera",
         "stage": "Rising",
-        "mood": "Playful, high-energy A dembow track that’s in the TikTok top 10 right now. The move is “dando hombro,” a shoulder shimmy, and teams are doing it together to start the week. One esthetician turned it into a joke about scanning everyone’s skin.",
+        "mood": "Playful, high-energy",
         "best_for": "estheticians and med spas, restaurants and bars, retail teams, dance studios, Latin food brands",
-        "idea": "",
-        "reels": null
+        "idea": "Esthetician: you, at a party, checking out everyone’s skin while everyone else dances",
+        "ideas": [
+          "Esthetician: you, at a party, checking out everyone’s skin while everyone else dances",
+          "Restaurant: the kitchen crew doing the shoulder move before service",
+          "Retail team: the staff doing it on the shop floor before opening",
+          "Latin food brand: a product tossed hand to hand, landing on the beat"
+        ],
+        "about": "A dembow track that’s in the TikTok top 10 right now. The move is “dando hombro,” a shoulder shimmy, and teams are doing it together to start the week. One esthetician turned it into a joke about scanning everyone’s skin.",
+        "reels": 137000
       },
       {
         "rank": 10,
         "title": "Everlong",
         "artist": "Foo Fighters",
         "stage": "Rising",
-        "mood": "Driving, emotional The slow-building guitar is made for “how it started vs. how it’s going” stories. A Salem shop used it to show the empty building it moved into, then the finished store. Sports teams are using it for senior-night recaps.",
+        "mood": "Driving, emotional",
         "best_for": "independent retail shops, car detailers, contractors, high school and local sports teams, gyms",
-        "idea": "",
-        "reels": null
+        "idea": "Independent shop: the empty space on day one, then the full store today",
+        "ideas": [
+          "Independent shop: the empty space on day one, then the full store today",
+          "Car detailer: a dirty interior to spotless, timed to the drum kick",
+          "Contractor: a gutted room to finished, one cut per beat",
+          "Gym: day 1 to day 100 of a member’s progress"
+        ],
+        "about": "The slow-building guitar is made for “how it started vs. how it’s going” stories. A Salem shop used it to show the empty building it moved into, then the finished store. Sports teams are using it for senior-night recaps.",
+        "reels": 123000
       },
       {
         "rank": 11,
         "title": "Linger",
         "artist": "The Cranberries",
         "stage": "Rising",
-        "mood": "Wistful, cozy The 2026 remaster is back on the U.S. Spotify chart, and Reels are following. Creators use it for fall digicam diaries and “my life is a movie” clips. It’s soft enough for slow, personal content.",
+        "mood": "Wistful, cozy",
         "best_for": "cafes, photographers, pet groomers and pet shops, bookstores, knitwear and fall fashion brands",
-        "idea": "",
-        "reels": null
+        "idea": "Cafe: a fall afternoon shot on a digicam, from the window seat to the last sip",
+        "ideas": [
+          "Cafe: a fall afternoon shot on a digicam, from the window seat to the last sip",
+          "Photographer: behind the scenes of a fall shoot, filmed on a digicam",
+          "Pet groomer: a dog’s before, during, and after, with a soft close-up at the end",
+          "Knitwear brand: one sweater worn on three fall days"
+        ],
+        "about": "The 2026 remaster is back on the U.S. Spotify chart, and Reels are following. Creators use it for fall digicam diaries and “my life is a movie” clips. It’s soft enough for slow, personal content.",
+        "reels": 117000
       },
       {
         "rank": 12,
         "title": "Sunshine (Instrumental)",
         "artist": "Twista",
         "stage": "Rising",
-        "mood": "Sunny, easygoing An instrumental with no lyrics, so it sits under talking and on-screen text without competing. Its biggest Reels this week are quick tips: a hydration water recipe (643K plays) and a career tip for people over 50 (over 1M plays). Later also lists it for the “taking one for the team” group-role format.",
+        "mood": "Sunny, easygoing",
         "best_for": "nutritionists and wellness brands, personal trainers, career coaches, pet businesses, family brands",
-        "idea": "",
-        "reels": null
+        "idea": "Nutritionist: one easy recipe in four steps, with ingredients on screen",
+        "ideas": [
+          "Nutritionist: one easy recipe in four steps, with ingredients on screen",
+          "Personal trainer: “72 hours until race day,” with one training clip a day",
+          "Career coach: one piece of advice in a single on-screen sentence, then the reason",
+          "Pet business: a dog road trip with “as long as I’m included” on screen"
+        ],
+        "about": "An instrumental with no lyrics, so it sits under talking and on-screen text without competing. Its biggest Reels this week are quick tips: a hydration water recipe (643K plays) and a career tip for people over 50 (over 1M plays). Later also lists it for the “taking one for the team” group-role format.",
+        "reels": 202000
       }
     ]
   },
@@ -378,7 +456,7 @@
     "source": "Kworb (Spotify Weekly Chart — Ireland)",
     "url": "https://kworb.net/spotify/country/ie_weekly.html",
     "chart_date": "2026/10/29",
-    "fetched_at": "2026-11-06T01:46:47+00:00",
+    "fetched_at": "2026-11-06T01:49:33+00:00",
     "items": [
       {
         "pos": 1,
@@ -387,7 +465,7 @@
         "title": "Housewife",
         "weeks": 2,
         "peak": "1",
-        "streams": 2
+        "streams": 555894
       },
       {
         "pos": 2,
@@ -396,7 +474,7 @@
         "title": "Stop The Wedding!",
         "weeks": 12,
         "peak": "1",
-        "streams": 2
+        "streams": 359734
       },
       {
         "pos": 3,
@@ -405,7 +483,7 @@
         "title": "Lies (w/ Lana Del Rey )",
         "weeks": 2,
         "peak": "2",
-        "streams": 1
+        "streams": 316761
       },
       {
         "pos": 4,
@@ -414,7 +492,7 @@
         "title": "Rein Me In (w/ Olivia Dean )",
         "weeks": 71,
         "peak": "1",
-        "streams": 21
+        "streams": 303826
       },
       {
         "pos": 5,
@@ -423,7 +501,7 @@
         "title": "Babydoll",
         "weeks": 6,
         "peak": "5",
-        "streams": null
+        "streams": 270626
       },
       {
         "pos": 6,
@@ -432,7 +510,7 @@
         "title": "Japan",
         "weeks": 2,
         "peak": "5",
-        "streams": null
+        "streams": 267901
       },
       {
         "pos": 7,
@@ -441,7 +519,7 @@
         "title": "The Sun Will Never Settle",
         "weeks": 23,
         "peak": "1",
-        "streams": 1
+        "streams": 254094
       },
       {
         "pos": 8,
@@ -450,7 +528,7 @@
         "title": "expectations (w/ Chappell Roan )",
         "weeks": 2,
         "peak": "8",
-        "streams": null
+        "streams": 236561
       },
       {
         "pos": 9,
@@ -459,7 +537,7 @@
         "title": "Marianne",
         "weeks": 11,
         "peak": "3",
-        "streams": 1
+        "streams": 229399
       },
       {
         "pos": 10,
@@ -468,7 +546,7 @@
         "title": "My Body Isn't Ready",
         "weeks": 17,
         "peak": "6",
-        "streams": null
+        "streams": 228044
       },
       {
         "pos": 11,
@@ -477,7 +555,7 @@
         "title": "stupid song",
         "weeks": 20,
         "peak": "1",
-        "streams": 1
+        "streams": 223879
       },
       {
         "pos": 12,
@@ -486,7 +564,7 @@
         "title": "Nicole Kidman",
         "weeks": 8,
         "peak": "11",
-        "streams": null
+        "streams": 208949
       },
       {
         "pos": 13,
@@ -495,7 +573,7 @@
         "title": "Choosin' Texas",
         "weeks": 42,
         "peak": "3",
-        "streams": 8
+        "streams": 199058
       },
       {
         "pos": 14,
@@ -504,7 +582,7 @@
         "title": "Man I Need",
         "weeks": 63,
         "peak": "1",
-        "streams": 14
+        "streams": 194098
       },
       {
         "pos": 15,
@@ -513,7 +591,7 @@
         "title": "Great Expectation",
         "weeks": 17,
         "peak": "5",
-        "streams": null
+        "streams": 191565
       },
       {
         "pos": 16,
@@ -522,7 +600,7 @@
         "title": "the cure",
         "weeks": 23,
         "peak": "2",
-        "streams": 1
+        "streams": 189830
       },
       {
         "pos": 17,
@@ -531,7 +609,7 @@
         "title": "Mimesis",
         "weeks": 2,
         "peak": "8",
-        "streams": null
+        "streams": 189511
       },
       {
         "pos": 18,
@@ -540,7 +618,7 @@
         "title": "Betty's in the Band (w/ Weston Hunter )",
         "weeks": 7,
         "peak": "16",
-        "streams": null
+        "streams": 188982
       },
       {
         "pos": 19,
@@ -549,7 +627,7 @@
         "title": "Killeagh",
         "weeks": 95,
         "peak": "1",
-        "streams": 13
+        "streams": 183670
       },
       {
         "pos": 20,
@@ -558,7 +636,7 @@
         "title": "The Swell",
         "weeks": 18,
         "peak": "2",
-        "streams": 5
+        "streams": 183139
       },
       {
         "pos": 21,
@@ -567,7 +645,7 @@
         "title": "Where Is Gone? (w/ ROSALÃA )",
         "weeks": 3,
         "peak": "6",
-        "streams": null
+        "streams": 182714
       },
       {
         "pos": 22,
@@ -576,7 +654,7 @@
         "title": "Willing and Able",
         "weeks": 27,
         "peak": "7",
-        "streams": null
+        "streams": 178940
       },
       {
         "pos": 23,
@@ -585,7 +663,7 @@
         "title": "Ain't In LA",
         "weeks": 14,
         "peak": "12",
-        "streams": null
+        "streams": 170966
       },
       {
         "pos": 24,
@@ -594,7 +672,7 @@
         "title": "Demolition",
         "weeks": 2,
         "peak": "9",
-        "streams": null
+        "streams": 167172
       },
       {
         "pos": 25,
@@ -603,7 +681,7 @@
         "title": "Lodi When",
         "weeks": 2,
         "peak": "17",
-        "streams": null
+        "streams": 151688
       },
       {
         "pos": 26,
@@ -612,7 +690,7 @@
         "title": "Just Give Me a Reason (w/ Nate Ruess )",
         "weeks": 37,
         "peak": "9",
-        "streams": null
+        "streams": 149906
       },
       {
         "pos": 27,
@@ -621,7 +699,7 @@
         "title": "iloveitiloveitiloveit",
         "weeks": 40,
         "peak": "1",
-        "streams": 8
+        "streams": 147753
       },
       {
         "pos": 28,
@@ -630,7 +708,7 @@
         "title": "You Miss Me",
         "weeks": 2,
         "peak": "16",
-        "streams": null
+        "streams": 147693
       },
       {
         "pos": 29,
@@ -639,7 +717,7 @@
         "title": "Homewrecker",
         "weeks": 38,
         "peak": "4",
-        "streams": null
+        "streams": 145197
       },
       {
         "pos": 30,
@@ -648,7 +726,7 @@
         "title": "Wait for Me",
         "weeks": 11,
         "peak": "28",
-        "streams": null
+        "streams": 143521
       },
       {
         "pos": 31,
@@ -657,7 +735,7 @@
         "title": "Tongue",
         "weeks": 4,
         "peak": "12",
-        "streams": null
+        "streams": 138100
       },
       {
         "pos": 32,
@@ -666,7 +744,7 @@
         "title": "Mr. Brightside",
         "weeks": 615,
         "peak": "17",
-        "streams": null
+        "streams": 134619
       },
       {
         "pos": 33,
@@ -675,7 +753,7 @@
         "title": "Boston",
         "weeks": 30,
         "peak": "12",
-        "streams": null
+        "streams": 133792
       },
       {
         "pos": 34,
@@ -684,7 +762,7 @@
         "title": "Orbiter",
         "weeks": 26,
         "peak": "17",
-        "streams": null
+        "streams": 133703
       },
       {
         "pos": 35,
@@ -693,7 +771,7 @@
         "title": "Six Shot Morning",
         "weeks": 2,
         "peak": "10",
-        "streams": null
+        "streams": 133321
       },
       {
         "pos": 36,
@@ -702,7 +780,7 @@
         "title": "Happy For You",
         "weeks": 2,
         "peak": "11",
-        "streams": null
+        "streams": 131808
       },
       {
         "pos": 37,
@@ -711,7 +789,7 @@
         "title": "Lonely Island",
         "weeks": 109,
         "peak": "11",
-        "streams": null
+        "streams": 131773
       },
       {
         "pos": 38,
@@ -720,7 +798,7 @@
         "title": "Candy",
         "weeks": 222,
         "peak": "15",
-        "streams": null
+        "streams": 130596
       },
       {
         "pos": 39,
@@ -729,7 +807,7 @@
         "title": "Iris",
         "weeks": 288,
         "peak": "20",
-        "streams": null
+        "streams": 130039
       },
       {
         "pos": 40,
@@ -738,7 +816,7 @@
         "title": "Thriller",
         "weeks": 26,
         "peak": "40",
-        "streams": null
+        "streams": 124577
       },
       {
         "pos": 41,
@@ -747,7 +825,7 @@
         "title": "Earrings",
         "weeks": 31,
         "peak": "10",
-        "streams": null
+        "streams": 122582
       },
       {
         "pos": 42,
@@ -756,7 +834,7 @@
         "title": "Sue me",
         "weeks": 23,
         "peak": "16",
-        "streams": null
+        "streams": 120671
       },
       {
         "pos": 43,
@@ -765,7 +843,7 @@
         "title": "Angel Of My Dreams",
         "weeks": 12,
         "peak": "43",
-        "streams": null
+        "streams": 120039
       },
       {
         "pos": 44,
@@ -774,7 +852,7 @@
         "title": "Starburster",
         "weeks": 111,
         "peak": "13",
-        "streams": null
+        "streams": 119357
       },
       {
         "pos": 45,
@@ -783,7 +861,7 @@
         "title": "bloodstream",
         "weeks": 19,
         "peak": "24",
-        "streams": null
+        "streams": 115113
       },
       {
         "pos": 46,
@@ -792,7 +870,7 @@
         "title": "Broken Window Serenade",
         "weeks": 28,
         "peak": "46",
-        "streams": null
+        "streams": 115014
       },
       {
         "pos": 47,
@@ -801,7 +879,7 @@
         "title": "Dancing On My Own",
         "weeks": 19,
         "peak": "47",
-        "streams": null
+        "streams": 114184
       },
       {
         "pos": 48,
@@ -810,7 +888,7 @@
         "title": "Trapped - Radio-Edit",
         "weeks": 19,
         "peak": "24",
-        "streams": null
+        "streams": 111381
       },
       {
         "pos": 49,
@@ -819,7 +897,7 @@
         "title": "Mary's Pub",
         "weeks": 96,
         "peak": "25",
-        "streams": null
+        "streams": 110354
       },
       {
         "pos": 50,
@@ -828,7 +906,7 @@
         "title": "One Man",
         "weeks": 2,
         "peak": "18",
-        "streams": null
+        "streams": 110343
       }
     ]
   },
@@ -1129,7 +1207,7 @@
     ],
     "_meta": {
       "model": "Rule-based engine (no AI key)",
-      "generated_at": "2026-11-06T01:46:47+00:00",
+      "generated_at": "2026-11-06T01:49:33+00:00",
       "kind": "rules"
     }
   }
