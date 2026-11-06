@@ -19,11 +19,12 @@ import streamlit.components.v1 as components
 import importlib
 
 import insights as ins
+import copylab
 import studio
 import ui
 
 # Streamlit Cloud keeps imported modules in memory between deploys; reload so new helpers are always picked up.
-for _m in (ui, ins, studio):
+for _m in (ui, ins, studio, copylab):
     importlib.reload(_m)
 from ui import BURGUNDY_2, CHART_CFG, GOLD, GRAY_LIGHT, NAVY, OFF_WHITE, esc
 
@@ -49,6 +50,11 @@ PILLAR_COLORS = EDU["pillars"]
 
 schools = pd.DataFrame(BM["schools"])
 schools["er"] = (schools["avg_eng"] / schools["followers"] * 100).round(1)
+HIST = pd.read_csv(ROOT / "data" / "ig_history.csv", parse_dates=["date"]) if (ROOT / "data" / "ig_history.csv").exists() else pd.DataFrame()
+if not HIST.empty:  # latest public follower counts (auto-updated every Monday)
+    latest = HIST.sort_values("date").groupby("handle").tail(1).set_index("handle")
+    schools["followers"] = schools["handle"].map(latest["followers"]).fillna(schools["followers"]).astype(int)
+    schools["er"] = (schools["avg_eng"] / schools["followers"] * 100).round(1)
 lcs = schools[schools["group"] == "LCS"].iloc[0]
 lim = schools[schools["group"] == "Limerick"]
 lim_avg = {"followers": int(lim["followers"].mean()), "er": round(lim["er"].mean(), 1), "pw": round(lim["per_week"].mean(), 1)}
@@ -61,7 +67,7 @@ st.markdown(
     f"""<div class="mast"><div class="mast-row">
 <div><div class="brand">LCS <span>·</span> IDEAs for Posting</div>
 <div class="sub">Social media planning · Limerick Christian School</div></div>
-<div class="meta">Week of <b>{week_start.strftime('%d %B %Y')}</b><br>Prepared for the Principal<br>Developer: <b>{DEVELOPER}</b></div>
+<div class="meta">Week of <b>{week_start.strftime('%d %B %Y')}</b><br>Principal: <b>Naomi Rose</b><br>Developer: <b>{DEVELOPER}</b></div>
 </div><div class="rule"></div></div>""",
     unsafe_allow_html=True,
 )
@@ -105,7 +111,7 @@ def next_slots(plat: str, n: int = 3) -> list[datetime]:
     return res[:n]
 
 
-T = st.tabs(["This week", "How we compare", "Post ideas", "Calendar", "Trends", "Caption builder"])
+T = st.tabs(["This week", "Growth", "How we compare", "Post ideas", "Calendar", "Trends", "Copy lab"])
 
 # --------------------------------------------------------------------------- #
 # 1 · This week
@@ -183,9 +189,150 @@ with T[0]:
                         f'<span class="pill">{(d - TODAY).days} days</span></div>', unsafe_allow_html=True)
 
 # --------------------------------------------------------------------------- #
-# 2 · How we compare
+# 2 · Growth
 # --------------------------------------------------------------------------- #
 with T[1]:
+    hist = HIST.copy()
+    dates = sorted(hist["date"].unique()) if not hist.empty else []
+    last_d = pd.Timestamp(dates[-1]).strftime("%d %b %Y") if dates else "–"
+    ui.head("Growth", "Followers and momentum", f"Public Instagram numbers, updated automatically every Monday · last update {last_d}")
+
+    # ---- goal + health -------------------------------------------------------
+    g1, g2 = st.columns([1, 1.25])
+    with g1:
+        target = st.number_input("Follower goal for June 2027", min_value=200, max_value=20000, value=500, step=50)
+        cur = int(lcs.followers)
+        weeks_left = max((date(2027, 6, 30) - TODAY).days / 7, 1)
+        need = max(target - cur, 0) / weeks_left
+        pct = min(cur / target, 1)
+        st.markdown(
+            f"""<div class="stat"><div class="l">Progress to goal</div>
+<div class="v">{cur:,}<small>/ {target:,}</small></div>
+<div style="height:10px;background:#eef1f5;border-radius:6px;margin:10px 0 6px;overflow:hidden">
+<div style="width:{pct*100:.0f}%;height:100%;background:{GOLD}"></div></div>
+<div class="s">Needs <b>{need:.0f} new followers a week</b> until 30 June 2027</div></div>""", unsafe_allow_html=True)
+    with g2:
+        days_since = (TODAY - date.fromisoformat(lcs.last_post)).days
+        parts = {
+            "Posting rhythm": min(lcs.per_week / 3, 1) * 100,
+            "Engagement": min(lcs.er / max(lim_avg["er"], 0.1), 1) * 100,
+            "Reels share": min((lcs.reels / max(lcs["sample"], 1)) / 0.4, 1) * 100,
+            "Recency": max(0, 100 - days_since * 10),
+        }
+        score = round(sum(parts.values()) / len(parts))
+        bars = "".join(
+            f'<div style="display:flex;align-items:center;gap:10px;margin:7px 0"><div style="width:120px;font-size:.82rem;color:#14181f">{k}</div>'
+            f'<div style="flex:1;height:8px;background:#eef1f5;border-radius:5px;overflow:hidden"><div style="width:{v:.0f}%;height:100%;'
+            f'background:{NAVY if v >= 60 else GOLD if v >= 30 else BURGUNDY_2}"></div></div><div style="width:34px;text-align:right;font-size:.8rem;font-weight:700">{v:.0f}</div></div>'
+            for k, v in parts.items())
+        st.markdown(f'<div class="stat"><div class="l">Account health · LCS</div><div style="display:flex;gap:22px;align-items:center">'
+                    f'<div class="v" style="font-size:3.2rem">{score}<small>/100</small></div><div style="flex:1">{bars}</div></div>'
+                    f'<div class="s">Targets: 3 posts a week · local engagement average · 40% Reels · a post in the last 7 days</div></div>',
+                    unsafe_allow_html=True)
+
+    st.write("")
+    # ---- watchlist -------------------------------------------------------------
+    ui.head("Watchlist", "Competitor tracker")
+    names = dict(zip(schools["handle"], schools["short"]))
+    groups = dict(zip(schools["handle"], schools["group"]))
+    rows = []
+    for h, gdf in (hist.groupby("handle") if not hist.empty else []):
+        gdf = gdf.sort_values("date")
+        f_now, p_now = int(gdf["followers"].iloc[-1]), gdf["posts"].iloc[-1]
+        f_prev = int(gdf["followers"].iloc[-2]) if len(gdf) > 1 else None
+        p_prev = gdf["posts"].iloc[-2] if len(gdf) > 1 else None
+        rows.append({
+            "School": names.get(h, h), "Group": {"LCS": "LCS", "Limerick": "Limerick", "Ireland reference": "Ireland"}.get(groups.get(h), ""),
+            "Followers": f_now,
+            "Change": (f_now - f_prev) if f_prev is not None else None,
+            "Change %": round((f_now - f_prev) / f_prev * 100, 1) if f_prev else None,
+            "New posts": int(p_now - p_prev) if p_prev is not None else None,
+            "Engagement %": float(schools.loc[schools["handle"] == h, "er"].iloc[0]),
+            "Trend": gdf["followers"].tolist(),
+            "Profile": f"https://www.instagram.com/{h}/",
+        })
+    wl = pd.DataFrame(rows).sort_values("Followers", ascending=False) if rows else pd.DataFrame()
+    _fmt = {"Change": lambda v: f"{int(v):+,d}", "Change %": lambda v: f"{v:+.1f}%", "New posts": lambda v: f"{int(v)}"}
+    for _c, _f in _fmt.items():
+        if _c in wl:
+            wl[_c] = [("–" if v is None or pd.isna(v) else _f(v)) for v in wl[_c]]
+    if not wl.empty:
+        st.dataframe(
+            wl, hide_index=True, width="stretch",
+            column_config={
+                "Followers": st.column_config.NumberColumn(format="localized"),
+                "Change": st.column_config.TextColumn("Δ week"),
+                "Change %": st.column_config.TextColumn("Δ %"),
+                "New posts": st.column_config.TextColumn("Posts this week"),
+                "Engagement %": st.column_config.ProgressColumn("Engagement rate", format="%.1f%%", min_value=0, max_value=25),
+                "Trend": st.column_config.LineChartColumn("Followers trend", y_min=None, y_max=None),
+                "Profile": st.column_config.LinkColumn("Profile", display_text="Open"),
+            })
+        if len(dates) < 2:
+            st.markdown('<div class="small">First snapshot: 6 Nov 2026. Weekly change and trend lines fill in from the next Monday update.</div>',
+                        unsafe_allow_html=True)
+
+    st.write("")
+    c1, c2 = st.columns([1.5, 1])
+    with c1:
+        ui.head("Growth curve", "Follower growth, indexed")
+        if len(dates) >= 2:
+            hh = hist.copy()
+            hh["base"] = hh.groupby("handle")["followers"].transform("first")
+            hh["index"] = hh["followers"] / hh["base"] * 100
+            hh["School"] = hh["handle"].map(names)
+            fig = px.line(hh, x="date", y="index", color="School", markers=True,
+                          color_discrete_map={"LCS": GOLD}, labels={"index": "Growth (first week = 100)", "date": ""})
+            fig.update_traces(line=dict(width=2))
+            fig.for_each_trace(lambda t: t.update(line=dict(width=4)) if t.name == "LCS" else t.update(opacity=.55))
+            st.plotly_chart(ui.fig_style(fig, 320), width="stretch", config=CHART_CFG)
+        else:
+            st.markdown('<div class="stat" style="display:flex;align-items:center;justify-content:center;min-height:240px;color:#7a808a">'
+                        'The growth curve appears after the second weekly snapshot (Monday).</div>', unsafe_allow_html=True)
+    with c2:
+        ui.head("Share of voice", "Followers among Limerick schools")
+        sv = schools[schools["group"].isin(["LCS", "Limerick"])].sort_values("followers", ascending=False)
+        fig = go.Figure(go.Pie(labels=sv["short"], values=sv["followers"], hole=.66, sort=False,
+                               marker=dict(colors=[GOLD if g == "LCS" else c for g, c in
+                                                   zip(sv["group"], [NAVY, "#184f8e", "#6d8fb8", "#9fb6d1", "#c9d6e6", "#dfe6ef", "#eef1f5"])],
+                                           line=dict(color="#fff", width=2)),
+                               textinfo="none", hovertemplate="%{label}: %{value:,} (%{percent})<extra></extra>"))
+        share = float(sv.loc[sv["group"] == "LCS", "followers"].sum() / sv["followers"].sum() * 100)
+        fig.update_layout(annotations=[dict(text=f"<b>{share:.1f}%</b><br>LCS", showarrow=False, font=dict(size=18, color=NAVY))])
+        st.plotly_chart(ui.fig_style(fig, 300), width="stretch", config=CHART_CFG)
+
+    # ---- LCS insights (Graph API) ------------------------------------------------
+    st.write("")
+    ui.head("Inside the account", "LCS Instagram insights")
+    ins_path = ROOT / "data" / "lcs_insights.json"
+    if ins_path.exists():
+        LI = json.loads(ins_path.read_text())
+        t = LI.get("last_28_days", {})
+        k = st.columns(4)
+        for col, (lab, key) in zip(k, [("Accounts reached", "reach"), ("Profile visits", "profile_views"),
+                                         ("Website clicks", "website_clicks"), ("Interactions", "total_interactions")]):
+            col.markdown(ui.stat(lab, f"{t.get(key, 0):,}", "last 28 days"), unsafe_allow_html=True)
+        demo = LI.get("followers_by", {})
+        if demo.get("city"):
+            d = pd.DataFrame(demo["city"]).sort_values("v")
+            fig = go.Figure(go.Bar(x=d["v"], y=d["k"], orientation="h", marker_color=NAVY))
+            st.markdown("**Where followers live**")
+            st.plotly_chart(ui.fig_style(fig, 260, legend=False), width="stretch", config=CHART_CFG)
+        if LI.get("media"):
+            st.dataframe(pd.DataFrame(LI["media"]), hide_index=True, width="stretch",
+                         column_config={"permalink": st.column_config.LinkColumn("Post", display_text="Open")})
+    else:
+        st.markdown(
+            '<div class="stat"><div class="l">Not connected yet</div>'
+            '<div class="h" style="font-size:1.3rem;margin-top:6px">Reach, profile visits, website clicks and where followers live</div>'
+            '<div class="s" style="margin-top:6px">Needs a one-time connection to the official Instagram API by the account owner. '
+            'Once connected, these figures refresh every Monday with the rest of the dashboard.</div></div>',
+            unsafe_allow_html=True)
+
+# --------------------------------------------------------------------------- #
+# 3 · How we compare
+# --------------------------------------------------------------------------- #
+with T[2]:
     ui.head("Benchmark", "LCS and other Irish schools on Instagram",
             f"Last 8–12 posts per school · captured {datetime.fromisoformat(BM['captured']).strftime('%d %B %Y')}")
     scope = st.segmented_control("Compare with", ["Limerick schools", "Limerick + leading Irish schools"],
@@ -266,7 +413,7 @@ with T[1]:
 # --------------------------------------------------------------------------- #
 # 3 · Post ideas
 # --------------------------------------------------------------------------- #
-with T[2]:
+with T[3]:
     ui.head("Idea bank", "Post ideas for parents choosing a school",
             "Each idea shows an LCS strength: own-pace learning, small classes, Christian values, dedicated teachers.")
     f1, f2 = st.columns([1.3, 1])
@@ -291,7 +438,7 @@ with T[2]:
 # --------------------------------------------------------------------------- #
 # 4 · Calendar
 # --------------------------------------------------------------------------- #
-with T[3]:
+with T[4]:
     ui.head("2026/27", "School year at a glance", "Term dates follow the national standardised school year.")
     cal = pd.DataFrame(EDU["calendar"])
     cal["start"] = pd.to_datetime(cal["start"])
@@ -329,7 +476,7 @@ with T[3]:
 # --------------------------------------------------------------------------- #
 # 5 · Trends
 # --------------------------------------------------------------------------- #
-with T[4]:
+with T[5]:
     reels = [dict(a) for a in (TRENDS.get("reels_audio") or {}).get("items", [])]
     for a in reels:
         a["opp"] = ins.opportunity(a)
@@ -368,8 +515,71 @@ with T[4]:
 # --------------------------------------------------------------------------- #
 # 6 · Caption builder
 # --------------------------------------------------------------------------- #
-with T[5]:
-    ui.head("Write", "Caption builder", "Pick an idea and get a ready-to-post caption with the right hashtags.")
+with T[6]:
+    ui.head("Write", "Copy lab", "Ask for caption ideas, or paste a caption to improve it. Every version comes with hashtags and a reach score.")
+
+    def score_block(sc: dict, compact: bool = False) -> str:
+        col = NAVY if sc["score"] >= 62 else GOLD if sc["score"] >= 45 else BURGUNDY_2
+        bars = "".join(
+            f'<div style="display:flex;align-items:center;gap:8px;margin:4px 0"><div style="width:112px;font-size:.76rem;color:#7a808a">{k}</div>'
+            f'<div style="flex:1;height:6px;background:#eef1f5;border-radius:4px;overflow:hidden"><div style="width:{v / m * 100:.0f}%;height:100%;background:{col}"></div></div>'
+            f'<div style="width:38px;text-align:right;font-size:.74rem;font-weight:700">{v}/{m}</div></div>' for k, (v, m) in sc["parts"].items())
+        tips = "" if compact else "".join(f'<div class="small" style="margin-top:4px">→ {esc(t)}</div>' for t in sc["tips"])
+        return (f'<div class="stat"><div class="l">Viral potential</div><div style="display:flex;align-items:baseline;gap:10px">'
+                f'<div class="v" style="color:{col}">{sc["score"]}<small>/100</small></div><div style="font-weight:800;color:{col};font-size:.9rem">{esc(sc["label"])}</div></div>'
+                f'{bars}{tips}</div>')
+
+    q1, q2 = st.columns([2.2, 1])
+    with q1:
+        prompt = st.text_area("What do you need?", height=110, key="lab_prompt",
+                              placeholder="e.g. Ideas to post about enrolment for secondary\n…or paste a caption here to improve it")
+    with q2:
+        lab_fmt = st.selectbox("Planned format", ["Reel", "Carousel", "Photo", "Story"], key="lab_fmt")
+        lab_detail = st.text_input("Detail to include (optional)", placeholder="Open morning · Thu 20 Nov · 10am", key="lab_detail")
+        run = st.button("Get recommendations", type="primary", width="stretch")
+    if run and prompt.strip():
+        intent, _ = copylab.detect(prompt)
+        st.session_state["lab"] = ("improve", copylab.improve(prompt, segment, platform, lab_fmt)) if intent == "improve" \
+            else ("ideas", copylab.ideas(prompt, segment, platform, lab_detail))
+    elif run:
+        st.warning("Type a request or paste a caption first.")
+
+    lab = st.session_state.get("lab")
+    if lab and lab[0] == "ideas":
+        st.markdown(f'<div class="small" style="margin:6px 0 10px">Recommended for <b>{esc(lab[1][0]["topic"])}</b> · '
+                    f'{esc(lab[1][0]["level"] if lab[1][0]["level"] != "Both" else "all levels")} · {platform}. Ranked by reach score.</div>',
+                    unsafe_allow_html=True)
+        cols = st.columns(3)
+        for k, (col, v) in enumerate(zip(cols, lab[1])):
+            with col:
+                st.markdown(f'<div class="eyebrow">{"Recommended · " if k == 0 else ""}{esc(v["style"])} · {esc(v["format"])}</div>', unsafe_allow_html=True)
+                st.code(v["caption"], language=None, wrap_lines=True)
+                st.markdown(score_block(v["score"], compact=True), unsafe_allow_html=True)
+    elif lab and lab[0] == "improve":
+        r = lab[1]
+        i1, i2 = st.columns([1.5, 1])
+        with i1:
+            st.markdown("**Improved caption**")
+            st.code(r["caption"], language=None, wrap_lines=True)
+            st.markdown("".join(f'<div class="small">✓ {esc(c)}</div>' for c in r["changes"]), unsafe_allow_html=True)
+        with i2:
+            b, a = r["before"]["score"], r["after"]["score"]
+            st.markdown(f'<div class="stat accent"><div class="l">Reach score</div><div class="v">{b} → {a}</div>'
+                        f'<div class="s">{"+" if a >= b else ""}{a - b} points after improvements</div></div>', unsafe_allow_html=True)
+            st.write("")
+            st.markdown(score_block(r["after"]), unsafe_allow_html=True)
+        st.markdown("**Two alternative versions**")
+        cols = st.columns(2)
+        for col, v in zip(cols, r["alternatives"]):
+            with col:
+                st.code(v["caption"], language=None, wrap_lines=True)
+                st.markdown(f'<div class="small">{esc(v["format"])} · reach score <b>{v["score"]["score"]}</b> · {esc(v["score"]["label"])}</div>',
+                            unsafe_allow_html=True)
+    st.markdown('<div class="small" style="margin-top:8px">The reach score is an estimate based on what drives reach on Instagram and Facebook '
+                '(hook, format, shareability, emotion, call to action, hashtags, length). It is not a guarantee.</div>', unsafe_allow_html=True)
+
+    st.write("")
+    ui.head("Or start from the idea bank", "Caption builder")
     b1, b2 = st.columns([1, 1.3])
     with b1:
         pool = ideas_for(segment)
@@ -378,29 +588,16 @@ with T[5]:
         detail = st.text_input("Add a detail (optional)", placeholder="e.g. Open morning, Thursday 20 Nov, 10am")
     with b2:
         opener = "✨ " if tone == "Joyful" else ""
-        strength = {"Student life": "At LCS every pupil learns at their own pace, in small classes, with teachers who know them well.",
-                    "Faith & values": "Christian values shape every school day, from chapel to the classroom.",
-                    "Enrolment": "Applications are open for primary and secondary pupils.",
-                    "Teachers": "Our dedicated teachers know every pupil by name.",
-                    "Parents": "We work alongside families every step of the way.",
-                    "Achievement": "Progress is celebrated here, at every pace.",
-                    "Events": "School is a community, and days like this show it."}.get(idea["pillar"], "")
+        strength = copylab.BODY.get(idea["pillar"], "")
         if tone == "Professional":
             strength = strength.replace("At LCS", "At Limerick Christian School")
-        cta = {"Book a visit": "Book a visit: link in bio.", "Apply now": "Apply now: link in bio.",
-               "Register for a visit": "Register on our Events page."}.get(idea["cta"], idea["cta"] + ".")
+        cta = copylab.CTA.get(idea["pillar"], idea["cta"] + ".")
         if platform == "Facebook":
             cta = cta.replace("link in bio", "limerickchristianschool.com")
-        seg_tags = EDU["hashtags"]["Primary" if idea["segment"] == "Primary" else "Secondary"]
-        tags = seg_tags[:3] + EDU["hashtags"]["Faith"][:2] + EDU["hashtags"]["Local"][:3] + EDU["hashtags"]["Parents"][:1]
-        tags = tags[:3] if platform == "Facebook" else tags[:10]
+        tags = copylab.hashtags(idea["pillar"], idea["segment"] if idea["segment"] in ("Primary", "Secondary") else "Both", platform)
         caption = f"{opener}{idea['hook']}\n\n{strength}" + (f"\n\n{detail}" if detail else "") + f"\n\n{cta}\n\n" + " ".join(tags)
         st.code(caption, language=None, wrap_lines=True)
-        r = studio.check_caption(caption, EDU["hashtags"]["Local"])
-        c = st.columns(3)
-        c[0].markdown(ui.stat("Caption score", r["score"], "out of 100", accent=True), unsafe_allow_html=True)
-        c[1].markdown(ui.stat("Words", r["words"], "30–150 works best"), unsafe_allow_html=True)
-        c[2].markdown(ui.stat("Hashtags", r["hashtags"], "IG 8–12 · FB 1–3"), unsafe_allow_html=True)
+        st.markdown(score_block(copylab.viral_score(caption, idea["format"], platform)), unsafe_allow_html=True)
         st.write("")
         st.download_button("Download caption", caption.encode(), f"{idea['id']}-caption.txt", width="stretch")
 

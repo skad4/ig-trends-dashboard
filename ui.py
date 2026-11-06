@@ -97,7 +97,9 @@ header[data-testid="stHeader"] {{ height: 0; background: transparent; }}
 .foot b {{ color:{NAVY}; }}
 .small {{ font-size:.8rem; color:{GRAY}; }}
 .stButton > button, .stDownloadButton > button, .stFormSubmitButton > button, .stLinkButton > a {{ border-radius: 10px; font-weight: 700; }}
-.stFormSubmitButton > button[kind="primary"] {{ background:{NAVY}; border-color:{NAVY}; }}
+.stFormSubmitButton > button[kind="primary"], .stButton > button[kind="primary"] {{ background:{NAVY} !important; border-color:{NAVY} !important; color:#fff !important; }}
+.stButton > button[kind="primary"] p, .stFormSubmitButton > button[kind="primary"] p {{ color:#fff !important; }}
+.stButton > button[kind="primary"]:hover {{ background:{NAVY_2} !important; border-color:{NAVY_2} !important; }}
 [data-testid="stBaseButton-segmented_controlActive"] {{ background:{NAVY} !important; border-color:{NAVY} !important; }}
 [data-testid="stBaseButton-segmented_controlActive"] p, [data-testid="stBaseButton-segmented_controlActive"] div {{ color:#fff !important; }}
 </style>
