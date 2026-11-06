@@ -1,0 +1,72 @@
+{
+  "_note": "Curated hashtag sets per category. Edit freely. 'tier' = expected reach: broad (very large, high competition), mid (good balance), niche (smaller, more targeted). The weekly AI analysis picks which ones to prioritise each week.",
+  "categories": {
+    "Education": {
+      "icon": "🎓",
+      "broad": ["#education", "#learning", "#students", "#studentlife", "#study"],
+      "mid": ["#onlinelearning", "#elearning", "#edtech", "#studygram", "#lifelonglearning", "#upskilling", "#studyabroad", "#teachersofinstagram"],
+      "niche": ["#studyinireland", "#irishstudents", "#universityoflimerick", "#maryimmaculatecollege", "#tusireland", "#leavingcert", "#caoireland", "#mbalife", "#bootcamp"]
+    },
+    "Business & Marketing": {
+      "icon": "💼",
+      "broad": ["#business", "#marketing", "#entrepreneur", "#smallbusiness", "#digitalmarketing"],
+      "mid": ["#socialmediamarketing", "#contentmarketing", "#branding", "#marketingtips", "#businesstips", "#startup", "#personalbranding", "#contentcreator"],
+      "niche": ["#irishbusiness", "#irishsmallbusiness", "#limerickbusiness", "#womeninbusinessireland", "#startupireland", "#smallbusinessireland"]
+    },
+    "Tech & AI": {
+      "icon": "🤖",
+      "broad": ["#technology", "#tech", "#ai", "#artificialintelligence", "#innovation"],
+      "mid": ["#aitools", "#chatgpt", "#machinelearning", "#automation", "#nocode", "#python", "#productivity", "#futureofwork"],
+      "niche": ["#aiforbusiness", "#techireland", "#irishtech", "#aimarketing", "#generativeai"]
+    },
+    "Local Business": {
+      "icon": "🏪",
+      "broad": ["#shoplocal", "#supportlocal", "#smallbusinessowner", "#localbusiness"],
+      "mid": ["#shoplocalireland", "#supportlocalireland", "#irishmade", "#madeinireland", "#buyirish", "#irishowned"],
+      "niche": ["#shoplocallimerick", "#limerickshops", "#supportlocallimerick", "#limerickmade", "#claremade"]
+    },
+    "Food & Drink": {
+      "icon": "🍽️",
+      "broad": ["#food", "#foodie", "#coffee", "#brunch", "#foodstagram"],
+      "mid": ["#irishfood", "#foodireland", "#irelandfoodie", "#coffeeshop", "#cafe", "#eatlocal"],
+      "niche": ["#limerickfood", "#limerickeats", "#limerickfoodie", "#milkmarketlimerick", "#clarefood", "#limerickcoffee"]
+    },
+    "Fitness & Wellness": {
+      "icon": "💪",
+      "broad": ["#fitness", "#gym", "#workout", "#wellness", "#health"],
+      "mid": ["#fitnessmotivation", "#personaltrainer", "#selfcare", "#mentalhealthmatters", "#runningcommunity", "#yoga"],
+      "niche": ["#fitnessireland", "#irishfitness", "#limerickgym", "#limerickfitness", "#limerickrunners"]
+    },
+    "Beauty": {
+      "icon": "💄",
+      "broad": ["#beauty", "#makeup", "#skincare", "#hair", "#nails"],
+      "mid": ["#nailart", "#lashes", "#hairstylist", "#makeupartist", "#beautysalon", "#skincareroutine"],
+      "niche": ["#irishbeauty", "#irishmua", "#limericksalon", "#limerickhair", "#limericknails", "#limerickmua"]
+    },
+    "Travel & Tourism": {
+      "icon": "✈️",
+      "broad": ["#travel", "#ireland", "#travelgram", "#wanderlust", "#explore"],
+      "mid": ["#discoverireland", "#visitireland", "#irelandtravel", "#wildatlanticway", "#loveireland", "#irishlandscape"],
+      "niche": ["#visitlimerick", "#lovelimerick", "#adare", "#kingjohnscastle", "#killaloe", "#cliffsofmoher", "#visitclare", "#shannonregion"]
+    },
+    "Fashion": {
+      "icon": "👗",
+      "broad": ["#fashion", "#style", "#ootd", "#outfit", "#fashionista"],
+      "mid": ["#outfitinspo", "#streetstyle", "#fitcheck", "#sustainablefashion", "#vintagefashion", "#preloved"],
+      "niche": ["#irishfashion", "#irishstyle", "#irishdesigner", "#limerickfashion", "#limerickstyle"]
+    }
+  },
+  "irish_artists": ["Fontaines D.C.", "Kingfishr", "Amble", "Hozier", "CMAT", "Dermot Kennedy", "Niall Horan", "Picture This", "Kneecap", "The Cranberries", "Cian Ducrot", "Bambie Thug", "Gavin James", "Westlife", "The Script", "Inhaler", "Sinéad O'Connor", "U2"],
+  "regions": {
+    "Limerick +50km": {
+      "towns": ["Limerick City", "Castletroy", "Raheen", "Adare", "Shannon", "Ennis", "Killaloe", "Ballina", "Castleconnell", "Nenagh", "Newcastle West", "Kilmallock", "Rathkeale", "Croom", "Tipperary Town", "Charleville", "Sixmilebridge", "Abbeyfeale"],
+      "core": ["#limerick", "#limerickcity", "#lovelimerick", "#limerickireland", "#limericklife", "#visitlimerick", "#limerickevents", "#limerickbusiness"],
+      "nearby": ["#ennis", "#countyclare", "#shannon", "#nenagh", "#tipperary", "#adare", "#killaloe", "#newcastlewest", "#castletroy", "#midwestireland"],
+      "seasonal": ["#limerickchristmas", "#limerickchristmasmarket", "#christmasinlimerick", "#irishchristmas", "#christmasireland"]
+    },
+    "Ireland": {
+      "core": ["#ireland", "#irish", "#irishbusiness", "#discoverireland", "#loveireland", "#irishgirl", "#irishmade"],
+      "seasonal": ["#irishchristmas", "#christmasireland", "#irishwinter"]
+    }
+  }
+}

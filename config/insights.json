@@ -1,0 +1,47 @@
+{
+  "_note": "Static reference data for the insight widgets. Review once a quarter.",
+  "posting_times": {
+    "source": "Buffer — Best Time to Post on Instagram in 2026 (9.6M posts, Jan 2024–Dec 2025). Times are local time.",
+    "url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram",
+    "days": {
+      "Monday":    {"tier": "Moderate", "slots": [19, 18, 20]},
+      "Tuesday":   {"tier": "High",     "slots": [19, 15, 17]},
+      "Wednesday": {"tier": "Highest",  "slots": [12, 18, 8]},
+      "Thursday":  {"tier": "Highest",  "slots": [9, 8, 7]},
+      "Friday":    {"tier": "Low",      "slots": [22, 21, 6]},
+      "Saturday":  {"tier": "Low",      "slots": [21, 22, 20]},
+      "Sunday":    {"tier": "Moderate", "slots": [21, 22, 20]}
+    },
+    "notes": [
+      "Evenings (6–11 pm) perform best on every weekday except Thursday.",
+      "Worst window: 1–5 am on any day.",
+      "Carousels: Wednesday 12 pm, Wednesday 6 pm and Thursday 9 am.",
+      "Stories: 1–2 per day."
+    ]
+  },
+  "key_dates": [
+    {"date": "2026-11-27", "name": "Black Friday", "tags": ["Local Business", "Beauty", "Fashion", "Business & Marketing"]},
+    {"date": "2026-11-30", "name": "Cyber Monday", "tags": ["Tech & AI", "Business & Marketing", "Education"]},
+    {"date": "2026-12-01", "name": "Giving Tuesday", "tags": ["Education", "Local Business"]},
+    {"date": "2026-12-08", "name": "Traditional Christmas shopping day (8 Dec)", "tags": ["Local Business", "Food & Drink", "Travel & Tourism"]},
+    {"date": "2026-12-25", "name": "Christmas Day", "tags": ["All"]},
+    {"date": "2026-12-26", "name": "St Stephen's Day", "tags": ["Food & Drink", "Fitness & Wellness"]},
+    {"date": "2026-12-31", "name": "New Year's Eve", "tags": ["Food & Drink", "Fashion", "Beauty"]},
+    {"date": "2027-01-01", "name": "New Year's Day — 'new year, new skills'", "tags": ["Education", "Fitness & Wellness", "Business & Marketing"]},
+    {"date": "2027-02-01", "name": "St Brigid's Day bank holiday", "tags": ["Travel & Tourism", "Local Business"]},
+    {"date": "2027-02-14", "name": "Valentine's Day", "tags": ["Food & Drink", "Beauty", "Fashion", "Local Business"]},
+    {"date": "2027-03-07", "name": "Mother's Day (Ireland)", "tags": ["Beauty", "Food & Drink", "Local Business"]},
+    {"date": "2027-03-17", "name": "St Patrick's Day", "tags": ["All"]}
+  ],
+  "audio_category_keywords": {
+    "Education": ["tip", "coach", "career", "instrumental", "talking", "study", "learn"],
+    "Business & Marketing": ["growth", "montage", "bookings", "launch", "started", "monday", "real estate", "retail"],
+    "Tech & AI": ["reveal", "epic", "dramatic", "transition", "upside down"],
+    "Local Business": ["holiday launch", "gift", "shop", "local", "city guide", "retail", "countdown"],
+    "Food & Drink": ["cafe", "coffee", "restaurant", "bar", "cozy", "cosy", "kitchen", "menu"],
+    "Fitness & Wellness": ["dance", "fitness", "gym", "workout", "trainer", "wellness", "progress", "mantra"],
+    "Beauty": ["beauty", "salon", "nail", "lash", "makeup", "self-care", "skincare", "hair"],
+    "Travel & Tourism": ["travel", "tourism", "hotel", "cinematic", "too pretty", "landscape", "november"],
+    "Fashion": ["outfit", "fashion", "era", "boutique", "fit check", "knitwear", "wedding"]
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "updated_at": "2026-11-06T01:15:00+00:00",
+  "week": "2026-W45",
+  "source_status": {
+    "CreatorDB": "seed (manual)",
+    "SocialPilot": "seed (manual)",
+    "Kworb Ireland": "seed (manual)",
+    "Gemini analysis": "seed — replaced on first weekly run"
+  },
+  "reels_audio": {
+    "source": "CreatorDB",
+    "url": "https://creatordb.app/free-tools/trending-instagram-audio/",
+    "week_label": "November 4, 2026",
+    "fetched_at": "2026-11-06T01:15:00+00:00",
+    "items": [
+      {
+        "rank": 1,
+        "title": "Housewife",
+        "artist": "Tate McRae",
+        "trend": "Housewife Dance / Morning Mantra",
+        "heat": 87,
+        "momentum": "Rising",
+        "also_charting": "#4 Spotify US +3; #2 Apple Music US; YouTube Trending",
+        "reels": 190000,
+        "ireland_pos": 1,
+        "ireland_change": "=",
+        "example_reels": [
+          "Ders38rsWon",
+          "De2dH0ZoZqY"
+        ]
+      },
+      {
+        "rank": 2,
+        "title": "All I Want for Christmas Is You",
+        "artist": "Mariah Carey",
+        "trend": "Christmas Season Countdown",
+        "heat": 85,
+        "momentum": "Returning",
+        "also_charting": "#9 Spotify US; #19 Apple Music US",
+        "reels": 5800000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "Ddy5WxPRrIh",
+          "DfNuwlhyouV",
+          "DdSd9ABqhhr"
+        ]
+      },
+      {
+        "rank": 3,
+        "title": "Patient Zero",
+        "artist": "Taylor Swift",
+        "trend": "Patient Zero Wedding / Victory Lap Edit",
+        "heat": 75,
+        "momentum": "Rising",
+        "also_charting": "#63 Spotify US +6; #47 Apple Music US",
+        "reels": 53000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "Ddxz7wctBio",
+          "DdZ6FHPxNBK",
+          "Dd1rlufKrrT"
+        ]
+      },
+      {
+        "rank": 4,
+        "title": "Nicole Kidman",
+        "artist": "ADÉLA",
+        "trend": "Nicole Kidman Era / Outfit Reveal",
+        "heat": 72,
+        "momentum": "Rising",
+        "also_charting": "#5 Spotify US +3; #5 Apple Music US",
+        "reels": null,
+        "ireland_pos": 12,
+        "ireland_change": "+12",
+        "example_reels": [
+          "DdZfD-2gMTB",
+          "Ddx35bfJUz1",
+          "DeCXQ9BS1ny"
+        ]
+      },
+      {
+        "rank": 5,
+        "title": "Blue Moon",
+        "artist": "Zara Larsson",
+        "trend": "Dreamy Self-Care / Beauty Routine",
+        "heat": 58,
+        "momentum": "Rising",
+        "also_charting": "#73 Spotify US +20",
+        "reels": 63000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "DejxlsjNApj",
+          "De86VfyMy40",
+          "DeSx1F2JWYG"
+        ]
+      },
+      {
+        "rank": 6,
+        "title": "Upside Down",
+        "artist": "Diana Ross",
+        "trend": "Upside Down Transition Reveal",
+        "heat": 57,
+        "momentum": "Rising",
+        "also_charting": "Reels only",
+        "reels": 127000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "DcRq24Oh-T2",
+          "DdzCxYGgkuz",
+          "DdOp5Khuq57"
+        ]
+      },
+      {
+        "rank": 7,
+        "title": "Underneath the Tree",
+        "artist": "Kelly Clarkson",
+        "trend": "Holiday Launch Reveal",
+        "heat": 54,
+        "momentum": "Returning",
+        "also_charting": "#65 Spotify US",
+        "reels": 451000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "De_ZCgyIz-O",
+          "DeuLKX5onBA",
+          "Ddy6yMpOfcs"
+        ]
+      },
+      {
+        "rank": 8,
+        "title": "Hold On, We're Going Home",
+        "artist": "Drake ft. Majid Jordan",
+        "trend": "Smooth Monday Opener / Bookings Open",
+        "heat": 53,
+        "momentum": "Rising",
+        "also_charting": "#62 Spotify US +34",
+        "reels": 66000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "De9sUiIsxb_",
+          "DeHn8VlAOdE",
+          "Ddt4IxARpz9"
+        ]
+      },
+      {
+        "rank": 9,
+        "title": "Santa Tell Me",
+        "artist": "Ariana Grande",
+        "trend": "It's Time Countdown",
+        "heat": 49,
+        "momentum": "Returning",
+        "also_charting": "#53 Spotify US",
+        "reels": 571000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "DeHwD8fxZa9"
+        ]
+      },
+      {
+        "rank": 10,
+        "title": "What You Waiting For?",
+        "artist": "Gwen Stefani",
+        "trend": "Take a Chance Growth Montage",
+        "heat": 48,
+        "momentum": "Rising",
+        "also_charting": "Reels only",
+        "reels": 111000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "Dd1hHprhvP1",
+          "DdcJFT7KL70"
+        ]
+      },
+      {
+        "rank": 11,
+        "title": "Luminary",
+        "artist": "Joel Sunny",
+        "trend": "Epic / Dramatic Reveal",
+        "heat": 47,
+        "momentum": "Rising",
+        "also_charting": "Reels only",
+        "reels": 86000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "DfFbK8pRPlT"
+        ]
+      },
+      {
+        "rank": 12,
+        "title": "Autumn Colors",
+        "artist": "LuLuMusic",
+        "trend": "Cozy Fall Aesthetic",
+        "heat": 47,
+        "momentum": "Rising",
+        "also_charting": "Reels only",
+        "reels": 55000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "DdRtaVJTZ9h"
+        ]
+      },
+      {
+        "rank": 13,
+        "title": "November Rain",
+        "artist": "Guns N' Roses",
+        "trend": "Cinematic November Montage",
+        "heat": 43,
+        "momentum": "Returning",
+        "also_charting": "Reels only",
+        "reels": 322000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "DfATJQ1TTEh"
+        ]
+      },
+      {
+        "rank": 14,
+        "title": "Angel of My Dreams",
+        "artist": "JADE",
+        "trend": "Too Pretty to Be Real",
+        "heat": 40,
+        "momentum": "Rising",
+        "also_charting": "Reels only",
+        "reels": 211000,
+        "ireland_pos": null,
+        "ireland_change": null,
+        "example_reels": [
+          "De_fGtRsNdX"
+        ]
+      }
+    ]
+  },
+  "business_audio": {
+    "source": "SocialPilot",
+    "url": "https://www.socialpilot.co/blog/instagram-reels-trends",
+    "fetched_at": "2026-11-06T01:15:00+00:00",
+    "items": [
+      {
+        "rank": 1,
+        "title": "Housewife",
+        "artist": "Tate McRae",
+        "stage": "Rising",
+        "mood": "Confident, sassy",
+        "best_for": "Dance studios, fitness instructors, fashion boutiques, hair/makeup artists, nightlife venues",
+        "idea": "Two instructors perform the routine, then the whole class joins in",
+        "reels": 190000
+      },
+      {
+        "rank": 2,
+        "title": "Angel Of My Dreams",
+        "artist": "JADE",
+        "stage": "Rising",
+        "mood": "Dreamy, glossy",
+        "best_for": "Tourism boards, tour operators, hotels, nail artists, jewelers, hair salons",
+        "idea": "A ring box opened in slow motion, turned toward the light",
+        "reels": 211000
+      },
+      {
+        "rank": 3,
+        "title": "November Rain",
+        "artist": "Guns N' Roses",
+        "stage": "Peak",
+        "mood": "Epic, nostalgic",
+        "best_for": "Videographers, travel creators, car dealers, illustrators, vintage stores",
+        "idea": "A classic car on a wet road at dusk, then the keys handed over",
+        "reels": 322000
+      },
+      {
+        "rank": 4,
+        "title": "All I Want for Christmas Is You",
+        "artist": "Mariah Carey",
+        "stage": "Peak",
+        "mood": "Festive, joyful",
+        "best_for": "Hair salons, nail/lash studios, gift shops, restaurants, travel agencies",
+        "idea": "A holiday nail menu, one design per beat",
+        "reels": 5800000
+      },
+      {
+        "rank": 5,
+        "title": "Santa Tell Me",
+        "artist": "Ariana Grande",
+        "stage": "Peak",
+        "mood": "Playful, festive",
+        "best_for": "Cafes, bookstores, candle shops, cinemas, home decor",
+        "idea": "Each holiday candle scent lit in turn, ending on the full lineup",
+        "reels": 571000
+      },
+      {
+        "rank": 6,
+        "title": "Underneath the Tree",
+        "artist": "Kelly Clarkson",
+        "stage": "Peak",
+        "mood": "Bright, festive",
+        "best_for": "Restaurants/bars, home decor, gift/toy shops, event venues, city guides",
+        "idea": "A bare tree styled in five cuts, ending with a comment keyword prompt",
+        "reels": 451000
+      },
+      {
+        "rank": 7,
+        "title": "Hold On, We're Going Home",
+        "artist": "Drake, Majid Jordan",
+        "stage": "Rising",
+        "mood": "Smooth, nostalgic",
+        "best_for": "Lash/brow studios, sports coaches, gyms, real estate agents, coffee shops",
+        "idea": "Three recent lash sets, ending with a booking call to action",
+        "reels": 66000
+      },
+      {
+        "rank": 8,
+        "title": "Blue Moon",
+        "artist": "Zara Larsson",
+        "stage": "Rising",
+        "mood": "Glossy, upbeat",
+        "best_for": "Hair salons, skincare/beauty brands, makeup artists, fitness studios, tourism",
+        "idea": "A 15-minute workout with the timer on screen",
+        "reels": 63000
+      },
+      {
+        "rank": 9,
+        "title": "Dame Hombro",
+        "artist": "Bulin 47, Kevin Wai, Breyco En Producidera",
+        "stage": "Rising",
+        "mood": "Playful, high-energy",
+        "best_for": "Estheticians, restaurants/bars, retail teams, dance studios, Latin food brands",
+        "idea": "A kitchen crew doing the shoulder move before service",
+        "reels": 137000
+      },
+      {
+        "rank": 10,
+        "title": "Everlong",
+        "artist": "Foo Fighters",
+        "stage": "Rising",
+        "mood": "Driving, emotional",
+        "best_for": "Independent retail, car detailers, contractors, local sports teams, gyms",
+        "idea": "A member's progress from day 1 to day 100",
+        "reels": 123000
+      },
+      {
+        "rank": 11,
+        "title": "Linger",
+        "artist": "The Cranberries",
+        "stage": "Rising",
+        "mood": "Wistful, cozy",
+        "best_for": "Cafes, photographers, pet groomers/shops, bookstores, knitwear brands",
+        "idea": "One sweater worn across three fall days",
+        "reels": 117000
+      },
+      {
+        "rank": 12,
+        "title": "Sunshine (Instrumental)",
+        "artist": "Twista",
+        "stage": "Rising",
+        "mood": "Sunny, easygoing",
+        "best_for": "Nutritionists/wellness, personal trainers, career coaches, pet businesses, family brands",
+        "idea": "A one-sentence career tip with the reason on screen",
+        "reels": 202000
+      }
+    ]
+  },
+  "ireland_chart": {
+    "source": "Kworb (Spotify Weekly Chart — Ireland)",
+    "url": "https://kworb.net/spotify/country/ie_weekly.html",
+    "chart_date": "2026/10/29",
+    "fetched_at": "2026-11-06T01:15:00+00:00",
+    "items": [
+      {
+        "pos": 1,
+        "change": "=",
+        "artist": "Tate McRae",
+        "title": "Housewife",
+        "weeks": 2,
+        "peak": "1 (x2)",
+        "streams": 555894
+      },
+      {
+        "pos": 2,
+        "change": "+2",
+        "artist": "Ashe",
+        "title": "Stop The Wedding!",
+        "weeks": 12,
+        "peak": "1 (x2)",
+        "streams": 359734
+      },
+      {
+        "pos": 3,
+        "change": "-1",
+        "artist": "Zach Bryan",
+        "title": "Lies (w/ Lana Del Rey)",
+        "weeks": 2,
+        "peak": "2 (x1)",
+        "streams": 316761
+      },
+      {
+        "pos": 4,
+        "change": "+3",
+        "artist": "Sam Fender",
+        "title": "Rein Me In (w/ Olivia Dean)",
+        "weeks": 71,
+        "peak": "1 (x21)",
+        "streams": 303826
+      },
+      {
+        "pos": 5,
+        "change": "+22",
+        "artist": "Jamie Miller",
+        "title": "Babydoll",
+        "weeks": 6,
+        "peak": "5",
+        "streams": 270626
+      },
+      {
+        "pos": 6,
+        "change": "-1",
+        "artist": "Fontaines D.C.",
+        "title": "Japan",
+        "weeks": 2,
+        "peak": "5",
+        "streams": 267901
+      },
+      {
+        "pos": 7,
+        "change": "+8",
+        "artist": "Kingfishr",
+        "title": "The Sun Will Never Settle",
+        "weeks": 23,
+        "peak": "1 (x1)",
+        "streams": 254094
+      },
+      {
+        "pos": 8,
+        "change": "+6",
+        "artist": "Olivia Rodrigo",
+        "title": "expectations (w/ Chappell Roan)",
+        "weeks": 2,
+        "peak": "8",
+        "streams": 236561
+      },
+      {
+        "pos": 9,
+        "change": "-6",
+        "artist": "Fontaines D.C.",
+        "title": "Marianne",
+        "weeks": 11,
+        "peak": "3 (x1)",
+        "streams": 229399
+      },
+      {
+        "pos": 10,
+        "change": "+9",
+        "artist": "sombr",
+        "title": "My Body Isn't Ready",
+        "weeks": 17,
+        "peak": "6",
+        "streams": 228044
+      },
+      {
+        "pos": 11,
+        "change": "+2",
+        "artist": "Olivia Rodrigo",
+        "title": "stupid song",
+        "weeks": 20,
+        "peak": "1 (x1)",
+        "streams": 223879
+      },
+      {
+        "pos": 12,
+        "change": "+12",
+        "artist": "ADÉLA",
+        "title": "Nicole Kidman",
+        "weeks": 8,
+        "peak": "11",
+        "streams": 208949
+      },
+      {
+        "pos": 13,
+        "change": "+10",
+        "artist": "Ella Langley",
+        "title": "Choosin' Texas",
+        "weeks": 42,
+        "peak": "3 (x8)",
+        "streams": 199058
+      },
+      {
+        "pos": 14,
+        "change": "+6",
+        "artist": "Olivia Dean",
+        "title": "Man I Need",
+        "weeks": 63,
+        "peak": "1 (x14)",
+        "streams": 194098
+      },
+      {
+        "pos": 15,
+        "change": "+7",
+        "artist": "SIENNA SPIRO",
+        "title": "Great Expectation",
+        "weeks": 17,
+        "peak": "5",
+        "streams": 191565
+      },
+      {
+        "pos": 16,
+        "change": "+5",
+        "artist": "Olivia Rodrigo",
+        "title": "the cure",
+        "weeks": 23,
+        "peak": "2 (x1)",
+        "streams": 189830
+      },
+      {
+        "pos": 17,
+        "change": "-9",
+        "artist": "Fontaines D.C.",
+        "title": "Mimesis",
+        "weeks": 2,
+        "peak": "8",
+        "streams": 189511
+      },
+      {
+        "pos": 18,
+        "change": "+13",
+        "artist": "Abigail Rose",
+        "title": "Betty's in the Band (w/ Weston Hunter)",
+        "weeks": 7,
+        "peak": "16",
+        "streams": 188982
+      },
+      {
+        "pos": 19,
+        "change": "+10",
+        "artist": "Kingfishr",
+        "title": "Killeagh",
+        "weeks": 95,
+        "peak": "1 (x13)",
+        "streams": 183670
+      },
+      {
+        "pos": 20,
+        "change": "+6",
+        "artist": "Amble",
+        "title": "The Swell",
+        "weeks": 18,
+        "peak": "2 (x5)",
+        "streams": 183139
+      }
+    ]
+  },
+  "analysis": {
+    "week_summary": "Christmas audio is back in force (Mariah Carey, Ariana Grande, Kelly Clarkson are all 'Returning'), while Tate McRae's 'Housewife' leads both Reels and the Irish Spotify chart. Expect festive and 'booking now open' content to dominate feeds until mid-December, so early, original seasonal content will stand out.",
+    "key_takeaways": [
+      "'Housewife' is the #1 Reels sound AND #1 on Spotify Ireland — the strongest crossover signal this week.",
+      "Holiday countdown and launch-reveal formats are peaking: this is the window for Christmas offers, vouchers and gift guides.",
+      "Most trending songs are major-label and may be blocked for Business accounts — plan original audio or voiceover versions of the same formats."
+    ],
+    "ireland_signal": "Two Reels sounds also chart in Ireland: 'Housewife' (Tate McRae, #1, unchanged) and 'Nicole Kidman' (ADÉLA, #12, up 12). Irish acts Fontaines D.C. and Kingfishr hold several top-20 spots, which makes them a natural fit for local, Irish-pride content.",
+    "audio_picks": [
+      {
+        "title": "Housewife",
+        "artist": "Tate McRae",
+        "why_now": "Heat 87, rising, #1 on Spotify Ireland",
+        "best_for": "Gyms, dance studios, salons, boutiques",
+        "business_account_tip": "Copy the 'morning mantra' format with on-screen text over original audio if the song is unavailable."
+      },
+      {
+        "title": "All I Want for Christmas Is You",
+        "artist": "Mariah Carey",
+        "why_now": "Heat 85, back for the season with 5.8M reels",
+        "best_for": "Salons, gift shops, restaurants, travel",
+        "business_account_tip": "Very saturated: use it for countdown posts only, and lead with your own offer in the first second."
+      },
+      {
+        "title": "Nicole Kidman",
+        "artist": "ADÉLA",
+        "why_now": "Heat 72, rising, climbing fast in Ireland (#12, +12)",
+        "best_for": "Fashion, beauty, personal brands",
+        "business_account_tip": "The 'era / outfit reveal' format works with any upbeat library track."
+      },
+      {
+        "title": "Sunshine (Instrumental)",
+        "artist": "Twista",
+        "why_now": "No lyrics, sits under voiceover or text",
+        "best_for": "Education, coaches, career and wellness tips",
+        "business_account_tip": "Ideal for talking-head tips. Check availability, or use a similar instrumental from the Reels library."
+      },
+      {
+        "title": "Hold On, We're Going Home",
+        "artist": "Drake ft. Majid Jordan",
+        "why_now": "Rising, +34 on Spotify US",
+        "best_for": "Coffee shops, gyms, real estate, 'bookings open' posts",
+        "business_account_tip": "The 'smooth Monday opener' format: a week-start promo with a booking CTA."
+      }
+    ],
+    "categories": {
+      "Education": {
+        "headline": "Quick-tip and 'study with me' formats over instrumentals are the safest win for education brands.",
+        "content_idea": "A 15-second 'One skill you can learn before Christmas' tip with text on screen, ending in a course or bootcamp CTA.",
+        "suggested_audio": "Sunshine (Instrumental) — Twista",
+        "hashtags": [
+          "#education",
+          "#onlinelearning",
+          "#upskilling",
+          "#lifelonglearning",
+          "#studyinireland",
+          "#universityoflimerick",
+          "#bootcamp"
+        ],
+        "new_hashtags": [
+          "#newyearnewskills"
+        ],
+        "sample_copies": [
+          "One skill. Six weeks. A new career path. 🎓 Start before January and walk into 2027 ahead. Link in bio to save your seat.",
+          "Studying in Limerick? Here's the 3-step method our students use to stay on track during exam season 📚 Save this for later!"
+        ],
+        "video_formats": [
+          "Reel: talking-head tip with on-screen text over an instrumental (15–20s)",
+          "Carousel: '5 skills to learn before 2027' with a save CTA on the last slide",
+          "Story: poll — 'What do you want to learn next?'"
+        ]
+      },
+      "Business & Marketing": {
+        "headline": "'How it started vs. how it's going' growth montages are rising: perfect for founders and agencies.",
+        "content_idea": "A before/after montage of a client's Instagram or website, with the result on screen.",
+        "suggested_audio": "What You Waiting For? — Gwen Stefani (Take a Chance Growth Montage)",
+        "hashtags": [
+          "#smallbusiness",
+          "#digitalmarketing",
+          "#marketingtips",
+          "#personalbranding",
+          "#irishbusiness",
+          "#limerickbusiness"
+        ],
+        "new_hashtags": [
+          "#q4marketing"
+        ],
+        "sample_copies": [
+          "From 0 bookings to a full December calendar 📈 Here's exactly what we changed. Want the same plan? DM 'PLAN'.",
+          "Your Christmas campaign should start now, not on 20 December. 3 posts to schedule this week 👇"
+        ],
+        "video_formats": [
+          "Reel: before/after client results montage",
+          "Carousel: 'Christmas campaign checklist' in 6 slides"
+        ]
+      },
+      "Tech & AI": {
+        "headline": "Dramatic 'reveal' edits work well for showcasing AI tools and automations.",
+        "content_idea": "Screen-record a 3-hour task done in 3 minutes with AI, with the reveal on the drop.",
+        "suggested_audio": "Luminary — Joel Sunny (Epic / Dramatic Reveal)",
+        "hashtags": [
+          "#ai",
+          "#aitools",
+          "#automation",
+          "#productivity",
+          "#aiforbusiness",
+          "#techireland"
+        ],
+        "new_hashtags": [],
+        "sample_copies": [
+          "This used to take me 3 hours every Monday. Now it takes 3 minutes 🤖 Comment 'AI' and I'll send you the workflow.",
+          "5 free AI tools every small business in Ireland should try before 2027 ⚡ Save this post."
+        ],
+        "video_formats": [
+          "Reel: screen-recorded task, 'before AI vs after AI' reveal",
+          "Carousel: 5 free AI tools with one-line use cases"
+        ]
+      },
+      "Local Business": {
+        "headline": "Holiday launch reveals plus 'shop local' messaging are peaking ahead of Black Friday and Christmas.",
+        "content_idea": "Reveal your Christmas window or gift range in five quick cuts, ending with 'Comment GIFT for the full list'.",
+        "suggested_audio": "Underneath the Tree — Kelly Clarkson (Holiday Launch Reveal)",
+        "hashtags": [
+          "#shoplocal",
+          "#shoplocalireland",
+          "#supportlocalireland",
+          "#madeinireland",
+          "#shoplocallimerick",
+          "#limerickmade"
+        ],
+        "new_hashtags": [
+          "#shoplocalthischristmas"
+        ],
+        "sample_copies": [
+          "Our Christmas collection just landed 🎄 Every gift is made or sourced in Ireland. Pop in this weekend, or comment GIFT for the list.",
+          "Skip the queues, shop local. Gift vouchers now available in-store and online 🎁"
+        ],
+        "video_formats": [
+          "Reel: holiday window/product launch reveal in 5 cuts",
+          "Story: countdown sticker to Black Friday"
+        ]
+      },
+      "Food & Drink": {
+        "headline": "Cosy autumn-to-Christmas aesthetics and festive menus drive saves and shares.",
+        "content_idea": "'Each festive drink, one per beat', ending on the full menu board.",
+        "suggested_audio": "Santa Tell Me — Ariana Grande / Linger — The Cranberries (cosy, Irish)",
+        "hashtags": [
+          "#foodie",
+          "#irishfood",
+          "#coffeeshop",
+          "#eatlocal",
+          "#limerickfood",
+          "#limerickeats"
+        ],
+        "new_hashtags": [
+          "#festivemenu"
+        ],
+        "sample_copies": [
+          "The festive menu is HERE ☕🎄 Which one are you trying first? Tag your coffee buddy.",
+          "Christmas party bookings are open for groups of 6–30. Spots are going fast, so DM us to reserve."
+        ],
+        "video_formats": [
+          "Reel: festive menu, one item per beat",
+          "Carousel: 'Where to eat in Limerick this December'"
+        ]
+      },
+      "Fitness & Wellness": {
+        "headline": "Progress stories and timer-on-screen workouts perform well before the 'New Year, new me' wave.",
+        "content_idea": "'Day 1 vs Day 100' member story, or a 15-minute workout with the timer visible.",
+        "suggested_audio": "Housewife — Tate McRae / Everlong — Foo Fighters",
+        "hashtags": [
+          "#fitness",
+          "#fitnessmotivation",
+          "#personaltrainer",
+          "#fitnessireland",
+          "#limerickfitness",
+          "#limerickgym"
+        ],
+        "new_hashtags": [
+          "#beatthechristmasrush"
+        ],
+        "sample_copies": [
+          "Don't wait for January. Start now and arrive at 2027 already 6 weeks in 💪 Free trial week, link in bio.",
+          "Day 1 → Day 100. Same person, new strength. Your story could be next 🔥"
+        ],
+        "video_formats": [
+          "Reel: Day 1 vs Day 100 member story",
+          "Reel: 15-min workout with a timer on screen"
+        ]
+      },
+      "Beauty": {
+        "headline": "Holiday nail menus and self-care routines are peaking: lead with booking CTAs.",
+        "content_idea": "Holiday nail or lash menu, one design per beat, ending on 'Christmas slots open'.",
+        "suggested_audio": "All I Want for Christmas Is You — Mariah Carey / Blue Moon — Zara Larsson",
+        "hashtags": [
+          "#nailart",
+          "#lashes",
+          "#beautysalon",
+          "#irishbeauty",
+          "#limericksalon",
+          "#limericknails"
+        ],
+        "new_hashtags": [
+          "#christmasnails"
+        ],
+        "sample_copies": [
+          "Christmas nails season is officially open 💅🎄 Limited slots for December, book now via the link in bio.",
+          "Party-ready in 45 minutes ✨ Our festive glow package is back."
+        ],
+        "video_formats": [
+          "Reel: holiday nail/lash menu, one design per beat",
+          "Reel: get-ready-with-me for a Christmas party"
+        ]
+      },
+      "Travel & Tourism": {
+        "headline": "Cinematic, 'too pretty to be real' landscape reveals fit the Wild Atlantic Way in winter.",
+        "content_idea": "A slow reveal of a misty castle or river at dusk, ending with 'Weekend escape from €X'.",
+        "suggested_audio": "Angel of My Dreams — JADE / November Rain — Guns N' Roses",
+        "hashtags": [
+          "#discoverireland",
+          "#wildatlanticway",
+          "#irelandtravel",
+          "#visitlimerick",
+          "#adare",
+          "#visitclare"
+        ],
+        "new_hashtags": [
+          "#winterinireland"
+        ],
+        "sample_copies": [
+          "Adare in November hits different 🍂 Save this for your next weekend escape.",
+          "Too pretty to be real? It's 30 minutes from Limerick 🏰 Tag who you'd bring."
+        ],
+        "video_formats": [
+          "Reel: slow cinematic landscape reveal at dusk",
+          "Carousel: weekend itinerary from Limerick"
+        ]
+      },
+      "Fashion": {
+        "headline": "'Era' and outfit-reveal formats are rising fast, driven by ADÉLA's 'Nicole Kidman' (also climbing in Ireland).",
+        "content_idea": "'My Christmas party era': three outfits, one per beat, from your shop.",
+        "suggested_audio": "Nicole Kidman — ADÉLA",
+        "hashtags": [
+          "#ootd",
+          "#outfitinspo",
+          "#fitcheck",
+          "#irishfashion",
+          "#limerickstyle",
+          "#preloved"
+        ],
+        "new_hashtags": [
+          "#partyseasonoutfits"
+        ],
+        "sample_copies": [
+          "Entering my Christmas party era ✨ Which look: 1, 2 or 3? All available in-store.",
+          "One coat, three ways. Irish winter-proof 🧥"
+        ],
+        "video_formats": [
+          "Reel: 'my Christmas party era', 3 outfits on the beat",
+          "Carousel: one coat styled three ways"
+        ]
+      }
+    },
+    "limerick_local": {
+      "headline": "Limerick's festive season (Christmas markets, Milk Market, city lights) is the best local hook right now.",
+      "ideas": [
+        "A 'Christmas in Limerick' guide Reel: 5 spots in 15 seconds, collaborating with neighbouring businesses (Instagram Collab post).",
+        "A behind-the-scenes 'getting ready for Christmas' clip with a local face: your team, a customer or a student.",
+        "UGC push: ask customers to tag #lovelimerick plus your handle for a December giveaway."
+      ],
+      "hashtags": [
+        "#limerick",
+        "#lovelimerick",
+        "#limerickcity",
+        "#limerickchristmas",
+        "#shannon",
+        "#ennis",
+        "#midwestireland"
+      ],
+      "sample_copies": [
+        "Limerick, we're ready for Christmas 🎄 Come see us this weekend. Tag someone you'd bring!",
+        "5 cosy spots in Limerick you need to visit this December ☕✨ Save + share with your crew."
+      ]
+    },
+    "opportunities": [
+      "Black Friday (27 Nov) and Christmas: plan 3 Reels per week from now until 20 December.",
+      "Irish artists (Fontaines D.C., Kingfishr) are dominating local streams, so pair your content with Irish-pride messaging.",
+      "Education: 'learn a skill before January' content captures New Year intent early."
+    ],
+    "watch_out": [
+      "Mariah Carey's song is in 5.8M+ reels and very saturated, so your hook has to land in the first second.",
+      "Major-label songs may be unavailable on Business accounts: check in-app before filming."
+    ],
+    "_meta": {
+      "model": "seed (written at setup)",
+      "generated_at": "2026-11-06T01:15:00+00:00",
+      "kind": "seed"
+    }
+  }
+}
