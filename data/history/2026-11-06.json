@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T02:39:02+00:00",
+  "updated_at": "2026-11-06T02:45:10+00:00",
   "week": "2026-W45",
   "source_status": {
     "CreatorDB": "updated",
@@ -13,7 +13,7 @@
     "source": "CreatorDB",
     "url": "https://creatordb.app/free-tools/trending-instagram-audio/",
     "week_label": "November 4, 2026",
-    "fetched_at": "2026-11-06T02:39:00+00:00",
+    "fetched_at": "2026-11-06T02:45:08+00:00",
     "items": [
       {
         "rank": 1,
@@ -246,7 +246,7 @@
   "business_audio": {
     "source": "SocialPilot",
     "url": "https://www.socialpilot.co/blog/instagram-reels-trends",
-    "fetched_at": "2026-11-06T02:39:01+00:00",
+    "fetched_at": "2026-11-06T02:45:09+00:00",
     "items": [
       {
         "rank": 1,
@@ -458,7 +458,7 @@
     "source": "Kworb (Spotify Weekly Chart — Ireland)",
     "url": "https://kworb.net/spotify/country/ie_weekly.html",
     "chart_date": "2026/10/29",
-    "fetched_at": "2026-11-06T02:39:02+00:00",
+    "fetched_at": "2026-11-06T02:45:10+00:00",
     "items": [
       {
         "pos": 1,
@@ -1209,7 +1209,7 @@
     ],
     "_meta": {
       "model": "Rule-based engine (no AI key)",
-      "generated_at": "2026-11-06T02:39:02+00:00",
+      "generated_at": "2026-11-06T02:45:10+00:00",
       "kind": "rules"
     }
   }
