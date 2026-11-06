@@ -1,17 +1,19 @@
 {
-  "updated_at": "2026-11-06T01:49:33+00:00",
+  "updated_at": "2026-11-06T02:39:02+00:00",
   "week": "2026-W45",
   "source_status": {
     "CreatorDB": "updated",
     "SocialPilot": "updated",
     "Kworb Ireland": "updated",
-    "Analysis": "updated (rule-based, no AI key)"
+    "Analysis": "updated (rule-based, no AI key)",
+    "IG profiles": "blocked this week (kept history)",
+    "LCS insights": "not connected"
   },
   "reels_audio": {
     "source": "CreatorDB",
     "url": "https://creatordb.app/free-tools/trending-instagram-audio/",
     "week_label": "November 4, 2026",
-    "fetched_at": "2026-11-06T01:49:32+00:00",
+    "fetched_at": "2026-11-06T02:39:00+00:00",
     "items": [
       {
         "rank": 1,
@@ -244,7 +246,7 @@
   "business_audio": {
     "source": "SocialPilot",
     "url": "https://www.socialpilot.co/blog/instagram-reels-trends",
-    "fetched_at": "2026-11-06T01:49:32+00:00",
+    "fetched_at": "2026-11-06T02:39:01+00:00",
     "items": [
       {
         "rank": 1,
@@ -456,7 +458,7 @@
     "source": "Kworb (Spotify Weekly Chart — Ireland)",
     "url": "https://kworb.net/spotify/country/ie_weekly.html",
     "chart_date": "2026/10/29",
-    "fetched_at": "2026-11-06T01:49:33+00:00",
+    "fetched_at": "2026-11-06T02:39:02+00:00",
     "items": [
       {
         "pos": 1,
@@ -958,9 +960,9 @@
     ],
     "categories": {
       "Education": {
-        "headline": "'Smooth Monday Opener / Bookings Open' is the format to borrow this week, led by 'Hold On, We're Going Home'.",
-        "content_idea": "Adapt the 'Smooth Monday Opener / Bookings Open' format to education: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "Hold On, We're Going Home — Drake ft. Majid Jordan",
+        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to education: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: talking-head tip with on-screen text over an instrumental (15–20s)",
           "Carousel: '5 things to learn this month' with a save CTA on the last slide",
@@ -982,9 +984,9 @@
         ]
       },
       "Business & Marketing": {
-        "headline": "'Christmas Season Countdown' is the format to borrow this week, led by 'All I Want for Christmas Is You'.",
-        "content_idea": "Adapt the 'Christmas Season Countdown' format to business & marketing: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "All I Want for Christmas Is You — Mariah Carey",
+        "headline": "'Smooth Monday Opener / Bookings Open' is the format to borrow this week, led by 'Hold On, We're Going Home'.",
+        "content_idea": "Adapt the 'Smooth Monday Opener / Bookings Open' format to business & marketing: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "Hold On, We're Going Home — Drake ft. Majid Jordan",
         "video_formats": [
           "Reel: before/after results montage",
           "Carousel: step-by-step checklist in 6 slides"
@@ -1005,9 +1007,9 @@
         ]
       },
       "Tech & AI": {
-        "headline": "'Nicole Kidman Era / Outfit Reveal' is the format to borrow this week, led by 'Nicole Kidman'.",
-        "content_idea": "Adapt the 'Nicole Kidman Era / Outfit Reveal' format to tech & ai: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "Nicole Kidman — ADÉLA",
+        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to tech & ai: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: 'before vs after' screen recording reveal",
           "Carousel: 5 tools with one-line use cases"
@@ -1028,9 +1030,9 @@
         ]
       },
       "Local Business": {
-        "headline": "'Christmas Season Countdown' is the format to borrow this week, led by 'All I Want for Christmas Is You'.",
-        "content_idea": "Adapt the 'Christmas Season Countdown' format to local business: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "All I Want for Christmas Is You — Mariah Carey",
+        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to local business: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: product/window reveal in 5 quick cuts",
           "Story: countdown sticker to your next offer"
@@ -1207,7 +1209,7 @@
     ],
     "_meta": {
       "model": "Rule-based engine (no AI key)",
-      "generated_at": "2026-11-06T01:49:33+00:00",
+      "generated_at": "2026-11-06T02:39:02+00:00",
       "kind": "rules"
     }
   }
