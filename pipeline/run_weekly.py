@@ -11,6 +11,7 @@ from pathlib import Path
 
 from pipeline.analyze import run_analysis
 from pipeline.rules import run_rules
+from pipeline import ig_profiles, ig_insights
 from pipeline.collect import (
     collect_creatordb,
     collect_kworb_ie,
@@ -87,6 +88,14 @@ def main() -> None:
             analysis = prev.get("analysis")
             status["Analysis"] = "kept previous"
     out["analysis"] = analysis
+
+    # Instagram: public profile numbers for every school (no login) + optional LCS insights (Graph API)
+    try:
+        r = ig_profiles.run()
+        status["IG profiles"] = f"updated {r['ok']}/{r['total']}" if r["ok"] else "blocked this week (kept history)"
+    except Exception as e:  # noqa: BLE001
+        status["IG profiles"] = f"failed: {e.__class__.__name__}"
+    status["LCS insights"] = ig_insights.run()
 
     LATEST.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
     (HISTORY / f"{now.date().isoformat()}.json").write_text(
