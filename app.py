@@ -16,9 +16,15 @@ import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
 
+import importlib
+
 import insights as ins
 import studio
 import ui
+
+# Streamlit Cloud keeps imported modules in memory between deploys; reload so new helpers are always picked up.
+for _m in (ui, ins, studio):
+    importlib.reload(_m)
 from ui import BURGUNDY_2, CHART_CFG, GOLD, GRAY_LIGHT, NAVY, OFF_WHITE, esc
 
 APP_NAME, DEVELOPER = "LCS – IDEAs for Posting", "Ed Trigueros"
