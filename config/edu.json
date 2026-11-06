@@ -1,0 +1,541 @@
+{
+  "school": {
+    "name": "Limerick Christian School",
+    "strengths": [
+      "Individualised, self-paced learning (ACE)",
+      "ICCE accreditation",
+      "Small classes",
+      "Christian values & chapel",
+      "Primary and secondary",
+      "Applications open all year"
+    ],
+    "promo_deadline": {
+      "date": "2026-11-30",
+      "label": "Special enrolment offer ends"
+    }
+  },
+  "pillars": {
+    "Student life": "#0b3767",
+    "Faith & values": "#530100",
+    "Enrolment": "#fdbc59",
+    "Achievement": "#184f8e",
+    "Events": "#6d8fb8",
+    "Sport": "#9fb6d1",
+    "Teachers": "#c98a2b",
+    "Parents": "#707070"
+  },
+  "ideas": [
+    {
+      "id": "p1",
+      "title": "A day in Primary",
+      "segment": "Primary",
+      "pillar": "Student life",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "What does a normal day look like at LCS?",
+      "shots": "Arrival · morning prayer · own-pace work · break · reading corner",
+      "cta": "Book a visit"
+    },
+    {
+      "id": "p2",
+      "title": "Learning at their own pace",
+      "segment": "Primary",
+      "pillar": "Student life",
+      "format": "Carousel",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "Every child moves forward at their own speed.",
+      "shots": "Goal chart · PACE booklet · teacher check-in · star chart",
+      "cta": "Learn how it works"
+    },
+    {
+      "id": "p3",
+      "title": "Meet the teacher",
+      "segment": "Primary",
+      "pillar": "Teachers",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Trust",
+      "effort": "Low",
+      "hook": "Three quick questions with Ms ___",
+      "shots": "Teacher to camera · classroom wide · favourite book",
+      "cta": "Follow to meet the team"
+    },
+    {
+      "id": "p4",
+      "title": "Advent in the classroom",
+      "segment": "Primary",
+      "pillar": "Faith & values",
+      "format": "Photo",
+      "platform": "Both",
+      "goal": "Community",
+      "effort": "Low",
+      "hook": "Week one of Advent: hope.",
+      "shots": "Advent wreath · candle lighting · pupils' artwork (no faces)",
+      "cta": "Share with a friend"
+    },
+    {
+      "id": "p5",
+      "title": "Nativity rehearsal",
+      "segment": "Primary",
+      "pillar": "Events",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Community",
+      "effort": "Medium",
+      "hook": "Costumes, cues and a lot of tinsel.",
+      "shots": "Backstage · props · teacher directing · wide stage",
+      "cta": "Save the date"
+    },
+    {
+      "id": "p6",
+      "title": "Parent question of the week",
+      "segment": "Primary",
+      "pillar": "Parents",
+      "format": "Carousel",
+      "platform": "Facebook",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "\"Will my child get enough attention?\"",
+      "shots": "Question slide · answer · class-size fact · visit invite",
+      "cta": "Ask us anything"
+    },
+    {
+      "id": "p7",
+      "title": "Star of the week",
+      "segment": "Primary",
+      "pillar": "Achievement",
+      "format": "Photo",
+      "platform": "Facebook",
+      "goal": "Community",
+      "effort": "Low",
+      "hook": "Effort, kindness, progress.",
+      "shots": "Certificate · hands holding award (no faces unless consent)",
+      "cta": "Celebrate with us"
+    },
+    {
+      "id": "p8",
+      "title": "Reading corner tour",
+      "segment": "Primary",
+      "pillar": "Student life",
+      "format": "Story",
+      "platform": "Instagram",
+      "goal": "Trust",
+      "effort": "Low",
+      "hook": "Our favourite corner of the school.",
+      "shots": "Shelves · cushions · book of the month poll",
+      "cta": "Vote: which book next?"
+    },
+    {
+      "id": "s1",
+      "title": "Why self-paced works",
+      "segment": "Secondary",
+      "pillar": "Student life",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Medium",
+      "hook": "Goals set every morning, progress you can see.",
+      "shots": "Student setting daily goals · teacher check-in · progress chart",
+      "cta": "Book a visit"
+    },
+    {
+      "id": "s2",
+      "title": "Parent testimonial",
+      "segment": "Secondary",
+      "pillar": "Parents",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Medium",
+      "hook": "\"He feels confident again.\"",
+      "shots": "Parent interview (audio or face, with consent) · school b-roll",
+      "cta": "Hear more stories"
+    },
+    {
+      "id": "s3",
+      "title": "Small class, big difference",
+      "segment": "Secondary",
+      "pillar": "Student life",
+      "format": "Carousel",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "What a small class actually means.",
+      "shots": "Class size number · one-to-one help · quiet study · teacher quote",
+      "cta": "Applications open"
+    },
+    {
+      "id": "s4",
+      "title": "Chapel morning",
+      "segment": "Secondary",
+      "pillar": "Faith & values",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Trust",
+      "effort": "Low",
+      "hook": "How we start the week.",
+      "shots": "Worship · Bible reading · students serving (backs/hands)",
+      "cta": "Follow for more"
+    },
+    {
+      "id": "s5",
+      "title": "Accreditation explained",
+      "segment": "Secondary",
+      "pillar": "Achievement",
+      "format": "Carousel",
+      "platform": "Facebook",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "What ICCE accreditation means for your child.",
+      "shots": "Logo · 3 benefits · pathway after school",
+      "cta": "Read more on our website"
+    },
+    {
+      "id": "s6",
+      "title": "Serving the community",
+      "segment": "Secondary",
+      "pillar": "Faith & values",
+      "format": "Photo",
+      "platform": "Both",
+      "goal": "Community",
+      "effort": "Low",
+      "hook": "Faith in action this week.",
+      "shots": "Food bank drop · card making · thank-you note",
+      "cta": "Join in"
+    },
+    {
+      "id": "s7",
+      "title": "Ask a student",
+      "segment": "Secondary",
+      "pillar": "Student life",
+      "format": "Reel",
+      "platform": "Instagram",
+      "goal": "Trust",
+      "effort": "Medium",
+      "hook": "\"What surprised you about LCS?\"",
+      "shots": "Student answers (with consent) · quick cuts",
+      "cta": "Comment your question"
+    },
+    {
+      "id": "s8",
+      "title": "Christmas service",
+      "segment": "Secondary",
+      "pillar": "Events",
+      "format": "Carousel",
+      "platform": "Both",
+      "goal": "Community",
+      "effort": "Low",
+      "hook": "Carols, candles and community.",
+      "shots": "Venue · choir · families arriving · thank-you slide",
+      "cta": "Save the date"
+    },
+    {
+      "id": "b1",
+      "title": "Offer countdown",
+      "segment": "Both",
+      "pillar": "Enrolment",
+      "format": "Story",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "Last days to apply with our special offer.",
+      "shots": "Countdown sticker · school photo · apply link",
+      "cta": "Apply now"
+    },
+    {
+      "id": "b2",
+      "title": "Visit us this week",
+      "segment": "Both",
+      "pillar": "Enrolment",
+      "format": "Event",
+      "platform": "Facebook",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "Come and see a normal school day.",
+      "shots": "Facebook Event · map · two time slots",
+      "cta": "Register for a visit"
+    },
+    {
+      "id": "b3",
+      "title": "Principal's welcome",
+      "segment": "Both",
+      "pillar": "Teachers",
+      "format": "Reel",
+      "platform": "Both",
+      "goal": "Trust",
+      "effort": "Medium",
+      "hook": "A 30-second welcome from our principal.",
+      "shots": "Principal to camera · corridor walk · classroom",
+      "cta": "Book a visit"
+    },
+    {
+      "id": "b4",
+      "title": "5 questions to ask any school",
+      "segment": "Both",
+      "pillar": "Parents",
+      "format": "Carousel",
+      "platform": "Both",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "Choosing a school? Ask these 5 questions.",
+      "shots": "One question per slide · LCS answer last",
+      "cta": "Save this post"
+    },
+    {
+      "id": "b5",
+      "title": "Then and now",
+      "segment": "Both",
+      "pillar": "Student life",
+      "format": "Reel",
+      "platform": "Instagram",
+      "goal": "Community",
+      "effort": "Low",
+      "hook": "September vs now.",
+      "shots": "Same spot, two dates · progress chart",
+      "cta": "Share with family"
+    },
+    {
+      "id": "b6",
+      "title": "Verse of the week",
+      "segment": "Both",
+      "pillar": "Faith & values",
+      "format": "Photo",
+      "platform": "Both",
+      "goal": "Community",
+      "effort": "Low",
+      "hook": "This week's verse, chosen by our pupils.",
+      "shots": "Handwritten verse card · classroom background",
+      "cta": "Share with a friend"
+    },
+    {
+      "id": "b7",
+      "title": "Fees made clear",
+      "segment": "Both",
+      "pillar": "Enrolment",
+      "format": "Carousel",
+      "platform": "Facebook",
+      "goal": "Enrolment",
+      "effort": "Low",
+      "hook": "What's included, plainly explained.",
+      "shots": "What's included · payment options · how to apply",
+      "cta": "See fees"
+    },
+    {
+      "id": "b8",
+      "title": "Behind the scenes",
+      "segment": "Both",
+      "pillar": "Teachers",
+      "format": "Story",
+      "platform": "Instagram",
+      "goal": "Trust",
+      "effort": "Low",
+      "hook": "7:45am, before anyone arrives.",
+      "shots": "Setting up · coffee · goal charts · door opening",
+      "cta": "Reply with a question"
+    }
+  ],
+  "hashtags": {
+    "Primary": [
+      "#primaryschool",
+      "#irishprimaryschool",
+      "#primaryeducation",
+      "#learningthroughplay",
+      "#smallclasses"
+    ],
+    "Secondary": [
+      "#secondaryschool",
+      "#irishsecondaryschool",
+      "#studentlife",
+      "#individuallearning",
+      "#smallclasses"
+    ],
+    "Faith": [
+      "#christianschool",
+      "#christianeducation",
+      "#faithinaction",
+      "#christianvalues"
+    ],
+    "Local": [
+      "#limerick",
+      "#lovelimerick",
+      "#limerickschools",
+      "#limerickcity",
+      "#limerickparents"
+    ],
+    "Parents": [
+      "#irishparents",
+      "#parentsinireland",
+      "#choosingaschool",
+      "#schoolchoice"
+    ]
+  },
+  "calendar": [
+    {
+      "start": "2026-11-06",
+      "end": "2026-12-22",
+      "label": "Term 1 (rest)",
+      "lane": "School year",
+      "kind": "term"
+    },
+    {
+      "start": "2026-12-23",
+      "end": "2027-01-05",
+      "label": "Christmas break",
+      "lane": "School year",
+      "kind": "holiday"
+    },
+    {
+      "start": "2027-01-06",
+      "end": "2027-03-19",
+      "label": "Term 2",
+      "lane": "School year",
+      "kind": "term"
+    },
+    {
+      "start": "2027-02-18",
+      "end": "2027-02-19",
+      "label": "Mid-term",
+      "lane": "School year",
+      "kind": "holiday"
+    },
+    {
+      "start": "2027-03-20",
+      "end": "2027-04-04",
+      "label": "Easter break",
+      "lane": "School year",
+      "kind": "holiday"
+    },
+    {
+      "start": "2027-04-05",
+      "end": "2027-06-25",
+      "label": "Term 3",
+      "lane": "School year",
+      "kind": "term"
+    },
+    {
+      "start": "2026-11-29",
+      "end": "2026-12-24",
+      "label": "Advent",
+      "lane": "Faith",
+      "kind": "faith"
+    },
+    {
+      "start": "2026-12-25",
+      "end": "2027-01-06",
+      "label": "Christmas to Epiphany",
+      "lane": "Faith",
+      "kind": "faith"
+    },
+    {
+      "start": "2027-02-10",
+      "end": "2027-03-27",
+      "label": "Lent",
+      "lane": "Faith",
+      "kind": "faith"
+    },
+    {
+      "start": "2027-03-28",
+      "end": "2027-03-28",
+      "label": "Easter Sunday",
+      "lane": "Faith",
+      "kind": "faith"
+    },
+    {
+      "start": "2026-11-06",
+      "end": "2026-11-30",
+      "label": "LCS offer",
+      "lane": "Enrolment",
+      "kind": "enrol"
+    },
+    {
+      "start": "2027-01-06",
+      "end": "2027-03-19",
+      "label": "Peak school search",
+      "lane": "Enrolment",
+      "kind": "enrol"
+    },
+    {
+      "start": "2027-04-05",
+      "end": "2027-06-25",
+      "label": "September places",
+      "lane": "Enrolment",
+      "kind": "enrol"
+    }
+  ],
+  "moments": [
+    {
+      "date": "2026-11-29",
+      "name": "Advent begins",
+      "idea": "Advent in the classroom"
+    },
+    {
+      "date": "2026-11-30",
+      "name": "Enrolment offer ends",
+      "idea": "Offer countdown"
+    },
+    {
+      "date": "2026-12-22",
+      "name": "Last day of term",
+      "idea": "Christmas service"
+    },
+    {
+      "date": "2027-01-06",
+      "name": "Back to school · New year",
+      "idea": "Visit us this week"
+    },
+    {
+      "date": "2027-02-10",
+      "name": "Ash Wednesday · Lent",
+      "idea": "Serving the community"
+    },
+    {
+      "date": "2027-03-17",
+      "name": "St Patrick's Day",
+      "idea": "Then and now"
+    },
+    {
+      "date": "2027-03-28",
+      "name": "Easter Sunday",
+      "idea": "Chapel morning"
+    }
+  ],
+  "best_times": {
+    "source": "Sprout Social 2026, education industry (local time)",
+    "url": "https://sproutsocial.com/insights/best-times-to-post-on-facebook/",
+    "facebook": {
+      "Mon": [
+        10,
+        11
+      ],
+      "Tue": [
+        10,
+        11,
+        14
+      ],
+      "Wed": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        18
+      ],
+      "Thu": [
+        10,
+        11,
+        12,
+        15
+      ],
+      "Fri": [
+        10,
+        11
+      ]
+    },
+    "instagram_source": "Buffer 2026 (9.6M posts)"
+  }
+}
