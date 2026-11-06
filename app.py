@@ -55,11 +55,9 @@ if not HIST.empty:  # latest public follower counts (auto-updated every Monday)
     latest = HIST.sort_values("date").groupby("handle").tail(1).set_index("handle")
     schools["followers"] = schools["handle"].map(latest["followers"]).fillna(schools["followers"]).astype(int)
     if "avg_eng" in latest:  # engagement refreshed automatically when the Instagram API is connected
-        schools["avg_eng"] = pd.to_numeric(schools["handle"].map(latest["avg_eng"]), errors="coerce").fillna(schools["avg_eng"])
+        schools["avg_eng"] = pd.to_numeric(schools["handle"].map(latest["avg_eng"]), errors="coerce").fillna(schools["avg_eng"]).round().astype(int)
     schools["er"] = (schools["avg_eng"] / schools["followers"] * 100).round(1)
 lcs = schools[schools["group"] == "LCS"].iloc[0]
-lim = schools[schools["group"] == "Limerick"]
-lim_avg = {"followers": int(lim["followers"].mean()), "er": round(lim["er"].mean(), 1), "pw": round(lim["per_week"].mean(), 1)}
 
 # --------------------------------------------------------------------------- #
 # Masthead + controls
@@ -69,14 +67,24 @@ st.markdown(
     f"""<div class="mast"><div class="mast-row">
 <div><div class="brand">LCS <span>·</span> IDEAs for Posting</div>
 <div class="sub">Social media planning · Limerick Christian School</div></div>
-<div class="meta">Week of <b>{week_start.strftime('%d %B %Y')}</b><br>Principal: <b>Naomi Rose</b><br>Developer: <b>{DEVELOPER}</b></div>
+<div class="meta">Week of <b>{week_start.strftime('%d %B %Y')}</b> · updated every Monday<br>Principal: <b>Naomi Rose</b><br>Developer: <b>{DEVELOPER}</b></div>
 </div><div class="rule"></div></div>""",
     unsafe_allow_html=True,
 )
 
-c1, c2, _ = st.columns([1.1, 1.1, 2])
-segment = c1.segmented_control("School level", ["All", "Primary", "Secondary"], default="All") or "All"
-platform = c2.segmented_control("Platform", ["Instagram", "Facebook"], default="Instagram") or "Instagram"
+c1, c2 = st.columns([1.2, 3])
+segment = c1.segmented_control("School level", ["All", "Primary", "Secondary"], default="All", key="level") or "All"
+platform = "Instagram"
+c2.markdown(f'<div class="small" style="padding-top:34px">Showing <b>{"primary and secondary" if segment == "All" else segment.lower()}</b>: '
+            'ideas, posts, competitors, hashtags and copy all follow this choice. This dashboard updates automatically every Monday.</div>',
+            unsafe_allow_html=True)
+
+LEVEL_MATCH = {"All": lambda lv: True, "Primary": lambda lv: "Primary" in lv, "Secondary": lambda lv: "Secondary" in lv}[segment]
+schools_all = schools
+schools = schools_all[schools_all["level"].apply(LEVEL_MATCH) | (schools_all["group"] == "LCS")].copy()
+lim = schools[schools["group"] == "Limerick"]
+lim_label = {"All": "Limerick schools", "Primary": "Limerick primary schools", "Secondary": "Limerick secondary schools"}[segment]
+lim_avg = {"followers": int(lim["followers"].mean()), "er": round(lim["er"].mean(), 1), "pw": round(lim["per_week"].mean(), 1)}
 
 
 def ideas_for(seg: str) -> list[dict]:
@@ -123,10 +131,10 @@ with T[0]:
     days_left = (deadline - TODAY).days
     s = st.columns(4)
     s[0].markdown(ui.stat("Instagram followers", f"{int(lcs.followers):,}",
-                          f"Limerick schools average {lim_avg['followers']:,}"), unsafe_allow_html=True)
+                          f"{lim_label} average {lim_avg['followers']:,}"), unsafe_allow_html=True)
     s[1].markdown(ui.stat("Engagement rate", lcs.er, f'<span class="up">{lcs.er / lim_avg["er"]:.0f}× the local average</span> · small, loyal audience',
                           unit="%", accent=True), unsafe_allow_html=True)
-    s[2].markdown(ui.stat("Posts per week", lcs.per_week, f'<span class="down">Local schools post {lim_avg["pw"]} a week</span>'),
+    s[2].markdown(ui.stat("Posts per week", lcs.per_week, f'<span class="down">{lim_label} post {lim_avg["pw"]} a week</span>'),
                   unsafe_allow_html=True)
     s[3].markdown(ui.stat("Offer deadline", max(days_left, 0), f'{EDU["school"]["promo_deadline"]["label"]} · {deadline.strftime("%d %b")}',
                           unit="days"), unsafe_allow_html=True)
@@ -238,7 +246,7 @@ with T[1]:
     names = dict(zip(schools["handle"], schools["short"]))
     groups = dict(zip(schools["handle"], schools["group"]))
     rows = []
-    for h, gdf in (hist.groupby("handle") if not hist.empty else []):
+    for h, gdf in (hist[hist["handle"].isin(schools["handle"])].groupby("handle") if not hist.empty else []):
         gdf = gdf.sort_values("date")
         f_now, p_now = int(gdf["followers"].iloc[-1]), gdf["posts"].iloc[-1]
         f_prev = int(gdf["followers"].iloc[-2]) if len(gdf) > 1 else None
@@ -292,7 +300,7 @@ with T[1]:
             st.markdown('<div class="stat" style="display:flex;align-items:center;justify-content:center;min-height:240px;color:#7a808a">'
                         'The growth curve appears after the second weekly snapshot (Monday).</div>', unsafe_allow_html=True)
     with c2:
-        ui.head("Share of voice", "Followers among Limerick schools")
+        ui.head("Share of voice", f"Followers among {lim_label.lower().replace('limerick', 'Limerick')}")
         sv = schools[schools["group"].isin(["LCS", "Limerick"])].sort_values("followers", ascending=False)
         fig = go.Figure(go.Pie(labels=sv["short"], values=sv["followers"], hole=.66, sort=False,
                                marker=dict(colors=[GOLD if g == "LCS" else c for g, c in
@@ -423,7 +431,7 @@ with T[3]:
     fmt = f2.segmented_control("Format", ["All", "Reel", "Carousel", "Photo", "Story"], default="All") or "All"
     pool = [i for i in ideas_for(segment)
             if (goal == "All" or i["goal"] == goal) and (fmt == "All" or i["format"] == fmt)
-            and (i["platform"] in ("Both", platform))]
+            ]
     if not pool:
         st.info("No ideas match these filters.")
     for k in range(0, len(pool), 3):
@@ -510,8 +518,9 @@ with T[5]:
 
     st.write("")
     ui.head("Hashtags", "Sets for school posts", "Instagram: 8–12 tags. Facebook: 1–3 tags or none.")
-    hc = st.columns(5)
-    for col, (k, tags) in zip(hc, EDU["hashtags"].items()):
+    show_sets = {k: v for k, v in EDU["hashtags"].items() if segment == "All" or k not in ({"Primary", "Secondary"} - {segment})}
+    hc = st.columns(len(show_sets))
+    for col, (k, tags) in zip(hc, show_sets.items()):
         col.markdown(f"**{k}**<br>" + ui.chips(tags), unsafe_allow_html=True)
 
 # --------------------------------------------------------------------------- #
