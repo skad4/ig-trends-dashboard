@@ -262,7 +262,8 @@ with T[2]:
                 st.markdown(
                     f"""<div class="card"><h4>{esc(b['title'])} <span class="m">— {esc(b['artist'])}</span>{ui.badge(b.get('stage'))}</h4>
 <div class="m">{esc(b.get('mood',''))} · Reels {fmt_num(b.get('reels'))}</div>
-<div class="row"><b>Best for:</b> {esc(b.get('best_for','–'))}</div><div class="row"><b>Idea:</b> {esc(b.get('idea','–'))}</div></div>""",
+<div class="row"><b>Best for:</b> {esc(b.get('best_for','–'))}</div>"""
+                    + "".join(f'<div class="row">▸ {esc(x)}</div>' for x in (b.get("ideas") or [b.get("idea", "")])[:3] if x) + "</div>",
                     unsafe_allow_html=True)
         if not rows:
             st.info("No sounds match that filter.")

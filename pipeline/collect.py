@@ -115,24 +115,15 @@ def collect_creatordb() -> dict | None:
 
     # Example reels ("Reels Using These Sounds": numbers match the chart)
     by_rank: dict[int, list[str]] = {}
-    current, in_section = None, False
-    for node in soup.descendants:
-        if getattr(node, "name", None) is None:
-            txt = str(node)
-            if "reels using" in txt.lower():
-                in_section = True
-                continue
-            mm = re.match(r"^\s*0?(\d{1,2})\s*$|^\s*0?(\d{1,2})\s*[·.\-–—]\s", txt)
-            n = int(mm.group(1) or mm.group(2)) if mm else None
-            if in_section and n and 1 <= n <= len(items):
-                current = n
+    for node in soup.find_all("a", href=True):
+        if "instagram.com/reel/" not in node["href"]:
             continue
-        if node.name == "a" and "instagram.com/reel/" in node.get("href", ""):
-            code = re.search(r"/reel/([A-Za-z0-9_-]+)", node["href"])
-            if code and current:
-                lst = by_rank.setdefault(current, [])
-                if code.group(1) not in lst:
-                    lst.append(code.group(1))
+        code = re.search(r"/reel/([A-Za-z0-9_-]+)", node["href"])
+        num = re.match(r"\s*0?(\d{1,2})\b", node.get_text("\n", strip=True))
+        if code and num:
+            lst = by_rank.setdefault(int(num.group(1)), [])
+            if code.group(1) not in lst:
+                lst.append(code.group(1))
     for it in items:
         it["example_reels"] = by_rank.get(it["rank"], [])[:3]
 
@@ -164,26 +155,38 @@ def collect_socialpilot() -> dict | None:
         m = HEADING_RE.match(h.get_text(" ", strip=True))
         if not m:
             continue
-        block = []
+        fields, desc, ideas = {}, [], []
         for sib in h.find_next_siblings():
             if sib.name in ("h2", "h3", "h4"):
                 break
-            block.append(sib.get_text(" ", strip=True))
-        text = " ".join(block)
+            if sib.name in ("ul", "ol"):
+                ideas += [li.get_text(" ", strip=True) for li in sib.find_all("li")]
+                continue
+            t = sib.get_text(" ", strip=True)
+            lm = re.match(r"^([A-Za-z][A-Za-z ]{1,25}):\s*(.*)$", t)
+            if lm:
+                fields[lm.group(1).strip().lower()] = lm.group(2).strip()
+            elif t:
+                desc.append(t)
 
-        def grab(label):
-            mm = re.search(r"(?:" + label + r")\s*[:\-–]\s*(.+?)(?=\s[A-Z][a-zA-Z ]{2,25}:|$)", text)
-            return mm.group(1).strip() if mm and mm.group(1) else ""
+        def f(*keys):
+            for k in keys:
+                for fk, v in fields.items():
+                    if fk.startswith(k):
+                        return v
+            return ""
 
         items.append({
             "rank": int(m.group(1)),
             "title": m.group(2).strip(),
             "artist": m.group(3).strip(),
-            "stage": grab(r"(?:Trend )?Stage"),
-            "mood": grab(r"Mood|Vibe"),
-            "best_for": grab(r"Best (?:for|For)|Ideal for|Who should use"),
-            "idea": grab(r"(?:Content )?Idea|How to use"),
-            "reels": _to_int(grab(r"Reels|Uses")),
+            "stage": f("stage", "trend stage"),
+            "mood": f("mood", "vibe"),
+            "best_for": f("best for", "ideal for"),
+            "idea": ideas[0] if ideas else (desc[0][:220] if desc else ""),
+            "ideas": ideas[:5],
+            "about": desc[0][:400] if desc else "",
+            "reels": _to_int(f("post count", "reels", "uses")),
         })
 
     # de-duplicate by rank, keep first
@@ -219,10 +222,16 @@ def collect_kworb_ie(limit: int = 50) -> dict | None:
         print("[kworb] no table")
         return None
 
+    heads = [th.get_text(strip=True).lower() for th in table.find_all("th")]
+
+    def col(name, default):
+        return heads.index(name) if name in heads else default
+
+    i_wks, i_pk, i_str = col("wks", 3), col("pk", 4), col("streams", 6)
     items = []
     for row in table.find_all("tr"):
         tds = row.find_all("td")
-        if len(tds) < 6:
+        if len(tds) <= max(i_str, 5):
             continue
         pos = _to_int(tds[0].get_text(strip=True))
         change = tds[1].get_text(strip=True)
@@ -236,9 +245,9 @@ def collect_kworb_ie(limit: int = 50) -> dict | None:
             "change": change or "=",
             "artist": artist.strip(),
             "title": title.strip(),
-            "weeks": _to_int(tds[3].get_text(strip=True)),
-            "peak": tds[4].get_text(" ", strip=True),
-            "streams": _to_int(tds[5].get_text(strip=True)),
+            "weeks": _to_int(tds[i_wks].get_text(strip=True)),
+            "peak": tds[i_pk].get_text(" ", strip=True),
+            "streams": int(re.sub(r"[^\d]", "", tds[i_str].get_text(strip=True)) or 0),
         })
         if len(items) >= limit:
             break
