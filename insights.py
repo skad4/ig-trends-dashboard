@@ -7,6 +7,8 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from pipeline.rules import kw_hit
+
 TZ = ZoneInfo("Europe/Dublin")
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 TIER_W = {"Highest": 1.0, "High": 0.85, "Moderate": 0.7, "Low": 0.55}
@@ -32,15 +34,46 @@ def opportunity(a: dict) -> dict:
     return {"score": score, "saturation": round(sat, 2), "label": label, "cls": cls}
 
 
-def audio_categories(a: dict, biz_by_title: dict, ai_cats: dict, keywords: dict) -> list[str]:
+def audio_categories(a: dict, biz_by_title: dict, ai_cats: dict, keywords: dict) -> dict:
+    """Return {category: reason}. Strict: matches the source's recommended business
+    types / content ideas for this sound, not the song itself."""
     title = a.get("title", "").lower()
-    text = " ".join([a.get("trend", ""), biz_by_title.get(title, {}).get("best_for", ""),
-                     biz_by_title.get(title, {}).get("idea", "")]).lower()
-    cats = {c for c, v in ai_cats.items() if title and title in (v.get("suggested_audio") or "").lower()}
+    b = biz_by_title.get(title, {})
+    text = " ".join([b.get("best_for", ""), " ".join(b.get("ideas") or []), b.get("idea", "")]).lower()
+    out = {}
     for c, kws in keywords.items():
-        if any(k in text for k in kws):
-            cats.add(c)
-    return sorted(cats)
+        if c.startswith("_"):
+            continue
+        hit = next((k.rstrip("*") for k in kws if kw_hit(text, k)), None)
+        if hit:
+            out[c] = f"SocialPilot recommends it for '{hit.strip()}'"
+    for c, v in ai_cats.items():
+        if not isinstance(v, dict):
+            continue
+        if c not in out and title and title in (v.get("suggested_audio") or "").lower() and ai_cats.get("_kind") == "ai":
+            out[c] = "Picked by the AI briefing"
+    return out
+
+
+def theme_counts(reels: list, biz: list, themes: dict) -> list[dict]:
+    texts = [(r.get("trend") or "") for r in reels] + [" ".join([b.get("about", ""), " ".join(b.get("ideas") or [])]) for b in biz]
+    out = []
+    for name, kws in themes.items():
+        n = sum(1 for t in texts if any(k in t.lower() for k in kws))
+        if n:
+            out.append({"theme": name, "mentions": n})
+    return sorted(out, key=lambda x: -x["mentions"])
+
+
+def parse_change(ch: str) -> int | None:
+    ch = (ch or "").strip()
+    if ch.startswith("+") and ch[1:].isdigit():
+        return int(ch[1:])
+    if ch.startswith("-") and ch[1:].isdigit():
+        return -int(ch[1:])
+    if ch == "=":
+        return 0
+    return None  # "NEW" / re-entry
 
 
 # --------------------------------------------------------------------------- #

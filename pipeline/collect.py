@@ -25,7 +25,8 @@ KWORB_IE_URL = "https://kworb.net/spotify/country/ie_weekly.html"
 def _get(url: str) -> str:
     r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
-    r.encoding = r.encoding or "utf-8"
+    if "charset" not in r.headers.get("Content-Type", "").lower():
+        r.encoding = "utf-8"  # requests defaults to latin-1 otherwise (breaks É, Í…)
     return r.text
 
 

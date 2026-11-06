@@ -1,4 +1,8 @@
-# Instagram Trends Intelligence — Limerick · Ireland
+# LCS – IDEAs for Posting
+
+Instagram trends intelligence for Limerick & Ireland · **Developer: Ed Trigueros**
+
+Live app: https://ig-trends-limerick.streamlit.app
 
 A free, self-updating, "Creative Center"-style dashboard for Instagram:
 

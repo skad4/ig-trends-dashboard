@@ -22,7 +22,8 @@ from ui import BURGUNDY_2, GOLD, GRAY, NAVY, NAVY_2, OFF_WHITE, esc
 ROOT = Path(__file__).parent
 DATA, HISTORY = ROOT / "data", ROOT / "data" / "history"
 
-st.set_page_config(page_title="Instagram Trends Intelligence", page_icon="📊", layout="wide")
+APP_NAME, DEVELOPER = "LCS – IDEAs for Posting", "Ed Trigueros"
+st.set_page_config(page_title=APP_NAME, page_icon="📊", layout="wide")
 ui.inject_css()
 
 
@@ -52,7 +53,9 @@ LOCAL = REGIONS["Limerick +50km"]
 files = sorted(HISTORY.glob("*.json"), reverse=True)
 
 with st.sidebar:
-    st.markdown('<div class="sb-brand">Trends Intelligence</div><div class="sb-sub">Instagram · Limerick · Ireland</div>',
+    st.markdown(f'<div class="sb-brand">{APP_NAME}</div><div class="sb-sub">Instagram trends · Limerick · Ireland</div>',
+                unsafe_allow_html=True)
+    st.markdown(f'<div class="small" style="margin:-4px 0 10px">Developer: <b>{DEVELOPER}</b></div>',
                 unsafe_allow_html=True)
     region = st.segmented_control("Market", ["Limerick +50km", "Ireland", "Global"], default="Limerick +50km",
                                   format_func=lambda r: {"Limerick +50km": "📍 Limerick", "Ireland": "🇮🇪 Ireland", "Global": "🌍 Global"}[r]) or "Limerick +50km"
@@ -64,7 +67,7 @@ with st.sidebar:
     has_key = bool(secret("GEMINI_API_KEY"))
     st.markdown(
         f'<div class="small">Auto-refresh: <b>every Friday</b><br>AI engine: <b>{"Gemini · connected" if has_key else "Template mode"}</b>'
-        '<br>Sources: CreatorDB · SocialPilot · Kworb · Buffer</div>', unsafe_allow_html=True)
+        f'<br>Sources: CreatorDB · SocialPilot · Kworb · Buffer<br><br>{APP_NAME}<br>Developer: <b>{DEVELOPER}</b></div>', unsafe_allow_html=True)
 
 D = load_json(str(week_opts[week_key]))
 prev_file = next((f for f in files if f.stem < week_key), None)
@@ -79,7 +82,8 @@ prev_heat = {a["title"].lower(): a.get("heat") for a in ((P or {}).get("reels_au
 
 for a in reels:
     a["opp"] = ins.opportunity(a)
-    a["cats"] = ins.audio_categories(a, BIZ_BY_TITLE, AI_CATS, INS["audio_category_keywords"])
+    a["why"] = ins.audio_categories(a, BIZ_BY_TITLE, {**AI_CATS, "_kind": (A.get("_meta") or {}).get("kind")}, INS["audio_category_keywords"])
+    a["cats"] = sorted(a["why"])
 
 cat_ai = AI_CATS.get(category, {})
 cat_cfg = CATS[category]
@@ -100,9 +104,9 @@ def fmt_num(n) -> str:
 # --------------------------------------------------------------------------- #
 week_label = (D.get("reels_audio") or {}).get("week_label") or D.get("week", "")
 st.markdown(
-    f"""<div class="hero"><div class="eyebrow">Weekly Instagram intelligence</div>
-<h1>What to post this week</h1>
-<p>Trending audio, hashtags, video formats and AI-written scripts for <b>{esc(category)}</b>, focused on <b>{esc(region)}</b>.</p>
+    f"""<div class="hero"><div class="eyebrow">Weekly Instagram intelligence · Developer: Ed Trigueros</div>
+<h1>{esc(APP_NAME)}</h1>
+<p><b>What to post this week:</b> trending audio, hashtags, video formats and ready-to-use scripts for <b>{esc(category)}</b>, focused on <b>{esc(region)}</b>.</p>
 <div class="pills"><span class="pill gold">Week of {esc(week_label)}</span><span class="pill">Updated {esc(D.get('updated_at','')[:10])}</span>
 <span class="pill">{len(reels)} sounds tracked</span><span class="pill">{len(CATS)} categories</span></div></div>""",
     unsafe_allow_html=True,
@@ -122,7 +126,7 @@ k[3].markdown(ui.kpi("Next best slot", ins.fmt_slot(slots[0]["dt"]) if slots els
 k[4].markdown(ui.kpi("Next key date", nd[0]["name"] if nd else "–", f"in {nd[0]['days']} days" if nd else ""), unsafe_allow_html=True)
 st.write("")
 
-T = st.tabs(["Overview", "What to Post", "Trending Audio", "Hashtags", "Video Examples",
+T = st.tabs(["Overview", "What to Post", "Trending Audio", "Hashtags", "Sound & Video Examples",
              "Script & Copy Studio", "Limerick Local", "Sources"])
 
 # --------------------------------------------------------------------------- #
@@ -163,6 +167,94 @@ with T[0]:
         ui.section("Watch out")
         for t in A.get("watch_out", []):
             st.markdown(f"- {t}")
+    # ---------------- Business-intelligence widgets ----------------
+    st.write("")
+    ui.section("Trend intelligence", "Business-intelligence view of this week's signals: lifecycle, demand by category, themes and what's rising next.")
+    n = len(reels) or 1
+    rising_n = sum("ris" in (a.get("momentum") or "").lower() for a in reels)
+    reels_only = sum("reels only" in (a.get("also_charting") or "").lower() for a in reels)
+    overlap = sum(1 for a in reels if a.get("ireland_pos"))
+    med_reels = pd.Series([a.get("reels") for a in reels if a.get("reels")]).median() if reels else None
+    avg_heat = round(sum(a.get("heat") or 0 for a in reels) / n)
+    m = st.columns(5)
+    m[0].markdown(ui.kpi("Average heat", avg_heat, "across tracked sounds"), unsafe_allow_html=True)
+    m[1].markdown(ui.kpi("Rising share", f"{rising_n / n:.0%}", f"{rising_n} of {len(reels)} sounds"), unsafe_allow_html=True)
+    m[2].markdown(ui.kpi("Instagram-native", f"{reels_only / n:.0%}", "trend only on Reels, not music charts"), unsafe_allow_html=True)
+    m[3].markdown(ui.kpi("Ireland overlap", f"{overlap / n:.0%}", f"{overlap} sounds also chart in IE"), unsafe_allow_html=True)
+    m[4].markdown(ui.kpi("Median saturation", fmt_num(med_reels), "reels per trending sound"), unsafe_allow_html=True)
+    st.write("")
+
+    g1, g2, g3 = st.columns(3)
+    with g1:
+        st.markdown("**Trend lifecycle**")
+        life = pd.Series([a.get("momentum") or "Unknown" for a in reels]).value_counts().reset_index()
+        life.columns = ["stage", "sounds"]
+        fig = px.pie(life, names="stage", values="sounds", hole=.62,
+                     color="stage", color_discrete_map={"Rising": NAVY, "Returning": GOLD, "Peak": BURGUNDY_2, "Unknown": GRAY})
+        fig.update_traces(textinfo="value", textfont_size=13, marker=dict(line=dict(color="white", width=2)))
+        fig.update_layout(annotations=[dict(text=f"{len(reels)}<br>sounds", showarrow=False, font=dict(size=15, color=NAVY))])
+        st.plotly_chart(ui.plotly_layout(fig, 280), width="stretch", config={"displayModeBar": False})
+        st.caption("Rising = early, best time to jump in. Returning/Peak = seasonal or crowded.")
+    with g2:
+        st.markdown("**Trend fuel by category**")
+        fuel = [{"category": c, "fuel": sum(a["opp"]["score"] for a in reels if c in a["cats"]),
+                 "sounds": sum(1 for a in reels if c in a["cats"])} for c in CATS]
+        fdf = pd.DataFrame(fuel).sort_values("fuel")
+        fdf["sel"] = fdf["category"].eq(category).map({True: "Selected", False: "Other"})
+        fig = px.bar(fdf, x="fuel", y="category", orientation="h", color="sel", text="sounds",
+                     color_discrete_map={"Selected": GOLD, "Other": NAVY}, labels={"fuel": "Sum of opportunity scores", "category": ""})
+        fig.update_traces(texttemplate="%{text}", textposition="outside", cliponaxis=False)
+        fig.update_layout(showlegend=False)
+        fig.update_xaxes(range=[0, max(fdf["fuel"].max(), 1) * 1.18])
+        st.plotly_chart(ui.plotly_layout(fig, 300), width="stretch", config={"displayModeBar": False})
+        st.caption("Bar = total opportunity of sounds recommended for each category · label = number of sounds.")
+    with g3:
+        st.markdown("**Top content themes**")
+        th = pd.DataFrame(ins.theme_counts(reels, biz, INS.get("content_themes", {})))
+        if not th.empty:
+            fig = px.bar(th.sort_values("mentions"), x="mentions", y="theme", orientation="h",
+                         color_discrete_sequence=[NAVY_2], labels={"mentions": "Mentions in this week's trends", "theme": ""})
+            st.plotly_chart(ui.plotly_layout(fig, 300), width="stretch", config={"displayModeBar": False})
+        st.caption("Formats and moods that repeat across trending sounds and content ideas.")
+
+    g4, g5 = st.columns([1.2, 1])
+    with g4:
+        st.markdown("**Fastest risers in Ireland · next-up watchlist**")
+        ris = []
+        reels_titles = {a["title"].lower() for a in reels}
+        for i in ie[:50]:
+            ch = ins.parse_change(i.get("change"))
+            if ch and ch > 0:
+                ris.append({"song": f"{i['artist']} — {i['title']}", "climb": ch, "pos": i["pos"],
+                            "status": "Already on Reels" if i["title"].lower() in reels_titles else "Not on Reels yet"})
+        rdf = pd.DataFrame(ris).sort_values("climb", ascending=False).head(10) if ris else pd.DataFrame()
+        if not rdf.empty:
+            fig = px.bar(rdf.iloc[::-1], x="climb", y="song", orientation="h", color="status",
+                         color_discrete_map={"Not on Reels yet": GOLD, "Already on Reels": NAVY},
+                         hover_data={"pos": True}, labels={"climb": "Places climbed this week (Spotify IE)", "song": ""})
+            ui.plotly_layout(fig, 380)
+            fig.update_layout(legend=dict(orientation="h", y=-0.22, x=0), margin=dict(t=10, b=10))
+            st.plotly_chart(fig, width="stretch", config={"displayModeBar": False})
+            st.caption("Gold = climbing fast in Ireland but not yet a Reels trend. These are candidates to use early.")
+    with g5:
+        st.markdown("**Week-over-week movers**")
+        if P:
+            prev = {a["title"].lower(): a for a in (P.get("reels_audio") or {}).get("items", [])}
+            mv = []
+            for a in reels:
+                pa = prev.get(a["title"].lower())
+                mv.append({"Sound": a["title"], "Heat": a.get("heat"),
+                           "Δ Heat": (a.get("heat") or 0) - (pa.get("heat") or 0) if pa else None,
+                           "Status": "Returning" if pa else "🆕 New"})
+            st.dataframe(pd.DataFrame(mv).sort_values("Δ Heat", ascending=False, na_position="first"), hide_index=True,
+                         width="stretch", height=330)
+        else:
+            st.markdown('<div class="card soft small">History builds every Friday. From next week this panel compares each sound\'s heat '
+                        'with the week before, plus new entries and drop-offs.</div>', unsafe_allow_html=True)
+            sig = pd.DataFrame([{"Sound": a["title"], "Heat": a.get("heat"), "Opportunity": a["opp"]["score"],
+                                 "Signal": a["opp"]["label"]} for a in reels]).sort_values("Opportunity", ascending=False)
+            st.dataframe(sig, hide_index=True, width="stretch", height=280)
+
     meta = A.get("_meta", {})
     st.caption(f"Analysis: {meta.get('model','–')} · {meta.get('generated_at','')[:10]}"
                + (" · seed analysis, replaced on the first automatic run" if meta.get("kind") == "seed" else ""))
@@ -318,33 +410,51 @@ with T[3]:
 # 5 · Video examples
 # --------------------------------------------------------------------------- #
 with T[4]:
-    ui.section(f"Video examples · {category}",
-               "Real Reels using this week's trending sounds that fit this category. Play them here or open them in Instagram.")
+    REF = load_json(str(ROOT / "config" / "reference_reels.json"))
+    ui.section(f"Sound & video examples · {category}",
+               "Reels are grouped by SOUND: they show how creators use each trending audio (edit style, pacing, format), "
+               "not necessarily your topic. Use them as format references, and use the hashtag links for topic inspiration.")
     vf = cat_ai.get("video_formats") or []
-    if vf:
-        st.markdown('<div class="card soft"><b>Formats to film this week</b>' + "".join(f'<div class="row">▸ {esc(x)}</div>' for x in vf) + "</div>",
-                    unsafe_allow_html=True)
-    vids = [(a, code, True) for a in cat_audios if category in a["cats"] for code in (a.get("example_reels") or [])[:2]]
-    if len(vids) < 6:  # top up with this week's best-opportunity sounds
-        seen = {c for _, c, _ in vids}
-        for a in sorted(reels, key=lambda x: -x["opp"]["score"]):
-            for code in (a.get("example_reels") or [])[:1]:
-                if code not in seen and len(vids) < 9:
-                    vids.append((a, code, False)); seen.add(code)
-    if not vids:
-        st.info("No example reels for this category this week. Try another category.")
+    v1, v2 = st.columns([1.2, 1])
+    with v1:
+        if vf:
+            st.markdown('<div class="card soft"><b>Formats to film this week</b>' + "".join(f'<div class="row">▸ {esc(x)}</div>' for x in vf) + "</div>",
+                        unsafe_allow_html=True)
+    with v2:
+        tags_for_links = list(dict.fromkeys((cat_ai.get("hashtags") or []) + cat_cfg["niche"][:3] + cat_cfg["mid"][:2]))[:6]
+        st.markdown(f'<div class="card"><b>Topic inspiration on Instagram</b><div class="small">Real {esc(category)} posts, '
+                    'opened in Instagram (you need to be logged in).</div></div>', unsafe_allow_html=True)
+        lc = st.columns(2)
+        for i, t in enumerate(tags_for_links):
+            lc[i % 2].link_button(t, f"https://www.instagram.com/explore/tags/{t.lstrip('#')}/", width="stretch")
+
+    own = [x.rstrip("/").split("/reel/")[-1].split("/")[0] for x in (REF.get(category) or []) if x]
+    fit = [a for a in reels if category in a["cats"]]
+    picks = [(a, c, "fit") for a in sorted(fit, key=lambda x: -x["opp"]["score"]) for c in (a.get("example_reels") or [])[:2]]
+    if fit:
+        st.markdown("**Sounds recommended for this category** · " + " · ".join(
+            f"<b>{esc(a['title'])}</b> <span class='small'>({esc(a['why'].get(category, ''))})</span>" for a in fit), unsafe_allow_html=True)
     else:
+        st.info(f"No trending sound this week is specifically recommended for {category}. Below are the week's top "
+                "opportunity sounds as format references. For education, a talking-head tip over an instrumental or original audio is the safest choice.")
+        picks = [(a, c, "general") for a in sorted(reels, key=lambda x: -x["opp"]["score"])[:6] for c in (a.get("example_reels") or [])[:1]]
+    picks = [(None, c, "own") for c in own] + picks
+    if picks:
         max_v = st.segmented_control("Examples to show", [3, 6, 9], default=3) or 3
         cols = st.columns(3)
-        for i, (a, code, fits) in enumerate(vids[:max_v]):
+        for i, (a, code, kind) in enumerate(picks[:max_v]):
             with cols[i % 3]:
-                st.markdown(f'<div class="small" style="margin-bottom:6px"><b style="color:{NAVY}">{esc(a["title"])}</b> · {esc(a["artist"])} '
-                            f'{ui.badge(a["opp"]["label"], a["opp"]["cls"])}{"" if fits else ui.badge("General trend", "b-watch")}</div>',
-                            unsafe_allow_html=True)
+                if kind == "own":
+                    head = f'<b style="color:{NAVY}">Your reference</b> {ui.badge(category, "b-use")}'
+                else:
+                    head = (f'<b style="color:{NAVY}">{esc(a["title"])}</b> · {esc(a["artist"])} {ui.badge(a["opp"]["label"], a["opp"]["cls"])}'
+                            + ("" if kind == "fit" else ui.badge("Format reference", "b-watch")))
+                st.markdown(f'<div class="small" style="margin-bottom:6px">{head}</div>', unsafe_allow_html=True)
                 components.html(
                     f'<iframe src="https://www.instagram.com/reel/{code}/embed/" width="100%" height="560" frameborder="0" scrolling="no" '
                     'allowtransparency="true" style="border:1px solid #e3e8ef;border-radius:12px;background:#fff"></iframe>', height=572)
                 st.link_button("Open in Instagram ↗", f"https://www.instagram.com/reel/{code}/", width="stretch")
+    st.caption("Tip: add your own topic-specific reference Reels per category in config/reference_reels.json and they appear first here.")
 
 # --------------------------------------------------------------------------- #
 # 6 · Script & Copy Studio
@@ -486,3 +596,7 @@ with T[7]:
     st.json(D.get("source_status", {}), expanded=False)
     st.caption("Heat scores and reel counts come from the sources at publish time and are approximate. Spotify Ireland is a regional "
                "proxy, not Instagram data. The Opportunity score is this dashboard's own metric (Heat adjusted for saturation).")
+
+st.markdown(f'<div class="small" style="text-align:center;margin-top:40px;padding-top:14px;border-top:1px solid rgba(11,55,103,.12)">'
+            f'<b style="color:{NAVY}">{APP_NAME}</b> · Developed by <b>{DEVELOPER}</b> · Data refreshes every Friday</div>',
+            unsafe_allow_html=True)

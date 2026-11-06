@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -46,10 +47,18 @@ def _score(a):
     return round((a.get("heat") or 0) * (1 - 0.45 * _sat(a.get("reels"))))
 
 
+def kw_hit(text: str, k: str) -> bool:
+    """Whole-word match (plural ok); 'educat*' = prefix match."""
+    k = k.strip().lower()
+    if k.endswith("*"):
+        return re.search(r"\b" + re.escape(k[:-1]), text) is not None
+    return re.search(r"\b" + re.escape(k) + r"(?:e?s)?\b", text) is not None
+
+
 def _cats_for(a, biz_by_title, keywords):
-    text = " ".join([a.get("trend", ""), biz_by_title.get(a["title"].lower(), {}).get("best_for", ""),
-                     biz_by_title.get(a["title"].lower(), {}).get("idea", "")]).lower()
-    return {c for c, kws in keywords.items() if any(k in text for k in kws)}
+    b = biz_by_title.get(a["title"].lower(), {})
+    text = " ".join([b.get("best_for", ""), " ".join(b.get("ideas") or []), b.get("idea", "")]).lower()
+    return {c for c, kws in keywords.items() if not c.startswith("_") and any(kw_hit(text, k) for k in kws)}
 
 
 def run_rules(reels: list, biz: list, ie: list, tags_cfg: dict, ins_cfg: dict, today: date | None = None) -> dict:
