@@ -189,15 +189,17 @@ def ideas(prompt: str, level: str, platform: str, detail: str = "") -> list[dict
             body = body.replace("primary and secondary", "secondary")
         cta = CTA[pillar] if platform == "Instagram" else CTA[pillar].replace("link in bio", "limerickchristianschool.com")
         if i == 0:      # question hook + share prompt
-            mid = [body, share.get(pillar, "Share this with a family who'd love it 💙")]
+            sp = share.get(pillar, "Share this with a family who'd love it 💙")
+            mid = [body] + ([] if "share" in cta.lower() or "tag" in cta.lower() else [sp])
         elif i == 1:    # list hook
-            mid = [lists.get(pillar, lists["Enrolment"]), "Save this post for later."]
+            mid = [lists.get(pillar, lists["Enrolment"])] + ([] if "save" in cta.lower() else ["Save this post for later."])
         else:           # story hook
             mid = [story.get(pillar, "Real moments like this are why our families love being part of LCS."), body]
-        parts = [h] + mid + ([detail.strip()] if detail and detail.strip() else []) + [cta, " ".join(hashtags(pillar, lvl, platform))]
-        cap = "\n\n".join(parts)
+        tags = hashtags(pillar, lvl, platform)
+        body_txt = "\n\n".join([h] + mid + ([detail.strip()] if detail and detail.strip() else []) + [cta])
+        cap = body_txt + "\n\n" + " ".join(tags)
         sc = viral_score(cap, fmts[i], platform)
-        out.append({"style": ["Question hook", "List hook", "Story hook"][i], "format": fmts[i], "caption": cap, "score": sc,
+        out.append({"style": ["Question hook", "List hook", "Story hook"][i], "format": fmts[i], "caption": cap, "body": body_txt, "tags": tags, "score": sc,
                     "topic": topic, "level": lvl})
     return sorted(out, key=lambda x: -x["score"]["score"])
 
@@ -233,7 +235,9 @@ def improve(copy: str, level: str, platform: str, fmt: str = "Reel") -> dict:
     tags = tags[:3] if platform == "Facebook" else tags[:11]
     if [t.lower() for t in tags] != [t.lower() for t in user_tags]:
         changes.append(f"Rebalanced hashtags ({len(tags)}: level, faith, local and niche)")
-    new = "\n\n".join(lines) + "\n\n" + " ".join(tags)
+    new_body = "\n\n".join(lines)
+    new = new_body + "\n\n" + " ".join(tags)
     after = viral_score(new, fmt, platform)
     alt = ideas(copy, level, platform)[:2]
-    return {"before": before, "after": after, "caption": new, "changes": changes, "alternatives": alt, "topic": topic}
+    return {"before": before, "after": after, "caption": new, "body": new_body, "tags": tags, "original": copy,
+            "changes": changes, "alternatives": alt, "topic": topic}

@@ -26,7 +26,7 @@ import ui
 # Streamlit Cloud keeps imported modules in memory between deploys; reload so new helpers are always picked up.
 for _m in (ui, ins, studio, copylab):
     importlib.reload(_m)
-from ui import BURGUNDY_2, CHART_CFG, GOLD, GRAY_LIGHT, NAVY, OFF_WHITE, esc
+from ui import BURGUNDY_2, CHART_CFG, GOLD, GOLD_DEEP, GRAY_LIGHT, NAVY, OFF_WHITE, esc
 
 APP_NAME, DEVELOPER = "LCS – IDEAs for Posting", "Ed Trigueros"
 ROOT = Path(__file__).parent
@@ -527,90 +527,99 @@ with T[5]:
 # 6 · Caption builder
 # --------------------------------------------------------------------------- #
 with T[6]:
-    ui.head("Write", "Copy lab", "Ask for caption ideas, or paste a caption to improve it. Every version comes with hashtags and a reach score.")
+    ui.head("Write", "Copy lab", "Two tools: get new caption ideas, or improve a caption you already wrote.")
 
-    def score_block(sc: dict, compact: bool = False) -> str:
-        col = NAVY if sc["score"] >= 62 else GOLD if sc["score"] >= 45 else BURGUNDY_2
+    def score_block(sc: dict, title: str = "Reach score", tips: bool = True) -> str:
+        col = NAVY if sc["score"] >= 62 else GOLD_DEEP if sc["score"] >= 45 else BURGUNDY_2
         bars = "".join(
             f'<div style="display:flex;align-items:center;gap:8px;margin:4px 0"><div style="width:112px;font-size:.76rem;color:#7a808a">{k}</div>'
             f'<div style="flex:1;height:6px;background:#eef1f5;border-radius:4px;overflow:hidden"><div style="width:{v / m * 100:.0f}%;height:100%;background:{col}"></div></div>'
             f'<div style="width:38px;text-align:right;font-size:.74rem;font-weight:700">{v}/{m}</div></div>' for k, (v, m) in sc["parts"].items())
-        tips = "" if compact else "".join(f'<div class="small" style="margin-top:4px">→ {esc(t)}</div>' for t in sc["tips"])
-        return (f'<div class="stat"><div class="l">Viral potential</div><div style="display:flex;align-items:baseline;gap:10px">'
+        tip = "".join(f'<div class="small" style="margin-top:4px">→ {esc(t)}</div>' for t in sc["tips"]) if tips else ""
+        return (f'<div class="stat"><div class="l">{esc(title)}</div><div style="display:flex;align-items:baseline;gap:10px">'
                 f'<div class="v" style="color:{col}">{sc["score"]}<small>/100</small></div><div style="font-weight:800;color:{col};font-size:.9rem">{esc(sc["label"])}</div></div>'
-                f'{bars}{tips}</div>')
+                f'{bars}{tip}</div>')
 
-    q1, q2 = st.columns([2.2, 1])
-    with q1:
-        prompt = st.text_area("What do you need?", height=110, key="lab_prompt",
-                              placeholder="e.g. Ideas to post about enrolment for secondary\n…or paste a caption here to improve it")
-    with q2:
-        lab_fmt = st.selectbox("Planned format", ["Reel", "Carousel", "Photo", "Story"], key="lab_fmt")
-        lab_detail = st.text_input("Detail to include (optional)", placeholder="Open morning · Thu 20 Nov · 10am", key="lab_detail")
-        run = st.button("Get recommendations", type="primary", width="stretch")
-    if run and prompt.strip():
-        intent, _ = copylab.detect(prompt)
-        st.session_state["lab"] = ("improve", copylab.improve(prompt, segment, platform, lab_fmt)) if intent == "improve" \
-            else ("ideas", copylab.ideas(prompt, segment, platform, lab_detail))
-    elif run:
-        st.warning("Type a request or paste a caption first.")
+    def tags_block(tags: list[str], key: str) -> None:
+        st.markdown('<div class="eyebrow" style="margin-top:10px">Hashtags to use</div>' + ui.chips(tags), unsafe_allow_html=True)
+        st.code(" ".join(tags), language=None, wrap_lines=True)
 
-    lab = st.session_state.get("lab")
-    if lab and lab[0] == "ideas":
-        st.markdown(f'<div class="small" style="margin:6px 0 10px">Recommended for <b>{esc(lab[1][0]["topic"])}</b> · '
-                    f'{esc(lab[1][0]["level"] if lab[1][0]["level"] != "Both" else "all levels")} · {platform}. Ranked by reach score.</div>',
-                    unsafe_allow_html=True)
-        cols = st.columns(3)
-        for k, (col, v) in enumerate(zip(cols, lab[1])):
-            with col:
-                st.markdown(f'<div class="eyebrow">{"Recommended · " if k == 0 else ""}{esc(v["style"])} · {esc(v["format"])}</div>', unsafe_allow_html=True)
-                st.code(v["caption"], language=None, wrap_lines=True)
-                st.markdown(score_block(v["score"], compact=True), unsafe_allow_html=True)
-    elif lab and lab[0] == "improve":
-        r = lab[1]
-        i1, i2 = st.columns([1.5, 1])
-        with i1:
-            st.markdown("**Improved caption**")
-            st.code(r["caption"], language=None, wrap_lines=True)
-            st.markdown("".join(f'<div class="small">✓ {esc(c)}</div>' for c in r["changes"]), unsafe_allow_html=True)
-        with i2:
-            b, a = r["before"]["score"], r["after"]["score"]
-            st.markdown(f'<div class="stat accent"><div class="l">Reach score</div><div class="v">{b} → {a}</div>'
-                        f'<div class="s">{"+" if a >= b else ""}{a - b} points after improvements</div></div>', unsafe_allow_html=True)
-            st.write("")
-            st.markdown(score_block(r["after"]), unsafe_allow_html=True)
-        st.markdown("**Two alternative versions**")
-        cols = st.columns(2)
-        for col, v in zip(cols, r["alternatives"]):
-            with col:
-                st.code(v["caption"], language=None, wrap_lines=True)
-                st.markdown(f'<div class="small">{esc(v["format"])} · reach score <b>{v["score"]["score"]}</b> · {esc(v["score"]["label"])}</div>',
-                            unsafe_allow_html=True)
-    st.markdown('<div class="small" style="margin-top:8px">The reach score is an estimate based on what drives reach on Instagram and Facebook '
-                '(hook, format, shareability, emotion, call to action, hashtags, length). It is not a guarantee.</div>', unsafe_allow_html=True)
-
+    mode = st.segmented_control("Tool", ["Get caption ideas", "Improve my caption"], default="Get caption ideas", key="lab_mode",
+                                label_visibility="collapsed") or "Get caption ideas"
     st.write("")
-    ui.head("Or start from the idea bank", "Caption builder")
-    b1, b2 = st.columns([1, 1.3])
-    with b1:
-        pool = ideas_for(segment)
-        idea = st.selectbox("Idea", pool, format_func=lambda i: f"{i['title']} · {lvl(i['segment'])}")
-        tone = st.segmented_control("Tone", ["Warm", "Professional", "Joyful"], default="Warm") or "Warm"
-        detail = st.text_input("Add a detail (optional)", placeholder="e.g. Open morning, Thursday 20 Nov, 10am")
-    with b2:
-        opener = "✨ " if tone == "Joyful" else ""
-        strength = copylab.BODY.get(idea["pillar"], "")
-        if tone == "Professional":
-            strength = strength.replace("At LCS", "At Limerick Christian School")
-        cta = copylab.CTA.get(idea["pillar"], idea["cta"] + ".")
-        if platform == "Facebook":
-            cta = cta.replace("link in bio", "limerickchristianschool.com")
-        tags = copylab.hashtags(idea["pillar"], idea["segment"] if idea["segment"] in ("Primary", "Secondary") else "Both", platform)
-        caption = f"{opener}{idea['hook']}\n\n{strength}" + (f"\n\n{detail}" if detail else "") + f"\n\n{cta}\n\n" + " ".join(tags)
-        st.code(caption, language=None, wrap_lines=True)
-        st.markdown(score_block(copylab.viral_score(caption, idea["format"], platform)), unsafe_allow_html=True)
-        st.write("")
-        st.download_button("Download caption", caption.encode(), f"{idea['id']}-caption.txt", width="stretch")
+
+    if mode == "Get caption ideas":
+        st.markdown('<div class="insight"><div class="n">1</div><div class="t"><b>Get caption ideas.</b> Tell us what the post is about. '
+                    'You get three ready-to-post captions, ranked by reach score, each with its own hashtags.</div></div>', unsafe_allow_html=True)
+        a1, a2, a3 = st.columns([2, 1, 1])
+        topic_txt = a1.text_input("What is the post about?", placeholder="e.g. Enrolment for secondary · Christmas service · Meet the teacher", key="idea_topic")
+        idea_fmt = a2.selectbox("Format", ["Reel", "Carousel", "Photo", "Story"], key="idea_fmt")
+        idea_detail = a3.text_input("Detail (optional)", placeholder="Thu 20 Nov · 10am", key="idea_detail")
+        quick = st.pills("Or pick a topic", ["Enrolment", "Open morning", "Christmas", "Easter", "Faith", "Meet the teacher", "Learning at own pace",
+                                              "Achievements", "School event", "Parent testimonial"], key="idea_quick")
+        if st.button("Get 3 caption ideas", type="primary", key="idea_go"):
+            q = topic_txt.strip() or (quick or "")
+            if q:
+                st.session_state["lab_ideas"] = copylab.ideas(q, segment, platform, idea_detail)
+            else:
+                st.warning("Type a topic or pick one above.")
+        res = st.session_state.get("lab_ideas")
+        if res:
+            st.write("")
+            cols = st.columns(3)
+            for k, (col, v) in enumerate(zip(cols, res)):
+                sc = copylab.viral_score(v["caption"], idea_fmt if k == 0 else v["format"], platform)
+                with col:
+                    st.markdown(f'<div class="eyebrow">{"Best pick · " if k == 0 else f"Option {k + 1} · "}{esc(v["style"])} · '
+                                f'{esc(idea_fmt if k == 0 else v["format"])}</div>', unsafe_allow_html=True)
+                    st.code(v["body"], language=None, wrap_lines=True)
+                    tags_block(v["tags"], f"t{k}")
+                    st.markdown(score_block(sc, tips=False), unsafe_allow_html=True)
+                    st.download_button("Download", (v["body"] + "\n\n" + " ".join(v["tags"])).encode(), f"caption-{k + 1}.txt",
+                                       key=f"dl_idea_{k}", width="stretch")
+
+    else:
+        st.markdown('<div class="insight"><div class="n">2</div><div class="t"><b>Improve my caption.</b> Paste a caption you wrote. '
+                    'We keep your message, strengthen the first line and the call to action, fix the hashtags and show the score before and after.</div></div>',
+                    unsafe_allow_html=True)
+        b1, b2 = st.columns([3, 1])
+        mine = b1.text_area("Your caption", height=140, key="imp_text",
+                            placeholder="Paste your caption here, with or without hashtags…")
+        imp_fmt = b2.selectbox("Format", ["Reel", "Carousel", "Photo", "Story"], key="imp_fmt")
+        b2.write("")
+        go = b2.button("Improve caption", type="primary", key="imp_go", width="stretch")
+        if go:
+            if mine.strip():
+                st.session_state["lab_imp"] = copylab.improve(mine, segment, platform, imp_fmt)
+            else:
+                st.warning("Paste a caption first.")
+        r = st.session_state.get("lab_imp")
+        if r:
+            st.write("")
+            bb, aa = r["before"]["score"], r["after"]["score"]
+            k1, k2, k3 = st.columns(3)
+            k1.markdown(ui.stat("Before", bb, esc(r["before"]["label"]), unit="/100"), unsafe_allow_html=True)
+            k2.markdown(ui.stat("After", aa, esc(r["after"]["label"]), unit="/100", accent=True), unsafe_allow_html=True)
+            k3.markdown(ui.stat("Improvement", f"{aa - bb:+d}", "points"), unsafe_allow_html=True)
+            st.write("")
+            c1, c2 = st.columns(2)
+            with c1:
+                st.markdown('<div class="eyebrow">Your caption</div>', unsafe_allow_html=True)
+                st.code(r["original"], language=None, wrap_lines=True)
+                st.markdown(score_block(r["before"], "Score before"), unsafe_allow_html=True)
+            with c2:
+                st.markdown('<div class="eyebrow">Improved caption</div>', unsafe_allow_html=True)
+                st.code(r["body"], language=None, wrap_lines=True)
+                tags_block(r["tags"], "imp")
+                st.markdown("".join(f'<div class="small">✓ {esc(c)}</div>' for c in r["changes"]), unsafe_allow_html=True)
+                st.write("")
+                st.markdown(score_block(r["after"], "Score after"), unsafe_allow_html=True)
+                st.download_button("Download improved caption", (r["body"] + "\n\n" + " ".join(r["tags"])).encode(), "improved-caption.txt",
+                                   key="dl_imp", width="stretch")
+
+    st.markdown('<div class="small" style="margin-top:18px">Reach score: an estimate from what drives reach on Instagram '
+                '(first line, format, shareability, emotion, call to action, hashtags, length). It is not a guarantee of going viral.</div>',
+                unsafe_allow_html=True)
 
 with st.sidebar:
     st.markdown(f"**{APP_NAME}**  \nDeveloper: {DEVELOPER}")
