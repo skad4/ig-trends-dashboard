@@ -54,6 +54,8 @@ HIST = pd.read_csv(ROOT / "data" / "ig_history.csv", parse_dates=["date"]) if (R
 if not HIST.empty:  # latest public follower counts (auto-updated every Monday)
     latest = HIST.sort_values("date").groupby("handle").tail(1).set_index("handle")
     schools["followers"] = schools["handle"].map(latest["followers"]).fillna(schools["followers"]).astype(int)
+    if "avg_eng" in latest:  # engagement refreshed automatically when the Instagram API is connected
+        schools["avg_eng"] = pd.to_numeric(schools["handle"].map(latest["avg_eng"]), errors="coerce").fillna(schools["avg_eng"])
     schools["er"] = (schools["avg_eng"] / schools["followers"] * 100).round(1)
 lcs = schools[schools["group"] == "LCS"].iloc[0]
 lim = schools[schools["group"] == "Limerick"]

@@ -67,3 +67,23 @@ GEMINI_API_KEY=xxx python -m pipeline.run_weekly
 - Hashtag sets are curated rather than measured. To get real post volumes, an Apify hashtag scraper (paid, low cost) can be added to `collect.py`.
 - Many major-label songs are restricted for Business accounts, so always check availability in the app before filming.
 - Respect each source's terms of use. The pipeline makes 3 requests per week.
+
+## Weekly update (every Monday)
+
+GitHub Actions runs `pipeline/run_weekly.py` every Monday at 06:23 UTC:
+- trending sounds and Irish chart: always updated;
+- Instagram numbers for LCS and every school in `data/benchmark.json`: appended to `data/ig_history.csv`.
+  Instagram blocks anonymous requests from GitHub's servers, so this step needs the official API connection below.
+
+## Connect the Instagram API (free, one-time, done by the LCS account owner)
+
+1. Make sure the LCS Instagram is a **Professional (Business)** account linked to the LCS **Facebook Page**.
+2. At https://developers.facebook.com create an app (type *Business*) and add the **Instagram Graph API** product.
+3. In the Graph API Explorer, generate a token with `instagram_basic`, `instagram_manage_insights`, `pages_show_list`, `pages_read_engagement`,
+   then exchange it for a **long-lived token** (60 days; renew it before it expires).
+4. Find the Instagram business account ID: `GET /me/accounts?fields=instagram_business_account`.
+5. In GitHub, go to *Settings → Secrets and variables → Actions* and add `IG_ACCESS_TOKEN` and `IG_USER_ID`.
+
+From then on, every Monday the dashboard refreshes automatically:
+- **Competitors (Business Discovery):** followers, posts, average likes + comments and Reels share for every school.
+- **LCS insights:** reach, profile visits, website clicks, follower cities/ages and per-post reach, saves and shares.

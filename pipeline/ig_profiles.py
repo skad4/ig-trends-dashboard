@@ -18,7 +18,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 BENCH = ROOT / "data" / "benchmark.json"
 HIST = ROOT / "data" / "ig_history.csv"
-FIELDS = ["date", "handle", "followers", "following", "posts"]
+FIELDS = ["date", "handle", "followers", "following", "posts", "avg_eng", "reels_share", "source"]
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
@@ -56,12 +56,38 @@ def fetch_profile(handle: str) -> dict | None:
         return None
 
 
+def fetch_api(handle: str, token: str, uid: str) -> dict | None:
+    """Official Instagram Graph API 'Business Discovery' (works for business/creator accounts)."""
+    fields = (f"business_discovery.username({handle}){{followers_count,follows_count,media_count,"
+              "media.limit(12){like_count,comments_count,media_product_type,timestamp}}")
+    try:
+        r = requests.get(f"https://graph.facebook.com/v21.0/{uid}", params={"fields": fields, "access_token": token}, timeout=30)
+        bd = r.json().get("business_discovery")
+        if not bd:
+            return None
+        media = (bd.get("media") or {}).get("data", [])
+        eng = [(m.get("like_count") or 0) + (m.get("comments_count") or 0) for m in media]
+        reels = sum(1 for m in media if m.get("media_product_type") == "REELS")
+        return {"followers": bd.get("followers_count"), "following": bd.get("follows_count"), "posts": bd.get("media_count"),
+                "avg_eng": round(sum(eng) / len(eng)) if eng else None,
+                "reels_share": round(reels / len(media), 2) if media else None, "source": "api"}
+    except Exception as e:  # noqa: BLE001
+        print(f"[ig-api] {handle}: {e}")
+        return None
+
+
 def run() -> dict:
+    import os
+    token, uid = os.getenv("IG_ACCESS_TOKEN"), os.getenv("IG_USER_ID")
     schools = json.loads(BENCH.read_text())["schools"]
     today = datetime.now(timezone.utc).date().isoformat()
     rows, ok = [], 0
     for s in schools:
-        d = fetch_profile(s["handle"])
+        d = fetch_api(s["handle"], token, uid) if token and uid else None
+        if not d:
+            d = fetch_profile(s["handle"])
+            if d:
+                d["source"] = "public"
         if d:
             ok += 1
             rows.append({"date": today, "handle": s["handle"], **d})
