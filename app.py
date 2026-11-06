@@ -517,7 +517,7 @@ with T[5]:
             st.plotly_chart(ui.fig_style(fig, 300, legend=False), width="stretch", config=CHART_CFG)
 
     st.write("")
-    ui.head("Hashtags", "Sets for school posts", "Instagram: 8–12 tags. Facebook: 1–3 tags or none.")
+    ui.head("Hashtags", "Sets for school posts", "Instagram allows up to 5 hashtags per post: pick one from each set.")
     show_sets = {k: v for k, v in EDU["hashtags"].items() if segment == "All" or k not in ({"Primary", "Secondary"} - {segment})}
     hc = st.columns(len(show_sets))
     for col, (k, tags) in zip(hc, show_sets.items()):

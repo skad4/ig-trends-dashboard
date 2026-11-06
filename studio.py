@@ -145,7 +145,7 @@ def check_caption(text: str, local_tags: list[str]) -> dict:
         ("Hook in the first line (≤125 characters)", 0 < len(first) <= 125 and len(body.split("\n")[0]) <= 125, 15),
         ("Clear call to action", any(w in body.lower() for w in CTA_WORDS), 20),
         ("Length 30–220 words", 30 <= words <= 220, 15),
-        ("5–15 hashtags", 5 <= len(tags) <= 15, 15),
+        ("3–5 hashtags (Instagram max 5)", 3 <= len(tags) <= 5, 15),
         ("Includes a local Limerick/Ireland tag", any(x.lower() in [l.lower() for l in local_tags] for x in tags), 10),
         ("Uses line breaks for readability", body.count("\n") >= 2, 10),
         ("1–6 emojis (not overloaded)", 1 <= emojis <= 6, 5),

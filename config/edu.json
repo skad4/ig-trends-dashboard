@@ -343,15 +343,13 @@
       "#primaryschool",
       "#irishprimaryschool",
       "#primaryeducation",
-      "#learningthroughplay",
-      "#smallclasses"
+      "#learningthroughplay"
     ],
     "Secondary": [
       "#secondaryschool",
       "#irishsecondaryschool",
       "#studentlife",
-      "#individuallearning",
-      "#smallclasses"
+      "#individuallearning"
     ],
     "Faith": [
       "#christianschool",
@@ -363,8 +361,7 @@
       "#limerick",
       "#lovelimerick",
       "#limerickschools",
-      "#limerickcity",
-      "#limerickparents"
+      "#limerickcity"
     ],
     "Parents": [
       "#irishparents",

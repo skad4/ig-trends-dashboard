@@ -109,10 +109,10 @@ def level_of(text: str, default: str) -> str:
 
 
 def hashtags(pillar: str, level: str, platform: str) -> list[str]:
-    tags = TAGS[level][:3] + (TAGS["Faith"] if pillar in ("Faith & values", "Enrolment") else TAGS["Faith"][:1]) \
-        + TAGS["Local"] + (TAGS["Parents"] if pillar in ("Enrolment", "Parents") else TAGS["Niche"][:1]) + TAGS["Niche"][:1]
-    tags = list(dict.fromkeys(tags))
-    return tags[:3] if platform == "Facebook" else tags[:11]
+    """Instagram allows max 5 hashtags per post: 1 level · 1 faith · 1 local · 1 niche/parents · 1 level."""
+    niche = TAGS["Parents"][1] if pillar in ("Enrolment", "Parents") else TAGS["Niche"][0]
+    tags = [TAGS[level][0], TAGS["Faith"][0], TAGS["Local"][0], niche, TAGS[level][1]]
+    return list(dict.fromkeys(tags))[:3] if platform == "Facebook" else list(dict.fromkeys(tags))[:5]
 
 
 def viral_score(caption: str, fmt: str, platform: str) -> dict:
@@ -138,7 +138,7 @@ def viral_score(caption: str, fmt: str, platform: str) -> dict:
     parts["Emotion & story"] = (min(sum(3 for w in EMO if w in low) + (3 if '"' in body else 0), 15), 15)
     parts["Call to action"] = (10 if any(w in low for w in CTA_WORDS) else 0, 10)
     lt = [x.lower() for x in tags]
-    ok_n = (1 <= len(tags) <= 3) if platform == "Facebook" else (6 <= len(tags) <= 12)
+    ok_n = (1 <= len(tags) <= 3) if platform == "Facebook" else (3 <= len(tags) <= 5)
     parts["Hashtags"] = ((5 if ok_n else 2 if tags else 0) + (3 if any(x in lt for x in TAGS["Local"]) else 0)
                          + (2 if any(x in lt for x in TAGS["Niche"] + TAGS["Faith"]) else 0), 10)
     good_len = (20 <= words <= 90) if platform == "Facebook" else (25 <= words <= 150)
@@ -158,7 +158,7 @@ def viral_score(caption: str, fmt: str, platform: str) -> dict:
     if not parts["Call to action"][0]:
         tips.append("End with one clear action: book a visit, apply, comment.")
     if parts["Hashtags"][0] < 8:
-        tips.append("Use " + ("1–3 hashtags on Facebook." if platform == "Facebook" else "8–12 hashtags, including #limerick and a niche tag."))
+        tips.append("Use " + ("1–3 hashtags on Facebook." if platform == "Facebook" else "3–5 hashtags (Instagram allows max 5), including #limerick and a niche tag."))
     return {"score": score, "label": label, "parts": parts, "tips": tips[:3], "words": words, "hashtags": len(tags)}
 
 
@@ -231,10 +231,11 @@ def improve(copy: str, level: str, platform: str, fmt: str = "Reel") -> dict:
     if len(lines) > 1:
         changes.append("Split into short paragraphs for mobile reading")
     rec = hashtags(pillar, lvl, platform)
-    tags = list(dict.fromkeys([t for t in user_tags if t.lower() not in [r.lower() for r in rec]][:2] + rec))
-    tags = tags[:3] if platform == "Facebook" else tags[:11]
+    keep = [t for t in user_tags if t.lower() not in [r.lower() for r in rec]][:1]
+    tags = list(dict.fromkeys(rec[:4] + keep + rec[4:]))
+    tags = tags[:3] if platform == "Facebook" else tags[:5]
     if [t.lower() for t in tags] != [t.lower() for t in user_tags]:
-        changes.append(f"Rebalanced hashtags ({len(tags)}: level, faith, local and niche)")
+        changes.append(f"Hashtags set to {len(tags)} (Instagram max is 5): level, faith, local and niche")
     new_body = "\n\n".join(lines)
     new = new_body + "\n\n" + " ".join(tags)
     after = viral_score(new, fmt, platform)
