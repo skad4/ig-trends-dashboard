@@ -73,8 +73,8 @@
       "platform": "Both",
       "goal": "Community",
       "effort": "Low",
-      "hook": "Week one of Advent: hope.",
-      "shots": "Advent wreath · candle lighting · pupils' artwork (no faces)",
+      "hook": "Counting down to Christmas: the hope of Jesus' birth.",
+      "shots": "Advent calendar · nativity scene · pupils' artwork (no faces)",
       "cta": "Share with a friend"
     },
     {
@@ -417,34 +417,6 @@
       "kind": "term"
     },
     {
-      "start": "2026-11-29",
-      "end": "2026-12-24",
-      "label": "Advent",
-      "lane": "Faith",
-      "kind": "faith"
-    },
-    {
-      "start": "2026-12-25",
-      "end": "2027-01-06",
-      "label": "Christmas to Epiphany",
-      "lane": "Faith",
-      "kind": "faith"
-    },
-    {
-      "start": "2027-02-10",
-      "end": "2027-03-27",
-      "label": "Lent",
-      "lane": "Faith",
-      "kind": "faith"
-    },
-    {
-      "start": "2027-03-28",
-      "end": "2027-03-28",
-      "label": "Easter Sunday",
-      "lane": "Faith",
-      "kind": "faith"
-    },
-    {
       "start": "2026-11-06",
       "end": "2026-11-30",
       "label": "LCS offer",
@@ -464,6 +436,27 @@
       "label": "September places",
       "lane": "Enrolment",
       "kind": "enrol"
+    },
+    {
+      "start": "2026-11-29",
+      "end": "2026-12-24",
+      "label": "Advent",
+      "lane": "Faith",
+      "kind": "faith"
+    },
+    {
+      "start": "2026-12-25",
+      "end": "2026-12-25",
+      "label": "Christmas",
+      "lane": "Faith",
+      "kind": "faith"
+    },
+    {
+      "start": "2027-03-21",
+      "end": "2027-03-28",
+      "label": "Easter week",
+      "lane": "Faith",
+      "kind": "faith"
     }
   ],
   "moments": [
@@ -479,7 +472,7 @@
     },
     {
       "date": "2026-12-22",
-      "name": "Last day of term",
+      "name": "Christmas service · last day of term",
       "idea": "Christmas service"
     },
     {
@@ -488,8 +481,8 @@
       "idea": "Visit us this week"
     },
     {
-      "date": "2027-02-10",
-      "name": "Ash Wednesday · Lent",
+      "date": "2027-02-22",
+      "name": "Back after mid-term",
       "idea": "Serving the community"
     },
     {
@@ -498,8 +491,8 @@
       "idea": "Then and now"
     },
     {
-      "date": "2027-03-28",
-      "name": "Easter Sunday",
+      "date": "2027-03-26",
+      "name": "Good Friday · Easter",
       "idea": "Chapel morning"
     }
   ],

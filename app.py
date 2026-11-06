@@ -301,7 +301,7 @@ with T[3]:
                   line=dict(color="#530100", width=2))
     fig.update_layout(uniformtext_minsize=9, uniformtext_mode="hide")
     st.plotly_chart(ui.fig_style(fig, 260, legend=False), width="stretch", config=CHART_CFG)
-    st.markdown('<div class="small"><span style="color:#0b3767">■</span> Enrolment focus &nbsp; <span style="color:#6d1717">■</span> Faith calendar &nbsp; '
+    st.markdown('<div class="small"><span style="color:#0b3767">■</span> Enrolment focus &nbsp; <span style="color:#6d1717">■</span> Christian calendar &nbsp; '
                 '<span style="color:#fdbc59">■</span> Holidays &nbsp; <span style="color:#c9d6e6">■</span> Term &nbsp; '
                 '<span style="color:#530100">|</span> Today</div>', unsafe_allow_html=True)
 
