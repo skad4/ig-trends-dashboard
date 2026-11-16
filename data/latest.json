@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-09T16:40:42+00:00",
-  "week": "2026-W46",
+  "updated_at": "2026-11-16T16:09:34+00:00",
+  "week": "2026-W47",
   "source_status": {
     "CreatorDB": "updated",
     "SocialPilot": "updated",
@@ -12,84 +12,168 @@
   "reels_audio": {
     "source": "CreatorDB",
     "url": "https://creatordb.app/free-tools/trending-instagram-audio/",
-    "week_label": "November 4, 2026",
-    "fetched_at": "2026-11-09T16:40:40+00:00",
+    "week_label": "November 11, 2026",
+    "fetched_at": "2026-11-16T16:09:32+00:00",
     "items": [
       {
         "rank": 1,
-        "title": "Housewife",
-        "artist": "Tate McRae",
-        "trend": "Housewife Dance / Morning Mantra",
-        "heat": 87,
-        "momentum": "Rising",
-        "also_charting": "#4 Spotify US +3; #2 Apple Music US; YouTube Trending",
-        "reels": 190000,
+        "title": "All I Want for Christmas Is You",
+        "artist": "Mariah Carey",
+        "trend": "It's Time / Holiday Season Kickoff",
+        "heat": 98,
+        "momentum": "Peaking",
+        "also_charting": "#13 Spotify US; #33 Apple Music US",
+        "reels": 5800000,
         "example_reels": [
-          "Ders38rsWon",
-          "De2dH0ZoZqY"
+          "DfNuwlhyouV",
+          "Ddy5WxPRrIh",
+          "DfNPXV6Rosz"
         ],
-        "ireland_pos": 1,
-        "ireland_change": "="
+        "ireland_pos": 14,
+        "ireland_change": "+25"
       },
       {
         "rank": 2,
-        "title": "All I Want for Christmas Is You",
-        "artist": "Mariah Carey",
-        "trend": "Christmas Season Countdown",
-        "heat": 85,
-        "momentum": "Returning",
-        "also_charting": "#9 Spotify US; #19 Apple Music US",
-        "reels": 5800000,
+        "title": "Housewife",
+        "artist": "Tate McRae",
+        "trend": "Be Your Own Housewife / Morning Mantra",
+        "heat": 97,
+        "momentum": "Rising",
+        "also_charting": "#1 Spotify US +1; #6 Apple Music US",
+        "reels": 273000,
         "example_reels": [
-          "Ddy5WxPRrIh",
-          "DfNuwlhyouV",
-          "DdSd9ABqhhr"
+          "Ders38rsWon",
+          "De2dH0ZoZqY",
+          "De9sUiIsxb_"
         ],
-        "ireland_pos": 39,
-        "ireland_change": "RE"
+        "ireland_pos": 2,
+        "ireland_change": "-1"
       },
       {
         "rank": 3,
-        "title": "Patient Zero",
-        "artist": "Taylor Swift",
-        "trend": "Patient Zero Wedding / Victory Lap Edit",
-        "heat": 75,
+        "title": "Nicole Kidman",
+        "artist": "ADÉLA",
+        "trend": "Confident Lip-Sync / Feeling Yourself",
+        "heat": 63,
         "momentum": "Rising",
-        "also_charting": "#63 Spotify US +6; #47 Apple Music US",
-        "reels": 53000,
+        "also_charting": "#3 Spotify US; #11 Apple Music US",
+        "reels": null,
         "example_reels": [
-          "Ddxz7wctBio",
+          "DdZfD-2gMTB",
+          "Ddx35bfJUz1",
+          "DcNsG4ZRYJY"
+        ],
+        "ireland_pos": 20,
+        "ireland_change": "-8"
+      },
+      {
+        "rank": 4,
+        "title": "Underneath the Tree",
+        "artist": "Kelly Clarkson",
+        "trend": "Holiday Brand Launch / Festive Reveal",
+        "heat": 62,
+        "momentum": "Peaking",
+        "also_charting": "#51 Spotify US",
+        "reels": 451000,
+        "example_reels": [
+          "DeuLKX5onBA",
+          "De_ZCgyIz-O",
+          "DfHp6x6zEkd"
+        ],
+        "ireland_pos": 37,
+        "ireland_change": "RE"
+      },
+      {
+        "rank": 5,
+        "title": "Linger",
+        "artist": "The Cranberries",
+        "trend": "Fall Digicam Diary / My Life Is a Movie",
+        "heat": 60,
+        "momentum": "Rising",
+        "also_charting": "#42 Spotify US +3",
+        "reels": 117000,
+        "example_reels": [
+          "DeFR8auvjom",
           "DdZ6FHPxNBK",
-          "Dd1rlufKrrT"
+          "Ddt4IxARpz9"
         ],
         "ireland_pos": null,
         "ireland_change": null
       },
       {
-        "rank": 4,
-        "title": "Nicole Kidman",
-        "artist": "ADÉLA",
-        "trend": "Nicole Kidman Era / Outfit Reveal",
-        "heat": 72,
+        "rank": 6,
+        "title": "Everlong",
+        "artist": "Foo Fighters",
+        "trend": "How It Started Vs. How It's Going",
+        "heat": 59,
         "momentum": "Rising",
-        "also_charting": "#5 Spotify US +3; #5 Apple Music US",
-        "reels": null,
+        "also_charting": "#44 Spotify US +11",
+        "reels": 123000,
         "example_reels": [
-          "DdZfD-2gMTB",
-          "Ddx35bfJUz1",
-          "DeCXQ9BS1ny"
+          "DZd9reROhYP",
+          "De-at0lJ58c"
         ],
-        "ireland_pos": 12,
-        "ireland_change": "="
+        "ireland_pos": null,
+        "ireland_change": null
       },
       {
-        "rank": 5,
+        "rank": 7,
+        "title": "Upside Down",
+        "artist": "Diana Ross",
+        "trend": "Upside Down Before-and-After Transition",
+        "heat": 55,
+        "momentum": "Peaking",
+        "also_charting": "Reels only",
+        "reels": 127000,
+        "example_reels": [
+          "DcRq24Oh-T2",
+          "DdzCxYGgkuz"
+        ],
+        "ireland_pos": null,
+        "ireland_change": null
+      },
+      {
+        "rank": 8,
+        "title": "Santa Tell Me",
+        "artist": "Ariana Grande",
+        "trend": "It's Timeeee / Christmas Countdown",
+        "heat": 54,
+        "momentum": "Peaking",
+        "also_charting": "#50 Spotify US",
+        "reels": 571000,
+        "example_reels": [
+          "Ddy6yMpOfcs",
+          "DdSd9ABqhhr",
+          "DenRGHDNtmC"
+        ],
+        "ireland_pos": 46,
+        "ireland_change": "RE"
+      },
+      {
+        "rank": 9,
+        "title": "November Rain",
+        "artist": "Guns N' Roses",
+        "trend": "Cinematic Travel / Nostalgia Edit",
+        "heat": 47,
+        "momentum": "Peaking",
+        "also_charting": "Reels only",
+        "reels": 322000,
+        "example_reels": [
+          "DfATJQ1TTEh",
+          "DfKBLHTRlvy",
+          "DfZqjq-Bkim"
+        ],
+        "ireland_pos": null,
+        "ireland_change": null
+      },
+      {
+        "rank": 10,
         "title": "Blue Moon",
         "artist": "Zara Larsson",
-        "trend": "Dreamy Self-Care / Beauty Routine",
-        "heat": 58,
+        "trend": "Glossy Self-Care / Beauty Tutorial",
+        "heat": 47,
         "momentum": "Rising",
-        "also_charting": "#73 Spotify US +20",
+        "also_charting": "Reels only",
         "reels": 63000,
         "example_reels": [
           "DejxlsjNApj",
@@ -100,137 +184,27 @@
         "ireland_change": null
       },
       {
-        "rank": 6,
-        "title": "Upside Down",
-        "artist": "Diana Ross",
-        "trend": "Upside Down Transition Reveal",
-        "heat": 57,
-        "momentum": "Rising",
+        "rank": 11,
+        "title": "What You Waiting For?",
+        "artist": "Gwen Stefani",
+        "trend": "Take a Chance Cause You Might Grow",
+        "heat": 42,
+        "momentum": "Returning",
         "also_charting": "Reels only",
-        "reels": 127000,
+        "reels": 111000,
         "example_reels": [
-          "DcRq24Oh-T2",
-          "DdzCxYGgkuz",
+          "Dd1hHprhvP1",
+          "Dd9xgkxN16Y",
           "DdOp5Khuq57"
         ],
         "ireland_pos": null,
         "ireland_change": null
       },
       {
-        "rank": 7,
-        "title": "Underneath the Tree",
-        "artist": "Kelly Clarkson",
-        "trend": "Holiday Launch Reveal",
-        "heat": 54,
-        "momentum": "Returning",
-        "also_charting": "#65 Spotify US",
-        "reels": 451000,
-        "example_reels": [
-          "De_ZCgyIz-O",
-          "DeuLKX5onBA",
-          "Ddy6yMpOfcs"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
-        "rank": 8,
-        "title": "Hold On, We're Going Home",
-        "artist": "Drake ft. Majid Jordan",
-        "trend": "Smooth Monday Opener / Bookings Open",
-        "heat": 53,
-        "momentum": "Rising",
-        "also_charting": "#62 Spotify US +34",
-        "reels": 66000,
-        "example_reels": [
-          "De9sUiIsxb_",
-          "DeHn8VlAOdE",
-          "Ddt4IxARpz9"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
-        "rank": 9,
-        "title": "Santa Tell Me",
-        "artist": "Ariana Grande",
-        "trend": "It's Time Countdown",
-        "heat": 49,
-        "momentum": "Returning",
-        "also_charting": "#53 Spotify US",
-        "reels": 571000,
-        "example_reels": [
-          "DeHwD8fxZa9"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
-        "rank": 10,
-        "title": "What You Waiting For?",
-        "artist": "Gwen Stefani",
-        "trend": "Take a Chance Growth Montage",
-        "heat": 48,
-        "momentum": "Rising",
-        "also_charting": "Reels only",
-        "reels": 111000,
-        "example_reels": [
-          "Dd1hHprhvP1",
-          "DdcJFT7KL70"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
-        "rank": 11,
-        "title": "Luminary",
-        "artist": "Joel Sunny",
-        "trend": "Epic / Dramatic Reveal",
-        "heat": 47,
-        "momentum": "Rising",
-        "also_charting": "Reels only",
-        "reels": 86000,
-        "example_reels": [
-          "DfFbK8pRPlT"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
         "rank": 12,
-        "title": "Autumn Colors",
-        "artist": "LuLuMusic",
-        "trend": "Cozy Fall Aesthetic",
-        "heat": 47,
-        "momentum": "Rising",
-        "also_charting": "Reels only",
-        "reels": 55000,
-        "example_reels": [
-          "DdRtaVJTZ9h"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
-        "rank": 13,
-        "title": "November Rain",
-        "artist": "Guns N' Roses",
-        "trend": "Cinematic November Montage",
-        "heat": 43,
-        "momentum": "Returning",
-        "also_charting": "Reels only",
-        "reels": 322000,
-        "example_reels": [
-          "DfATJQ1TTEh"
-        ],
-        "ireland_pos": null,
-        "ireland_change": null
-      },
-      {
-        "rank": 14,
         "title": "Angel of My Dreams",
         "artist": "JADE",
-        "trend": "Too Pretty to Be Real",
+        "trend": "Too Pretty to Be Real / Dreamy Showcase",
         "heat": 40,
         "momentum": "Rising",
         "also_charting": "Reels only",
@@ -240,13 +214,45 @@
         ],
         "ireland_pos": null,
         "ireland_change": null
+      },
+      {
+        "rank": 13,
+        "title": "Hold On, We're Going Home",
+        "artist": "Drake, Majid Jordan",
+        "trend": "Smooth Monday Start / Relatable Skit",
+        "heat": 38,
+        "momentum": "Rising",
+        "also_charting": "Reels only",
+        "reels": 66000,
+        "example_reels": [
+          "DeCXQ9BS1ny",
+          "DeHwD8fxZa9"
+        ],
+        "ireland_pos": null,
+        "ireland_change": null
+      },
+      {
+        "rank": 14,
+        "title": "Patient Zero",
+        "artist": "Taylor Swift",
+        "trend": "Swiftie Lyric Relate / Feelings Capture",
+        "heat": 36,
+        "momentum": "Steady",
+        "also_charting": "#63 Spotify US",
+        "reels": null,
+        "example_reels": [
+          "Ddxz7wctBio",
+          "Dd1rlufKrrT"
+        ],
+        "ireland_pos": null,
+        "ireland_change": null
       }
     ]
   },
   "business_audio": {
     "source": "SocialPilot",
     "url": "https://www.socialpilot.co/blog/instagram-reels-trends",
-    "fetched_at": "2026-11-09T16:40:41+00:00",
+    "fetched_at": "2026-11-16T16:09:33+00:00",
     "items": [
       {
         "rank": 1,
@@ -457,512 +463,512 @@
   "ireland_chart": {
     "source": "Kworb (Spotify Weekly Chart — Ireland)",
     "url": "https://kworb.net/spotify/country/ie_weekly.html",
-    "chart_date": "2026/11/05",
-    "fetched_at": "2026-11-09T16:40:42+00:00",
+    "chart_date": "2026/11/12",
+    "fetched_at": "2026-11-16T16:09:34+00:00",
     "items": [
       {
         "pos": 1,
-        "change": "=",
-        "artist": "Tate McRae",
-        "title": "Housewife",
-        "weeks": 3,
+        "change": "+1",
+        "artist": "Ashe",
+        "title": "Stop The Wedding!",
+        "weeks": 14,
         "peak": "1",
-        "streams": 426560
+        "streams": 355986
       },
       {
         "pos": 2,
-        "change": "=",
-        "artist": "Ashe",
-        "title": "Stop The Wedding!",
-        "weeks": 13,
+        "change": "-1",
+        "artist": "Tate McRae",
+        "title": "Housewife",
+        "weeks": 4,
         "peak": "1",
-        "streams": 340254
+        "streams": 353224
       },
       {
         "pos": 3,
-        "change": "+2",
+        "change": "=",
         "artist": "Jamie Miller",
         "title": "Babydoll",
-        "weeks": 7,
+        "weeks": 8,
         "peak": "3",
-        "streams": 328118
+        "streams": 342099
       },
       {
         "pos": 4,
         "change": "=",
         "artist": "Sam Fender",
         "title": "Rein Me In (w/ Olivia Dean )",
-        "weeks": 72,
+        "weeks": 73,
         "peak": "1",
-        "streams": 311994
+        "streams": 312953
       },
       {
         "pos": 5,
-        "change": "-2",
-        "artist": "Zach Bryan",
-        "title": "Lies (w/ Lana Del Rey )",
-        "weeks": 3,
-        "peak": "2",
-        "streams": 264451
-      },
-      {
-        "pos": 6,
         "change": "+1",
         "artist": "Kingfishr",
         "title": "The Sun Will Never Settle",
-        "weeks": 24,
+        "weeks": 25,
         "peak": "1",
-        "streams": 254043
+        "streams": 280471
+      },
+      {
+        "pos": 6,
+        "change": "+22",
+        "artist": "Wham!",
+        "title": "Last Christmas",
+        "weeks": 101,
+        "peak": "1",
+        "streams": 230763
       },
       {
         "pos": 7,
-        "change": "-1",
-        "artist": "Fontaines D.C.",
-        "title": "Japan",
-        "weeks": 3,
-        "peak": "5",
-        "streams": 247945
+        "change": "+1",
+        "artist": "sombr",
+        "title": "My Body Isn't Ready",
+        "weeks": 19,
+        "peak": "6",
+        "streams": 229750
       },
       {
         "pos": 8,
-        "change": "+2",
-        "artist": "sombr",
-        "title": "My Body Isn't Ready",
-        "weeks": 18,
-        "peak": "6",
-        "streams": 226352
+        "change": "-1",
+        "artist": "Fontaines D.C.",
+        "title": "Japan",
+        "weeks": 4,
+        "peak": "5",
+        "streams": 228329
       },
       {
         "pos": 9,
-        "change": "+9",
-        "artist": "Abigail Rose",
-        "title": "Betty's in the Band (w/ Weston Hunter )",
-        "weeks": 8,
-        "peak": "9",
-        "streams": 208255
-      },
-      {
-        "pos": 10,
         "change": "+1",
         "artist": "Olivia Rodrigo",
         "title": "stupid song",
-        "weeks": 21,
+        "weeks": 22,
         "peak": "1",
-        "streams": 204614
+        "streams": 215144
+      },
+      {
+        "pos": 10,
+        "change": "+4",
+        "artist": "Noah Kahan",
+        "title": "Willing and Able",
+        "weeks": 29,
+        "peak": "7",
+        "streams": 211755
       },
       {
         "pos": 11,
-        "change": "+3",
-        "artist": "Olivia Dean",
-        "title": "Man I Need",
-        "weeks": 64,
-        "peak": "1",
-        "streams": 198509
+        "change": "-6",
+        "artist": "Zach Bryan",
+        "title": "Lies (w/ Lana Del Rey )",
+        "weeks": 4,
+        "peak": "2",
+        "streams": 210055
       },
       {
         "pos": 12,
-        "change": "=",
-        "artist": "ADÉLA",
-        "title": "Nicole Kidman",
-        "weeks": 9,
-        "peak": "11",
-        "streams": 198078
+        "change": "-1",
+        "artist": "Olivia Dean",
+        "title": "Man I Need",
+        "weeks": 65,
+        "peak": "1",
+        "streams": 206964
       },
       {
         "pos": 13,
-        "change": "=",
-        "artist": "Ella Langley",
-        "title": "Choosin' Texas",
-        "weeks": 43,
-        "peak": "3",
-        "streams": 192598
+        "change": "-4",
+        "artist": "Abigail Rose",
+        "title": "Betty's in the Band (w/ Weston Hunter )",
+        "weeks": 9,
+        "peak": "9",
+        "streams": 204836
       },
       {
         "pos": 14,
-        "change": "+8",
-        "artist": "Noah Kahan",
-        "title": "Willing and Able",
-        "weeks": 28,
-        "peak": "7",
-        "streams": 190761
+        "change": "+25",
+        "artist": "Mariah Carey",
+        "title": "All I Want for Christmas Is You",
+        "weeks": 103,
+        "peak": "1",
+        "streams": 188517
       },
       {
         "pos": 15,
-        "change": "+1",
-        "artist": "Olivia Rodrigo",
-        "title": "the cure",
-        "weeks": 24,
-        "peak": "2",
-        "streams": 185768
-      },
-      {
-        "pos": 16,
-        "change": "-7",
-        "artist": "Fontaines D.C.",
-        "title": "Marianne",
-        "weeks": 12,
-        "peak": "3",
-        "streams": 184739
-      },
-      {
-        "pos": 17,
         "change": "+2",
         "artist": "Kingfishr",
         "title": "Killeagh",
-        "weeks": 96,
+        "weeks": 97,
         "peak": "1",
-        "streams": 176930
+        "streams": 186848
+      },
+      {
+        "pos": 16,
+        "change": "-3",
+        "artist": "Ella Langley",
+        "title": "Choosin' Texas",
+        "weeks": 44,
+        "peak": "3",
+        "streams": 184694
+      },
+      {
+        "pos": 17,
+        "change": "-2",
+        "artist": "Olivia Rodrigo",
+        "title": "the cure",
+        "weeks": 25,
+        "peak": "2",
+        "streams": 183330
       },
       {
         "pos": 18,
-        "change": "-3",
+        "change": "=",
         "artist": "SIENNA SPIRO",
         "title": "Great Expectation",
-        "weeks": 18,
+        "weeks": 19,
         "peak": "5",
-        "streams": 172315
+        "streams": 176400
       },
       {
         "pos": 19,
-        "change": "-11",
-        "artist": "Olivia Rodrigo",
-        "title": "expectations (w/ Chappell Roan )",
-        "weeks": 3,
-        "peak": "8",
-        "streams": 169117
+        "change": "+1",
+        "artist": "Amble",
+        "title": "The Swell",
+        "weeks": 20,
+        "peak": "2",
+        "streams": 160506
       },
       {
         "pos": 20,
-        "change": "=",
-        "artist": "Amble",
-        "title": "The Swell",
-        "weeks": 19,
-        "peak": "2",
-        "streams": 163340
+        "change": "-8",
+        "artist": "ADÉLA",
+        "title": "Nicole Kidman",
+        "weeks": 10,
+        "peak": "11",
+        "streams": 160452
       },
       {
         "pos": 21,
-        "change": "+2",
-        "artist": "ADÉLA",
-        "title": "Ain't In LA",
-        "weeks": 15,
-        "peak": "12",
-        "streams": 159593
+        "change": "-5",
+        "artist": "Fontaines D.C.",
+        "title": "Marianne",
+        "weeks": 13,
+        "peak": "3",
+        "streams": 159864
       },
       {
         "pos": 22,
-        "change": "+18",
-        "artist": "Michael Jackson",
-        "title": "Thriller",
-        "weeks": 27,
-        "peak": "22",
-        "streams": 154883
+        "change": "+3",
+        "artist": "Noah Kahan",
+        "title": "Orbiter",
+        "weeks": 28,
+        "peak": "17",
+        "streams": 155146
       },
       {
         "pos": 23,
-        "change": "+6",
+        "change": "=",
         "artist": "sombr",
         "title": "Homewrecker",
-        "weeks": 39,
+        "weeks": 40,
         "peak": "4",
-        "streams": 149251
+        "streams": 154898
       },
       {
         "pos": 24,
-        "change": "-7",
-        "artist": "Fontaines D.C.",
-        "title": "Mimesis",
-        "weeks": 3,
-        "peak": "8",
-        "streams": 141651
+        "change": "-3",
+        "artist": "ADÉLA",
+        "title": "Ain't In LA",
+        "weeks": 16,
+        "peak": "12",
+        "streams": 145362
       },
       {
         "pos": 25,
-        "change": "+9",
-        "artist": "Noah Kahan",
-        "title": "Orbiter",
-        "weeks": 27,
-        "peak": "17",
-        "streams": 137198
+        "change": "+2",
+        "artist": "Kings of Leon",
+        "title": "Wait for Me",
+        "weeks": 13,
+        "peak": "25",
+        "streams": 143035
       },
       {
         "pos": 26,
-        "change": "+11",
-        "artist": "Amble",
-        "title": "Lonely Island",
-        "weeks": 110,
-        "peak": "11",
-        "streams": 134596
+        "change": "+3",
+        "artist": "Bella Kay",
+        "title": "iloveitiloveitiloveit",
+        "weeks": 42,
+        "peak": "1",
+        "streams": 137556
       },
       {
         "pos": 27,
-        "change": "+3",
-        "artist": "Kings of Leon",
-        "title": "Wait for Me",
-        "weeks": 12,
-        "peak": "27",
-        "streams": 134428
+        "change": "+4",
+        "artist": "The Goo Goo Dolls",
+        "title": "Iris",
+        "weeks": 290,
+        "peak": "20",
+        "streams": 136896
       },
       {
         "pos": 28,
-        "change": "RE",
-        "artist": "Wham!",
-        "title": "Last Christmas",
-        "weeks": 100,
-        "peak": "1",
-        "streams": 133586
+        "change": "+9",
+        "artist": "Harry Styles",
+        "title": "Coming Up Roses",
+        "weeks": 11,
+        "peak": "13",
+        "streams": 135451
       },
       {
         "pos": 29,
-        "change": "-2",
-        "artist": "Bella Kay",
-        "title": "iloveitiloveitiloveit",
-        "weeks": 41,
-        "peak": "1",
-        "streams": 133268
+        "change": "-3",
+        "artist": "Amble",
+        "title": "Lonely Island",
+        "weeks": 111,
+        "peak": "11",
+        "streams": 134389
       },
       {
         "pos": 30,
-        "change": "-4",
-        "artist": "P!nk",
-        "title": "Just Give Me a Reason (w/ Nate Ruess )",
-        "weeks": 38,
-        "peak": "9",
-        "streams": 133189
+        "change": "+81",
+        "artist": "The Pogues",
+        "title": "Fairytale of New York (w/ Kirsty MacColl )",
+        "weeks": 102,
+        "peak": "1",
+        "streams": 131393
       },
       {
         "pos": 31,
-        "change": "+8",
-        "artist": "The Goo Goo Dolls",
-        "title": "Iris",
-        "weeks": 289,
-        "peak": "20",
-        "streams": 131901
+        "change": "-1",
+        "artist": "P!nk",
+        "title": "Just Give Me a Reason (w/ Nate Ruess )",
+        "weeks": 39,
+        "peak": "9",
+        "streams": 131056
       },
       {
         "pos": 32,
-        "change": "+33",
-        "artist": "Ray Parker Jr.",
-        "title": "Ghostbusters",
-        "weeks": 14,
-        "peak": "28",
-        "streams": 128821
+        "change": "NEW",
+        "artist": "Olivia Rodrigo",
+        "title": "take me home (4 christmas)",
+        "weeks": 1,
+        "peak": "32",
+        "streams": 125423
       },
       {
         "pos": 33,
-        "change": "-12",
-        "artist": "Fontaines D.C.",
-        "title": "Where Is Gone? (w/ ROSALÍA )",
-        "weeks": 4,
-        "peak": "6",
-        "streams": 126533
+        "change": "+2",
+        "artist": "Paolo Nutini",
+        "title": "Candy",
+        "weeks": 224,
+        "peak": "15",
+        "streams": 123350
       },
       {
         "pos": 34,
-        "change": "-2",
+        "change": "=",
         "artist": "The Killers",
         "title": "Mr. Brightside",
-        "weeks": 616,
+        "weeks": 617,
         "peak": "17",
-        "streams": 124605
+        "streams": 123126
       },
       {
         "pos": 35,
-        "change": "+3",
-        "artist": "Paolo Nutini",
-        "title": "Candy",
-        "weeks": 223,
-        "peak": "15",
-        "streams": 123396
+        "change": "+1",
+        "artist": "STELLA LEFTY",
+        "title": "Boston",
+        "weeks": 32,
+        "peak": "12",
+        "streams": 122323
       },
       {
         "pos": 36,
-        "change": "-3",
-        "artist": "STELLA LEFTY",
-        "title": "Boston",
-        "weeks": 31,
-        "peak": "12",
-        "streams": 123268
+        "change": "+5",
+        "artist": "sombr",
+        "title": "12 to 12",
+        "weeks": 68,
+        "peak": "3",
+        "streams": 121482
       },
       {
         "pos": 37,
-        "change": "+20",
-        "artist": "Harry Styles",
-        "title": "Coming Up Roses",
-        "weeks": 10,
-        "peak": "13",
-        "streams": 120049
+        "change": "RE",
+        "artist": "Kelly Clarkson",
+        "title": "Underneath the Tree",
+        "weeks": 64,
+        "peak": "7",
+        "streams": 121037
       },
       {
         "pos": 38,
-        "change": "-14",
-        "artist": "Fontaines D.C.",
-        "title": "Demolition",
-        "weeks": 3,
-        "peak": "9",
-        "streams": 118185
+        "change": "-19",
+        "artist": "Olivia Rodrigo",
+        "title": "expectations (w/ Chappell Roan )",
+        "weeks": 4,
+        "peak": "8",
+        "streams": 118344
       },
       {
         "pos": 39,
-        "change": "RE",
-        "artist": "Mariah Carey",
-        "title": "All I Want for Christmas Is You",
-        "weeks": 102,
-        "peak": "1",
-        "streams": 117235
+        "change": "+7",
+        "artist": "Amble",
+        "title": "Mary's Pub",
+        "weeks": 98,
+        "peak": "25",
+        "streams": 116864
       },
       {
         "pos": 40,
-        "change": "+46",
-        "artist": "Bobby \"Boris\" Pickett",
-        "title": "Monster Mash",
+        "change": "-16",
+        "artist": "Fontaines D.C.",
+        "title": "Mimesis",
         "weeks": 4,
-        "peak": "40",
-        "streams": 116637
+        "peak": "8",
+        "streams": 115808
       },
       {
         "pos": 41,
-        "change": "+14",
-        "artist": "sombr",
-        "title": "12 to 12",
-        "weeks": 67,
-        "peak": "3",
-        "streams": 116175
+        "change": "+1",
+        "artist": "Malcolm Todd",
+        "title": "Earrings",
+        "weeks": 33,
+        "peak": "10",
+        "streams": 113714
       },
       {
         "pos": 42,
-        "change": "-1",
-        "artist": "Malcolm Todd",
-        "title": "Earrings",
-        "weeks": 32,
-        "peak": "10",
-        "streams": 115410
+        "change": "+5",
+        "artist": "Alyssa Grace",
+        "title": "bloodstream",
+        "weeks": 21,
+        "peak": "24",
+        "streams": 112961
       },
       {
         "pos": 43,
-        "change": "+18",
+        "change": "=",
         "artist": "sombr",
         "title": "back to friends",
-        "weeks": 87,
+        "weeks": 88,
         "peak": "4",
-        "streams": 114245
+        "streams": 112295
       },
       {
         "pos": 44,
-        "change": "-16",
-        "artist": "Fontaines D.C.",
-        "title": "You Miss Me",
-        "weeks": 3,
-        "peak": "16",
-        "streams": 113403
+        "change": "+15",
+        "artist": "Olivia Dean",
+        "title": "Nice To Each Other",
+        "weeks": 75,
+        "peak": "6",
+        "streams": 111452
       },
       {
         "pos": 45,
-        "change": "+15",
-        "artist": "Tate McRae",
-        "title": "Sports car",
-        "weeks": 74,
-        "peak": "6",
-        "streams": 113363
+        "change": "+4",
+        "artist": "Fontaines D.C.",
+        "title": "Starburster",
+        "weeks": 113,
+        "peak": "13",
+        "streams": 110831
       },
       {
         "pos": 46,
-        "change": "+3",
-        "artist": "Amble",
-        "title": "Mary's Pub",
-        "weeks": 97,
-        "peak": "25",
-        "streams": 113119
+        "change": "RE",
+        "artist": "Ariana Grande",
+        "title": "Santa Tell Me",
+        "weeks": 83,
+        "peak": "5",
+        "streams": 109611
       },
       {
         "pos": 47,
-        "change": "-2",
-        "artist": "Alyssa Grace",
-        "title": "bloodstream",
-        "weeks": 20,
-        "peak": "24",
-        "streams": 113095
+        "change": "+5",
+        "artist": "Fontaines D.C.",
+        "title": "I Love You",
+        "weeks": 86,
+        "peak": "23",
+        "streams": 109441
       },
       {
         "pos": 48,
-        "change": "-6",
-        "artist": "Audrey Hobert",
-        "title": "Sue me",
-        "weeks": 24,
-        "peak": "16",
-        "streams": 111611
+        "change": "+20",
+        "artist": "Kingfishr",
+        "title": "Diamonds & Roses",
+        "weeks": 77,
+        "peak": "5",
+        "streams": 108914
       },
       {
         "pos": 49,
-        "change": "-5",
-        "artist": "Fontaines D.C.",
-        "title": "Starburster",
-        "weeks": 112,
-        "peak": "13",
-        "streams": 110712
+        "change": "+6",
+        "artist": "Amble",
+        "title": "Tonnta",
+        "weeks": 89,
+        "peak": "20",
+        "streams": 107532
       },
       {
         "pos": 50,
-        "change": "-2",
-        "artist": "Kolter",
-        "title": "Trapped - Radio-Edit",
-        "weeks": 20,
-        "peak": "24",
-        "streams": 108713
+        "change": "+121",
+        "artist": "Brenda Lee",
+        "title": "Rockin' Around The Christmas Tree",
+        "weeks": 76,
+        "peak": "2",
+        "streams": 106768
       }
     ]
   },
   "analysis": {
-    "week_summary": "'Housewife' by Tate McRae leads Instagram Reels this week (Heat 87). 4 seasonal or returning sounds are back (All I Want for Christmas Is You, Underneath the Tree, Santa Tell Me). The best opportunity right now is 'Housewife': high heat and not yet crowded.",
+    "week_summary": "'All I Want for Christmas Is You' by Mariah Carey leads Instagram Reels this week (Heat 98). 1 seasonal or returning sounds are back (What You Waiting For?). The best opportunity right now is 'Housewife': high heat and not yet crowded.",
     "key_takeaways": [
-      "Reels × Ireland crossover: 'Housewife' (#1 in Ireland), 'All I Want for Christmas Is You' (#39 in Ireland), 'Nicole Kidman' (#12 in Ireland). These are the strongest local signals.",
-      "10 of 14 tracked sounds are rising: move early on 'Housewife', 'Patient Zero', 'Nicole Kidman'.",
+      "Reels × Ireland crossover: 'All I Want for Christmas Is You' (#14 in Ireland), 'Housewife' (#2 in Ireland), 'Nicole Kidman' (#20 in Ireland). These are the strongest local signals.",
+      "7 of 14 tracked sounds are rising: move early on 'Housewife', 'Nicole Kidman', 'Linger'.",
       "'All I Want for Christmas Is You' already has 1M+ reels, so you need a strong hook to stand out.",
       "Most major-label songs may be blocked for Business accounts: reuse the same formats with original audio or a voiceover."
     ],
-    "ireland_signal": "Also charting in Ireland: Housewife (#1), All I Want for Christmas Is You (#39), Nicole Kidman (#12). Irish acts in the top 20: Kingfishr, Fontaines D.C., Amble. Good material for Irish-pride content.",
+    "ireland_signal": "Also charting in Ireland: All I Want for Christmas Is You (#14), Housewife (#2), Nicole Kidman (#20). Irish acts in the top 20: Kingfishr, Fontaines D.C., Amble. Good material for Irish-pride content.",
     "audio_picks": [
       {
         "title": "Housewife",
         "artist": "Tate McRae",
-        "why_now": "Heat 87, rising, #1 in Ireland",
+        "why_now": "Heat 97, rising, #2 in Ireland",
         "best_for": "dance studios, fitness instructors, fashion boutiques, hair and makeup artists, nightlife venues",
-        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Housewife Dance / Morning Mantra') with a library track or voiceover."
-      },
-      {
-        "title": "Patient Zero",
-        "artist": "Taylor Swift",
-        "why_now": "Heat 75, rising",
-        "best_for": "Patient Zero Wedding / Victory Lap Edit",
-        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Patient Zero Wedding / Victory Lap Edit') with a library track or voiceover."
-      },
-      {
-        "title": "Nicole Kidman",
-        "artist": "ADÉLA",
-        "why_now": "Heat 72, rising, #12 in Ireland",
-        "best_for": "Nicole Kidman Era / Outfit Reveal",
-        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Nicole Kidman Era / Outfit Reveal') with a library track or voiceover."
-      },
-      {
-        "title": "Blue Moon",
-        "artist": "Zara Larsson",
-        "why_now": "Heat 58, rising",
-        "best_for": "hair salons, skincare and beauty brands, makeup artists, fitness studios, tourism boards",
-        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Dreamy Self-Care / Beauty Routine') with a library track or voiceover."
+        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Be Your Own Housewife / Morning Mantra') with a library track or voiceover."
       },
       {
         "title": "All I Want for Christmas Is You",
         "artist": "Mariah Carey",
-        "why_now": "Heat 85, returning, #39 in Ireland",
+        "why_now": "Heat 98, peaking, #14 in Ireland",
         "best_for": "hair salons, nail and lash studios, gift shops, restaurants taking holiday bookings, travel agencies",
-        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Christmas Season Countdown') with a library track or voiceover."
+        "business_account_tip": "If it's unavailable on a Business account, copy the format ('It's Time / Holiday Season Kickoff') with a library track or voiceover."
+      },
+      {
+        "title": "Nicole Kidman",
+        "artist": "ADÉLA",
+        "why_now": "Heat 63, rising, #20 in Ireland",
+        "best_for": "Confident Lip-Sync / Feeling Yourself",
+        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Confident Lip-Sync / Feeling Yourself') with a library track or voiceover."
+      },
+      {
+        "title": "Linger",
+        "artist": "The Cranberries",
+        "why_now": "Heat 60, rising",
+        "best_for": "cafes, photographers, pet groomers and pet shops, bookstores, knitwear and fall fashion brands",
+        "business_account_tip": "If it's unavailable on a Business account, copy the format ('Fall Digicam Diary / My Life Is a Movie') with a library track or voiceover."
+      },
+      {
+        "title": "Everlong",
+        "artist": "Foo Fighters",
+        "why_now": "Heat 59, rising",
+        "best_for": "independent retail shops, car detailers, contractors, high school and local sports teams, gyms",
+        "business_account_tip": "If it's unavailable on a Business account, copy the format ('How It Started Vs. How It's Going') with a library track or voiceover."
       }
     ],
     "categories": {
       "Education": {
-        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
-        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to education: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "Housewife — Tate McRae",
+        "headline": "'How It Started Vs. How It's Going' is the format to borrow this week, led by 'Everlong'.",
+        "content_idea": "Adapt the 'How It Started Vs. How It's Going' format to education: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "Everlong — Foo Fighters",
         "video_formats": [
           "Reel: talking-head tip with on-screen text over an instrumental (15–20s)",
           "Carousel: '5 things to learn this month' with a save CTA on the last slide",
@@ -970,12 +976,12 @@
         ],
         "hashtags": [
           "#education",
-          "#studyabroad",
           "#teachersofinstagram",
           "#onlinelearning",
-          "#irishstudents",
+          "#elearning",
           "#universityoflimerick",
-          "#maryimmaculatecollege"
+          "#maryimmaculatecollege",
+          "#tusireland"
         ],
         "new_hashtags": [],
         "sample_copies": [
@@ -984,21 +990,21 @@
         ]
       },
       "Business & Marketing": {
-        "headline": "'Smooth Monday Opener / Bookings Open' is the format to borrow this week, led by 'Hold On, We're Going Home'.",
-        "content_idea": "Adapt the 'Smooth Monday Opener / Bookings Open' format to business & marketing: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "Hold On, We're Going Home — Drake ft. Majid Jordan",
+        "headline": "'Smooth Monday Start / Relatable Skit' is the format to borrow this week, led by 'Hold On, We're Going Home'.",
+        "content_idea": "Adapt the 'Smooth Monday Start / Relatable Skit' format to business & marketing: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "Hold On, We're Going Home — Drake, Majid Jordan",
         "video_formats": [
           "Reel: before/after results montage",
           "Carousel: step-by-step checklist in 6 slides"
         ],
         "hashtags": [
           "#business",
-          "#personalbranding",
           "#contentcreator",
           "#socialmediamarketing",
-          "#startupireland",
+          "#contentmarketing",
           "#smallbusinessireland",
-          "#irishbusiness"
+          "#irishbusiness",
+          "#irishsmallbusiness"
         ],
         "new_hashtags": [],
         "sample_copies": [
@@ -1007,8 +1013,8 @@
         ]
       },
       "Tech & AI": {
-        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
-        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to tech & ai: one clear message, a hook in the first second and a clear call to action at the end.",
+        "headline": "'Be Your Own Housewife / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Be Your Own Housewife / Morning Mantra' format to tech & ai: one clear message, a hook in the first second and a clear call to action at the end.",
         "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: 'before vs after' screen recording reveal",
@@ -1016,12 +1022,12 @@
         ],
         "hashtags": [
           "#technology",
-          "#productivity",
           "#futureofwork",
           "#aitools",
-          "#techireland",
+          "#chatgpt",
           "#irishtech",
-          "#aimarketing"
+          "#aimarketing",
+          "#generativeai"
         ],
         "new_hashtags": [],
         "sample_copies": [
@@ -1030,8 +1036,8 @@
         ]
       },
       "Local Business": {
-        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
-        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to local business: one clear message, a hook in the first second and a clear call to action at the end.",
+        "headline": "'Be Your Own Housewife / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Be Your Own Housewife / Morning Mantra' format to local business: one clear message, a hook in the first second and a clear call to action at the end.",
         "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: product/window reveal in 5 quick cuts",
@@ -1039,12 +1045,12 @@
         ],
         "hashtags": [
           "#shoplocal",
-          "#buyirish",
           "#irishowned",
           "#shoplocalireland",
-          "#limerickshops",
+          "#supportlocalireland",
           "#supportlocallimerick",
-          "#limerickmade"
+          "#limerickmade",
+          "#claremade"
         ],
         "new_hashtags": [
           "#limerickchristmas"
@@ -1055,8 +1061,8 @@
         ]
       },
       "Food & Drink": {
-        "headline": "'Christmas Season Countdown' is the format to borrow this week, led by 'All I Want for Christmas Is You'.",
-        "content_idea": "Adapt the 'Christmas Season Countdown' format to food & drink: one clear message, a hook in the first second and a clear call to action at the end.",
+        "headline": "'It's Time / Holiday Season Kickoff' is the format to borrow this week, led by 'All I Want for Christmas Is You'.",
+        "content_idea": "Adapt the 'It's Time / Holiday Season Kickoff' format to food & drink: one clear message, a hook in the first second and a clear call to action at the end.",
         "suggested_audio": "All I Want for Christmas Is You — Mariah Carey",
         "video_formats": [
           "Reel: menu items, one per beat",
@@ -1064,12 +1070,12 @@
         ],
         "hashtags": [
           "#food",
-          "#cafe",
           "#eatlocal",
           "#irishfood",
-          "#clarefood",
+          "#foodireland",
           "#limerickcoffee",
-          "#limerickfood"
+          "#limerickfood",
+          "#limerickeats"
         ],
         "new_hashtags": [
           "#limerickchristmas"
@@ -1080,8 +1086,8 @@
         ]
       },
       "Fitness & Wellness": {
-        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
-        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to fitness & wellness: one clear message, a hook in the first second and a clear call to action at the end.",
+        "headline": "'Be Your Own Housewife / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Be Your Own Housewife / Morning Mantra' format to fitness & wellness: one clear message, a hook in the first second and a clear call to action at the end.",
         "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: Day 1 vs Day 100 member story",
@@ -1089,12 +1095,12 @@
         ],
         "hashtags": [
           "#fitness",
-          "#runningcommunity",
           "#yoga",
           "#fitnessmotivation",
-          "#irishfitness",
+          "#personaltrainer",
           "#limerickgym",
-          "#limerickfitness"
+          "#limerickfitness",
+          "#limerickrunners"
         ],
         "new_hashtags": [],
         "sample_copies": [
@@ -1103,8 +1109,8 @@
         ]
       },
       "Beauty": {
-        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
-        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to beauty: one clear message, a hook in the first second and a clear call to action at the end.",
+        "headline": "'Be Your Own Housewife / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Be Your Own Housewife / Morning Mantra' format to beauty: one clear message, a hook in the first second and a clear call to action at the end.",
         "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: menu of looks, one design per beat",
@@ -1112,12 +1118,12 @@
         ],
         "hashtags": [
           "#beauty",
-          "#beautysalon",
           "#skincareroutine",
           "#nailart",
-          "#limericknails",
+          "#lashes",
           "#limerickmua",
-          "#irishbeauty"
+          "#irishbeauty",
+          "#irishmua"
         ],
         "new_hashtags": [
           "#limerickchristmas"
@@ -1128,21 +1134,21 @@
         ]
       },
       "Travel & Tourism": {
-        "headline": "'Dreamy Self-Care / Beauty Routine' is the format to borrow this week, led by 'Blue Moon'.",
-        "content_idea": "Adapt the 'Dreamy Self-Care / Beauty Routine' format to travel & tourism: one clear message, a hook in the first second and a clear call to action at the end.",
-        "suggested_audio": "Blue Moon — Zara Larsson",
+        "headline": "'It's Time / Holiday Season Kickoff' is the format to borrow this week, led by 'All I Want for Christmas Is You'.",
+        "content_idea": "Adapt the 'It's Time / Holiday Season Kickoff' format to travel & tourism: one clear message, a hook in the first second and a clear call to action at the end.",
+        "suggested_audio": "All I Want for Christmas Is You — Mariah Carey",
         "video_formats": [
           "Reel: slow cinematic landscape reveal",
           "Carousel: weekend itinerary from Limerick"
         ],
         "hashtags": [
           "#travel",
-          "#loveireland",
           "#irishlandscape",
           "#discoverireland",
-          "#visitclare",
+          "#visitireland",
           "#shannonregion",
-          "#visitlimerick"
+          "#visitlimerick",
+          "#lovelimerick"
         ],
         "new_hashtags": [],
         "sample_copies": [
@@ -1151,8 +1157,8 @@
         ]
       },
       "Fashion": {
-        "headline": "'Housewife Dance / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
-        "content_idea": "Adapt the 'Housewife Dance / Morning Mantra' format to fashion: one clear message, a hook in the first second and a clear call to action at the end.",
+        "headline": "'Be Your Own Housewife / Morning Mantra' is the format to borrow this week, led by 'Housewife'.",
+        "content_idea": "Adapt the 'Be Your Own Housewife / Morning Mantra' format to fashion: one clear message, a hook in the first second and a clear call to action at the end.",
         "suggested_audio": "Housewife — Tate McRae",
         "video_formats": [
           "Reel: 3 outfits on the beat",
@@ -1160,12 +1166,12 @@
         ],
         "hashtags": [
           "#fashion",
-          "#vintagefashion",
           "#preloved",
           "#outfitinspo",
-          "#irishstyle",
+          "#streetstyle",
           "#irishdesigner",
-          "#limerickfashion"
+          "#limerickfashion",
+          "#limerickstyle"
         ],
         "new_hashtags": [
           "#limerickchristmas"
@@ -1177,7 +1183,7 @@
       }
     },
     "limerick_local": {
-      "headline": "Seasonal and local content wins this week: Black Friday is in 18 days.",
+      "headline": "Seasonal and local content wins this week: Black Friday is in 11 days.",
       "ideas": [
         "A 'best of Limerick' Reel: 5 local spots in 15 seconds, made as a Collab post with a neighbouring business.",
         "Behind-the-scenes with a real local face: your team, a customer or a student.",
@@ -1201,7 +1207,7 @@
       "Black Friday (2026-11-27): plan content now.",
       "Cyber Monday (2026-11-30): plan content now.",
       "Giving Tuesday (2026-12-01): plan content now.",
-      "Early movers: Housewife, Patient Zero, Nicole Kidman."
+      "Early movers: Housewife, Nicole Kidman, Linger."
     ],
     "watch_out": [
       "Saturated sounds: All I Want for Christmas Is You.",
@@ -1209,7 +1215,7 @@
     ],
     "_meta": {
       "model": "Rule-based engine (no AI key)",
-      "generated_at": "2026-11-09T16:40:42+00:00",
+      "generated_at": "2026-11-16T16:09:34+00:00",
       "kind": "rules"
     }
   }
